@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { use } from "react"
-import type { Article } from "../../../payload-types"
 
 type ListItem = {
   title: string

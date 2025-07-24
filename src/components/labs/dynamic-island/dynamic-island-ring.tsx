@@ -55,7 +55,7 @@ export function DynamicIslandRing() {
           className="inset-0 -translate-y-1.5 text-white"
         />
         <div className="absolute inset-0">
-          <div className="h-5 translate-x-[5.25px] -translate-y-[5px] rotate-[-40deg] overflow-hidden">
+          <div className="h-5 translate-x-[5.25px] translate-y-[-5px] rotate-[-40deg] overflow-hidden">
             <motion.div
               animate={{ height: isSilent ? 16 : 0 }}
               transition={{

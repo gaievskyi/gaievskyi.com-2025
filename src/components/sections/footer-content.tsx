@@ -12,7 +12,10 @@ export function FooterContent({ className }: { className?: string }) {
       <p className="flex items-center gap-2 text-sm">
         {new Date().getFullYear()},
         <Clock />
-        <span>&copy; Daniel Gaievskyi</span>
+        <div className="inline-flex gap-1">
+          <span>&copy;</span>
+          <span className="hidden lg:inline">Daniel Gaievskyi</span>
+        </div>
       </p>
       <p className="flex items-center gap-4 text-sm">
         <a href="mailto:daniel@gaievskyi.com" className="hover:text-brand">

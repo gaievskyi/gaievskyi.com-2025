@@ -12,7 +12,7 @@ export function BannerBlock({ className, content, style }: Props) {
   return (
     <div
       className={cn(
-        "mx-auto my-4 w-full border border-dashed pt-2 px-4 flex items-start gap-3 rounded-md relative",
+        "mx-auto my-4 w-full border border-dashed px-4 flex items-start gap-4 rounded-md relative",
         {
           "border-border": style === "info",
           "border-error bg-error/30": style === "error",
@@ -22,10 +22,8 @@ export function BannerBlock({ className, content, style }: Props) {
         className,
       )}
     >
-      <div className="mt-2 mr-4">
-        <Icon name={iconName} className="size-5.5 shrink-0" />
-      </div>
-      <RichText data={content} enableGutter={false} />
+      <Icon name={iconName} className="mt-6 size-5 shrink-0" />
+      <RichText data={content} enableGutter />
     </div>
   )
 }

@@ -101,6 +101,7 @@ export function RichText(props: Props) {
     <RichTextWithoutBlocks
       converters={jsxConverters}
       className={cn(
+        "article",
         {
           container: enableGutter,
           "max-w-none": !enableGutter,

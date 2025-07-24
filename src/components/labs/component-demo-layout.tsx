@@ -1,10 +1,7 @@
-import { Button } from "@/components/ui/button"
 import { BottomNavigation } from "@/components/labs/bottom-navigation"
-import Link from "next/link"
 import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { unstable_ViewTransition as ViewTransition } from "react"
-import { Icon } from "@/components/ui/icon"
 import { AnimatedGroup } from "@/components/animated-group"
 import { BackAside } from "@/components/back-aside"
 
@@ -96,7 +93,7 @@ export function ComponentDemoLayout({
         </ViewTransition>
 
         {article && (
-          <div className="prose prose-base dark:prose-invert prose-headings:font-medium prose-headings:tracking-tight prose-h1:text-xl prose-h2:text-lg prose-h3:text-lg prose-h4:text-lg prose-p:text-base prose-p:leading-7 prose-p:text-zinc-600 dark:prose-p:text-[#bbbbbb] prose-blockquote:border-l-zinc-300 prose-blockquote:text-zinc-600 dark:prose-blockquote:border-l-zinc-700 dark:prose-blockquote:text-zinc-400 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100 prose-code:rounded prose-code:bg-zinc-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-code:font-medium prose-code:text-zinc-900 prose-code:outline prose-code:outline-dashed prose-code:before:content-none prose-code:after:content-none dark:prose-code:bg-zinc-800 dark:prose-code:text-zinc-100 prose-pre:border prose-pre:border-zinc-200 prose-pre:bg-zinc-900 dark:prose-pre:border-zinc-800 dark:prose-pre:bg-zinc-950 prose-li:text-[15px] dark:prose-li:text-[#bbbbbb] mt-10 max-w-none overflow-hidden">
+          <div className="prose prose-base mt-10 max-w-none overflow-hidden dark:prose-invert prose-headings:font-medium prose-headings:tracking-tight prose-h1:text-xl prose-h2:text-lg prose-h3:text-lg prose-h4:text-lg prose-p:text-base prose-p:leading-7 prose-p:text-zinc-600 dark:prose-p:text-[#bbbbbb] prose-blockquote:border-l-zinc-300 prose-blockquote:text-zinc-600 dark:prose-blockquote:border-l-zinc-700 dark:prose-blockquote:text-zinc-400 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100 prose-code:rounded prose-code:bg-zinc-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-code:font-medium prose-code:text-zinc-900 prose-code:outline prose-code:outline-dashed prose-code:before:content-none prose-code:after:content-none dark:prose-code:bg-zinc-800 dark:prose-code:text-zinc-100 prose-pre:border prose-pre:border-zinc-200 prose-pre:bg-zinc-900 dark:prose-pre:border-zinc-800 dark:prose-pre:bg-zinc-950 prose-li:text-[15px] dark:prose-li:text-[#bbbbbb]">
             {article}
           </div>
         )}

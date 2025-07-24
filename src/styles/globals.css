@@ -94,7 +94,7 @@
 
 .dark {
   /* COLORS */
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.16 0 0);
   --foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
@@ -130,14 +130,6 @@
   body {
     @apply bg-background text-foreground;
   }
-  .prose em,
-  .prose i,
-  .prose .italic {
-    font-family: var(--font-heldane);
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.1em;
-  }
 }
 
 .font-system {
@@ -156,6 +148,44 @@
 }
 
 @layer components {
+  .article {
+    margin-bottom: 4rem;
+    @apply prose prose-base max-w-none dark:prose-invert;
+    @apply prose-headings:font-medium prose-headings:leading-loose;
+    @apply prose-h1:text-xl prose-h2:text-lg prose-h3:text-lg prose-h4:text-lg;
+    @apply prose-p:text-base prose-p:leading-7 prose-p:text-zinc-600 dark:prose-p:text-[#bbbbbb];
+    @apply prose-blockquote:border-l-zinc-300 prose-blockquote:text-zinc-600;
+    @apply dark:prose-blockquote:border-l-zinc-700 dark:prose-blockquote:text-zinc-400;
+    @apply prose-strong:text-zinc-700 dark:prose-strong:text-[#d1d1d1];
+    @apply prose-code:rounded prose-code:bg-zinc-100 prose-code:px-1.5 prose-code:py-0.5;
+    @apply prose-code:text-sm prose-code:font-medium prose-code:text-zinc-900;
+    @apply prose-code:outline prose-code:outline-dashed;
+    @apply prose-code:before:content-none prose-code:after:content-none;
+    @apply dark:prose-code:bg-zinc-800 dark:prose-code:text-zinc-100;
+    @apply prose-pre:border prose-pre:border-zinc-200 prose-pre:bg-zinc-900;
+    @apply dark:prose-pre:border-zinc-800 dark:prose-pre:bg-zinc-950;
+    @apply prose-li:text-[15px] dark:prose-li:text-[#bbbbbb];
+    @apply dark:prose-hr:border-zinc-900 prose-hr:mt-16 prose-hr:mb-8;
+  }
+  .article ul > li {
+    @apply relative pl-4;
+  }
+  .article ul > li::marker {
+    content: "-";
+  }
+  .dark .article ul > li::before {
+    @apply text-zinc-500;
+    @apply dark:prose-hr:border-zinc-800 prose-hr:mt-16 prose-hr:mb-8;
+  }
+  .article em,
+  .article i,
+  .article .italic {
+    font-family: var(--font-heldane);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+
   /* SVG <Icon /> sprite  */
   .icon,
   .icon-x,

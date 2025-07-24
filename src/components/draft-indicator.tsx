@@ -71,7 +71,7 @@ export function DraftIndicator() {
   return (
     <>
       <div className="fixed top-4 right-4 z-50 rounded-full px-4 py-2 text-sm shadow-[rgba(0,_0,_0,_0.25)_0px_16px_32px_0px]">
-        <div className="absolute inset-0 rounded-full bg-card" />
+        <div className="bg-card absolute inset-0 rounded-full" />
         <div className="relative flex items-center gap-2">
           <span className="aspect-square h-3 animate-pulse rounded-full bg-yellow-500" />
           <span className="text-white">Draft</span>

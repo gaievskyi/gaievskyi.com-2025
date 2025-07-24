@@ -1,10 +1,7 @@
 import { getProject, getProjectsSlugs } from "@/cms/data-access/projects"
 import { BackAside } from "@/components/back-aside"
 import { ProjectContent } from "@/components/project-content"
-import { Button } from "@/components/ui/button"
-import { Icon } from "@/components/ui/icon"
 import { isVideo, videosMap } from "@/components/video/videos"
-import Link from "next/link"
 import { notFound } from "next/navigation"
 
 type ProjectPageProps = Readonly<{

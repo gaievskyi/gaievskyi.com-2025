@@ -95,14 +95,14 @@ export function ProjectContent({ video, slug, project }: ProjectContentProps) {
           </time>
         </div>
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+        <div className="flex gap-3 sm:items-center sm:gap-4">
           {project.url && (
             <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
               <Link
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex w-full items-center justify-center gap-1 rounded-full bg-zinc-100 px-4 py-2 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 sm:w-auto sm:justify-start dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+                className="group inline-flex items-center justify-center gap-1 rounded-full bg-zinc-100 px-4 py-2 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 sm:w-auto sm:justify-start dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
               >
                 Try it out
                 <Icon name="sprite:arrow" />
@@ -114,7 +114,7 @@ export function ProjectContent({ video, slug, project }: ProjectContentProps) {
       </AnimatedGroup>
 
       {project.Content?.content && (
-        <AnimatedGroup variants={contentVariants} className="w-full mt-4">
+        <AnimatedGroup variants={contentVariants} className="-mt-4 w-full">
           <RichText data={project.Content.content} enableGutter={false} />
         </AnimatedGroup>
       )}
