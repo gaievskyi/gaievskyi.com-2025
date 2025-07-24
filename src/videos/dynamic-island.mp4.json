@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "src/videos/dynamic-island.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "ARu8pCCypjrKZ9MYAt0114TZYwvsSoAMyXxLssqOcXRo",
+      "assetId": "iDP00qWu00VyNaHD01XGsoSRenwZpKCkhUj3y56vPA900fQ",
+      "playbackId": "k2NTQLQroQAYH3YxvAzlnTnkuJiA9fAKzLeMc02n3YjY"
+    }
+  },
+  "createdAt": 1751920537034,
+  "updatedAt": 1751920541553,
+  "size": 876004,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/k2NTQLQroQAYH3YxvAzlnTnkuJiA9fAKzLeMc02n3YjY.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/k2NTQLQroQAYH3YxvAzlnTnkuJiA9fAKzLeMc02n3YjY/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAA8AAQAcJaQAAt0BGUuq/AAA/v9bXTTYXoz//AyG/P3h9T/fxiQPYsnMPGd1dueg+ZpSHv7PGgQHb8nXNGrYAAA="
+}

@@ -1,0 +1,244 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* FONTS */
+  --font-sans: var(--font-geist-sans);
+  --font-heldane: var(--font-heldane);
+  --font-mono: var(--font-geist-mono);
+  /* COLORS */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
+  --color-iphone-frame: var(--iphone-frame);
+  --color-iphone-screen: var(--iphone-screen);
+  --color-iphone-border: var(--iphone-border);
+  /* RADIUSES */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  /* ANIMATIONS */
+  --animate-fly-heart: fly-heart ease-out forwards;
+
+  @keyframes fly-heart {
+    0% {
+      transform: translate(-50%, -50%) scale(0) rotate(0deg);
+      opacity: 1;
+    }
+    20% {
+      transform: translate(-50%, -50%) scale(var(--heart-scale)) rotate(15deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(
+          calc(-50% + var(--heart-x)),
+          calc(-50% + var(--heart-y))
+        )
+        scale(0) rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+  --animate-skeleton-wave: skeleton-wave 1.3s ease-in-out infinite;
+  @keyframes skeleton-wave {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}
+
+:root {
+  /* RADIUS */
+  --radius: 0.625rem;
+  /* COLORS */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --link: oklch(0.6067 0.1843 255.85);
+  --link-hover: oklch(0.4923 0.1506 256.36);
+  --iphone-frame: oklch(0.9 0 0);
+  --iphone-screen: oklch(1 0 0);
+  --iphone-border: oklch(0.9 0 0);
+}
+
+.dark {
+  /* COLORS */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --link: oklch(0.6067 0.1843 255.85);
+  --link-hover: oklch(0.4923 0.1506 256.36);
+  --iphone-frame: oklch(0.25 0 0);
+  --iphone-screen: oklch(0.15 0 0);
+  --iphone-border: oklch(0.25 0 0);
+}
+
+@utility container {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 min-w-0;
+  }
+  html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .prose em,
+  .prose i,
+  .prose .italic {
+    font-family: var(--font-heldane);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+}
+
+.font-system {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+@layer components {
+  /* SVG <Icon /> sprite  */
+  .icon,
+  .icon-x,
+  .icon-y {
+    @apply select-none fill-current inline-block text-inherit box-content;
+    vertical-align: -0.2em;
+  }
+
+  .icon,
+  .icon-x {
+    @apply w-[1em];
+  }
+
+  .icon,
+  .icon-y {
+    @apply h-[1em];
+  }
+
+  /* Outlined borders (bottom) */
+  .outlined-bottom {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 200vw;
+      height: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -1px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    &.dashed {
+      &::before {
+        border-bottom: 1px dashed var(--border);
+      }
+    }
+
+    &.dashed-bottom {
+      &::before {
+        border-bottom: 1px dashed var(--border);
+      }
+    }
+  }
+
+  /* Outlined borders (top) */
+  .outlined-top {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 200vw;
+      height: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -1px;
+      border-top: 1px solid var(--border);
+    }
+
+    &.dashed {
+      &::after {
+        border-top: 1px dashed var(--border);
+      }
+    }
+
+    &.dashed-top {
+      &::after {
+        border-top: 1px dashed var(--border);
+      }
+    }
+  }
+}
+
+/* View Transitions */
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: theme("transitionDuration.700");
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  transform-origin: top center;
+}

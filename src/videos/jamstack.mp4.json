@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "src/videos/jamstack.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "CR4j3mTABnF9yHvKfzFYm4Uv75TfLNJ02ymr7UCLwznA",
+      "assetId": "9EiSJXxderabiGRXIwNllOo01ATxsBBFhD9MKUJ700epI",
+      "playbackId": "VankqzWPiwdC5ihvVOA1jGdLfVJy3a6df5rVVOD9gRo"
+    }
+  },
+  "createdAt": 1718300423803,
+  "updatedAt": 1718300428729,
+  "size": 1445875,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/VankqzWPiwdC5ihvVOA1jGdLfVJy3a6df5rVVOD9gRo.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/VankqzWPiwdC5ihvVOA1jGdLfVJy3a6df5rVVOD9gRo/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABQAgCdASoQAAoAAQAcJYwCdDBGCIXMQdw+vQAA/ugA//qiNKoqa+ZpVzyIf0Y7z5Fqy8ISUNs5QzuFMw9wqKcbNx/Ed4LjP1W2DZNBQwl6hkePB0vbNPtFp5dH5aFwQKtnGBsHzKcE+uCdLxqgZrpE84svnFqgOyz+0AAA"
+}

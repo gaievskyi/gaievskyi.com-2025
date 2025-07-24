@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "src/videos/vercel-badge.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "aQ4xJZx3U5CE6PJfr02nHbqXKvjsw6XcFtRinP7Wa8xQ",
+      "assetId": "liy3tTx01VPD7lf3kCg3sbzfSVUD0113j01fpYkYvCkOs4",
+      "playbackId": "65NSXM39p1009IVy9zoYmv4jL76lxzCEMnGnYox4Tloc"
+    }
+  },
+  "createdAt": 1751920537005,
+  "updatedAt": 1751920541496,
+  "size": 1627912,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/65NSXM39p1009IVy9zoYmv4jL76lxzCEMnGnYox4Tloc.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/65NSXM39p1009IVy9zoYmv4jL76lxzCEMnGnYox4Tloc/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAwAAQAcJaQAAuQ5DO476AAA/v91Vy15k/Zm5737eh6b/aqgqbDTg96YdCx+oOSa4/+k00OOCjCYH4wa8Tmhx3zwAA=="
+}

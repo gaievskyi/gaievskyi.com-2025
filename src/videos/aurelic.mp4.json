@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "src/videos/aurelic.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "kEFHP1pXf012lnxa4BjNuXqcp3MT901n800HRIc5xf2FcE",
+      "assetId": "jmvfrKQow9dVMDoC02UElAWatpSOg5F101600yd2Lu19Io",
+      "playbackId": "hXFKdPfliSYWXjB9M3pfu02lNLfAN2DlI01sBZGkAB4m4"
+    }
+  },
+  "createdAt": 1749842826538,
+  "updatedAt": 1749842831387,
+  "size": 5154198,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/hXFKdPfliSYWXjB9M3pfu02lNLfAN2DlI01sBZGkAB4m4.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/hXFKdPfliSYWXjB9M3pfu02lNLfAN2DlI01sBZGkAB4m4/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoQAAkAAQAcJaQAAudVn+JkAP7/f/qhiQjGs9j7Pj3swxcT2zgR9FCXlwBAAjdCa9EIngAA"
+}

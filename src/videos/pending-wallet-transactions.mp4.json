@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "src/videos/pending-wallet-transactions.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "CQMH8lMcqCZfP1XgmzBxV009rL2rwNxBbO3Z2T5QyUN8",
+      "assetId": "pRI6qHrkCqwOqm8ldOf9BDy8dBPGGDLg6Lzmp4VYB48",
+      "playbackId": "Gkh89hLJGcXesp75xQxrysOjmCgNdr3a1HbeRolSweY"
+    }
+  },
+  "createdAt": 1751920536988,
+  "updatedAt": 1751920541091,
+  "size": 613104,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/Gkh89hLJGcXesp75xQxrysOjmCgNdr3a1HbeRolSweY.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/Gkh89hLJGcXesp75xQxrysOjmCgNdr3a1HbeRolSweY/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoQAAoAAQAcJaQAAud/j9+AAP7/cIcB5ycvbMJ3o/Ou9XCfBV9bf1LHZeAAAA=="
+}

@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "src/videos/segmented-control.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "302bPmYypkowfIulcpMcd3JZFzcVEPegRHY5qX02K9rVQ",
+      "assetId": "FM91v5h1fevvJmVogkJqohpLXnOSUCib489QyCxtgp8",
+      "playbackId": "zlszb6PjVBq6RWHZhlbBD01OCdMz83fDl7Jk02JE00BgR4"
+    }
+  },
+  "createdAt": 1751920537038,
+  "updatedAt": 1751920541683,
+  "size": 468427,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/zlszb6PjVBq6RWHZhlbBD01OCdMz83fDl7Jk02JE00BgR4.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/zlszb6PjVBq6RWHZhlbBD01OCdMz83fDl7Jk02JE00BgR4/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQAAoAAQAcJaQAAugxwyKJdQAA/v9w9nWfYtJcsBhJmjq08T+gnCPWP3H7YzDNo1MLHHygAAA="
+}

@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "src/videos/das-grune.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "dOywUOodwjofY4uI01CLv7l3WhvIuVURLrXGiyMta4sU",
+      "assetId": "KOklf1yE9YHeETsfuTdmOPBiF3wTyZvnSNdyj3KLtBE",
+      "playbackId": "XGhgIikgM00NolK3XM1PDwIhyUNDWPqhIB68MBwHo7Vc"
+    }
+  },
+  "createdAt": 1718300423803,
+  "updatedAt": 1718300428402,
+  "size": 1211277,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/XGhgIikgM00NolK3XM1PDwIhyUNDWPqhIB68MBwHo7Vc.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/XGhgIikgM00NolK3XM1PDwIhyUNDWPqhIB68MBwHo7Vc/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAAoAAQAcJaQAAudkrQZpdgAA/v79FOppkG0Xc5Sp5WBaHQjUgwEs4aRvN0sRF279GcgT7vVoAAAA"
+}
