@@ -13,14 +13,12 @@ export default function VercelBadgePage() {
         title="Vercel Badge"
         date="June 2024"
         previous={{
-          title: "Segmented Control",
-          subtitle: "Component showcase",
-          href: "/labs/segmented-control",
+          title: "Pending Wallet Transactions",
+          href: "/crafts/pending-wallet-transactions",
         }}
         next={{
           title: "Dynamic Island",
-          subtitle: "Interactive component",
-          href: "/labs/dynamic-island",
+          href: "/crafts/dynamic-island",
         }}
         className="mt-32"
       >

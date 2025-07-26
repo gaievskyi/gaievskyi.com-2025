@@ -323,6 +323,9 @@ export const sprites = defineSpriteMap([defineSprite(
      ["sun"],
      [14]
    ), defineSpriteSymbol(
+     ["sun2"],
+     [40, "0 0 24 24"]
+   ), defineSpriteSymbol(
      ["system"],
      [14]
    ), defineSpriteSymbol(
@@ -335,12 +338,12 @@ export const sprites = defineSpriteMap([defineSprite(
      ["x"],
      [24]
    )],
-  defineExternalAssetMeta('sprite.434ccfe6.svg')
+  defineExternalAssetMeta('sprite.0ef44351.svg')
 )]
 )])
 
 export type SpritesMeta = {
-  "sprite": "arrow-back" | "arrow" | "arrow2" | "chevron-up" | "error" | "ethereum" | "external-link" | "fast-forward" | "info" | "inspect" | "moon" | "pause" | "phone" | "play" | "podcast" | "print" | "reload" | "ring" | "save" | "spinner" | "success" | "sun" | "system" | "v0" | "warning" | "x";
+  "sprite": "arrow-back" | "arrow" | "arrow2" | "chevron-up" | "error" | "ethereum" | "external-link" | "fast-forward" | "info" | "inspect" | "moon" | "pause" | "phone" | "play" | "podcast" | "print" | "reload" | "ring" | "save" | "spinner" | "success" | "sun" | "sun2" | "system" | "v0" | "warning" | "x";
 }
 
 //#endregion

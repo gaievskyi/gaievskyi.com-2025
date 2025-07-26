@@ -5,16 +5,10 @@ export default function PendingWalletTransactionsPage() {
   return (
     <ComponentDemoLayout
       title="Pending Wallet Transactions"
-      date="January 2025"
-      previous={{
-        title: "Voice Chat Toolbar",
-        subtitle: "Interactive component",
-        href: "/labs/voice-chat-toolbar",
-      }}
+      date="January 2024"
       next={{
-        title: "Liquid Glass",
-        subtitle: "3D interaction",
-        href: "/labs/liquid-glass",
+        title: "Vercel Badge",
+        href: "/crafts/vercel-badge",
       }}
       slug="pending-wallet-transactions"
     >

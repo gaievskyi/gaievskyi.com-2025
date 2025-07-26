@@ -1,14 +1,11 @@
-import { BottomNavigation } from "@/components/crafts/bottom-navigation"
+import {
+  BottomNavigation,
+  type NavigationItem,
+} from "@/components/crafts/bottom-navigation"
 import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { unstable_ViewTransition as ViewTransition } from "react"
 import { BackAside } from "@/components/back-aside"
-
-type NavigationItem = {
-  title: string
-  subtitle?: string
-  href: string
-}
 
 type ComponentDemoLayoutProps = {
   title: string

@@ -1,9 +1,8 @@
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 
-type NavigationItem = {
+export type NavigationItem = {
   title: string
-  subtitle?: string
   href: string
 }
 
@@ -39,11 +38,6 @@ export function BottomNavigation({
               <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
                 {previous.title}
               </span>
-              {previous.subtitle && (
-                <span className="text-xs text-muted-foreground">
-                  {previous.subtitle}
-                </span>
-              )}
             </div>
           </Link>
         ) : (
@@ -65,11 +59,6 @@ export function BottomNavigation({
               <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
                 {next.title}
               </span>
-              {next.subtitle && (
-                <span className="text-xs text-muted-foreground">
-                  {next.subtitle}
-                </span>
-              )}
             </div>
           </Link>
         ) : (

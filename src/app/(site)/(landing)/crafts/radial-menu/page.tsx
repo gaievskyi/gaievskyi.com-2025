@@ -40,8 +40,10 @@ export default function RadialMenuPage() {
   return (
     <ComponentDemoLayout
       title="Radial Menu"
-      date="July 2025"
+      date="May 2025"
       slug="radial-menu"
+      previous={{ title: "Dynamic Island", href: "/crafts/dynamic-island" }}
+      next={{ title: "iOS Slider", href: "/crafts/ios-slider" }}
     >
       <div
         ref={demoContainerRef}

@@ -9,13 +9,11 @@ export default function DynamicIslandPage() {
       date="September 2024"
       previous={{
         title: "Vercel Badge",
-        subtitle: "3D interaction",
-        href: "/labs/vercel-badge",
+        href: "/crafts/vercel-badge",
       }}
       next={{
-        title: "Voice Chat Toolbar",
-        subtitle: "Interactive component",
-        href: "/labs/voice-chat-toolbar",
+        title: "Radial Menu",
+        href: "/crafts/radial-menu",
       }}
       className="h-[400px] pt-40"
       slug="dynamic-island"
