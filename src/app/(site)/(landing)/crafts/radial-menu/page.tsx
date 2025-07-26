@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ComponentDemoLayout } from "@/components/labs/component-demo-layout"
-import { RadialMenu } from "@/components/labs/radial-menu/radial-menu"
+import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
+import { RadialMenu } from "@/components/crafts/radial-menu/radial-menu"
 import { Icon } from "@/components/ui/icon"
 
 const items = [
@@ -35,6 +35,7 @@ const items = [
 
 export default function RadialMenuPage() {
   const [menuVisible, setMenuVisible] = useState(false)
+  const demoContainerRef = useRef<HTMLDivElement>(null)
 
   return (
     <ComponentDemoLayout
@@ -42,7 +43,10 @@ export default function RadialMenuPage() {
       date="July 2025"
       slug="radial-menu"
     >
-      <div className="relative size-full bg-[#1C1C1C]">
+      <div
+        ref={demoContainerRef}
+        className="relative size-full bg-white dark:bg-[#1C1C1C]"
+      >
         <AnimatePresence initial={false}>
           {!menuVisible && (
             <motion.div
@@ -51,13 +55,17 @@ export default function RadialMenuPage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
               data-visible={false}
-              className="pointer-events-none absolute top-1/2 left-1/2 -translate-1/2 text-sm text-[#a0a0a0] select-none"
+              className="pointer-events-none absolute top-1/2 left-1/2 -translate-1/2 text-sm text-nowrap text-gray-500 select-none dark:text-[#a0a0a0]"
             >
               Hold and rotate from anywhere
             </motion.div>
           )}
         </AnimatePresence>
-        <RadialMenu items={items} onVisibleChange={setMenuVisible} />
+        <RadialMenu
+          items={items}
+          onVisibleChange={setMenuVisible}
+          containerRef={demoContainerRef}
+        />
       </div>
     </ComponentDemoLayout>
   )

@@ -34,7 +34,7 @@ export function Video({
     <ViewTransition name={`video-${slug}`}>
       <div
         className={cn(
-          "rounded-xl size-full overflow-clip bg-transparent outline-solid outline-border",
+          "rounded-xl size-full overflow-clip bg-transparent outline-solid outline-1 outline-border",
           className,
         )}
       >

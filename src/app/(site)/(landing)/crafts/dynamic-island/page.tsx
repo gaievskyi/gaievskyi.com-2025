@@ -1,6 +1,6 @@
-import { ComponentDemoLayout } from "@/components/labs/component-demo-layout"
-import { DynamicIsland } from "@/components/labs/dynamic-island/dynamic-island"
-import { Iphone15Pro } from "@/components/labs/dynamic-island/iphone-15-pro"
+import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
+import { DynamicIsland } from "@/components/crafts/dynamic-island/dynamic-island"
+import { Iphone15Pro } from "@/components/crafts/dynamic-island/iphone-15-pro"
 
 export default function DynamicIslandPage() {
   return (

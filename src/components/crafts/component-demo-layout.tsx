@@ -1,4 +1,4 @@
-import { BottomNavigation } from "@/components/labs/bottom-navigation"
+import { BottomNavigation } from "@/components/crafts/bottom-navigation"
 import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { unstable_ViewTransition as ViewTransition } from "react"

@@ -1,8 +1,8 @@
-import { ComponentDemoLayout } from "@/components/labs/component-demo-layout"
+import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
 import dynamic from "next/dynamic"
 
 const VercelBadgeScene = dynamic(
-  () => import("@/components/labs/vercel-badge-scene"),
+  () => import("@/components/crafts/vercel-badge-scene"),
 )
 
 export default function VercelBadgePage() {

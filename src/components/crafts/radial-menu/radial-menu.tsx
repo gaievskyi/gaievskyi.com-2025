@@ -40,8 +40,8 @@ function RadialMenuSegment({ index }: { index: number }) {
       className={cn(
         "transition-colors duration-200 ease-in-out",
         index === activeIndex
-          ? "fill-[#363636] stroke-none"
-          : "fill-[#242424] stroke-none",
+          ? "fill-gray-300 dark:fill-[#363636] stroke-none"
+          : "fill-gray-100 dark:fill-[#242424] stroke-none",
       )}
     />
   )
@@ -67,7 +67,9 @@ function RadialMenuIcon({
       data-active={index === activeIndex}
       className={cn(
         "absolute flex items-center justify-center w-12 h-12 text-2xl pointer-events-none",
-        index === activeIndex ? " text-white" : " text-[#bdbdbd]",
+        index === activeIndex
+          ? " text-gray-900 dark:text-white"
+          : " text-gray-600 dark:text-[#bdbdbd]",
       )}
       style={{ left: x - 24, top: y - 24 }}
     >
@@ -81,7 +83,7 @@ function RadialMenuCenter() {
 
   return (
     <div
-      className="pointer-events-none absolute flex items-center justify-center text-sm text-[#bdbdbd]"
+      className="pointer-events-none absolute flex items-center justify-center text-sm text-gray-600 dark:text-[#bdbdbd]"
       style={{
         left: cx - CENTER_RADIUS,
         top: cy - CENTER_RADIUS,
@@ -105,12 +107,12 @@ function RadialMenuActiveIndicator() {
   const [shouldAnimate, setShouldAnimate] = useState(false)
   const ringAngle = useSpring(0, {
     damping: 20,
-    stiffness: 180,
+    stiffness: 200,
   })
 
   useEffect(() => {
     if (activeIndex < 0) {
-      ringAngle.set(activeIndex)
+      ringAngle.set(0)
       prevActiveIndex.current = activeIndex
       isInitialSelection.current = true
       setShouldAnimate(false)
@@ -137,9 +139,9 @@ function RadialMenuActiveIndicator() {
   }, [activeIndex, totalItems, rotation, ringAngle])
 
   const pathTransform = useTransform(ringAngle, (angle) => {
-    if (angle < 0) return ""
-    const start = angle
-    const end = angle + 360 / totalItems
+    const normalizedAngle = normalizeAngle(angle)
+    const start = normalizedAngle
+    const end = normalizedAngle + 360 / totalItems
     return getArcPath(cx, cy, RADIUS + 8, start, end)
   })
 
@@ -158,13 +160,16 @@ function RadialMenuActiveIndicator() {
     )
 
     return (
-      <path className="fill-none stroke-[#4a4a4a] stroke-8" d={staticPath} />
+      <path
+        className="fill-none stroke-gray-300 stroke-8 dark:stroke-[#4a4a4a]"
+        d={staticPath}
+      />
     )
   }
 
   return (
     <motion.path
-      className="fill-none stroke-[#4a4a4a] stroke-8"
+      className="fill-none stroke-gray-300 stroke-8 dark:stroke-[#4a4a4a]"
       d={pathTransform}
     />
   )
@@ -182,19 +187,19 @@ function RadialMenuDecorations() {
         cx={cx}
         cy={cy}
         r={CENTER_RADIUS - 6}
-        className="fill-none stroke-[#333333] stroke-1"
+        className="fill-none stroke-gray-200 stroke-1 dark:stroke-[#333333]"
       />
       <circle
         cx={cx}
         cy={cy}
         r={CENTER_RADIUS}
-        className="fill-none stroke-[#333333] stroke-1"
+        className="fill-none stroke-gray-200 stroke-1 dark:stroke-[#333333]"
       />
       <circle
         cx={cx}
         cy={cy}
         r={RADIUS + 8}
-        className="fill-none stroke-[#232323] stroke-8"
+        className="fill-none stroke-gray-200 stroke-8 dark:stroke-[#232323]"
       />
       {items.map((_, i) => {
         const angle = (360 / items.length) * i - rotation - ITEM_OFFSET
@@ -202,7 +207,7 @@ function RadialMenuDecorations() {
           <path
             key={`divider-${i}`}
             d={getDividerPath(cx, cy, angle)}
-            className="fill-none stroke-[#333333] stroke-1"
+            className="fill-none stroke-gray-300 stroke-1 dark:stroke-[#333333]"
           />
         )
       })}
@@ -249,9 +254,14 @@ function RadialMenuOverlay({ children }: { children: React.ReactNode }) {
 type RadialMenuProps = {
   items: RadialMenuItem[]
   onVisibleChange?: (visible: boolean) => void
+  containerRef?: React.RefObject<HTMLElement | null>
 }
 
-export function RadialMenu({ items, onVisibleChange }: RadialMenuProps) {
+export function RadialMenu({
+  items,
+  onVisibleChange,
+  containerRef,
+}: RadialMenuProps) {
   const [visible, setVisible] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [rotation, setRotation] = useState(0)
@@ -271,10 +281,16 @@ export function RadialMenu({ items, onVisibleChange }: RadialMenuProps) {
   }, [visible, onVisibleChange])
 
   useEffect(() => {
-    function onPointerDown(e: PointerEvent) {
+    const container = containerRef?.current || window
+
+    function onPointerDown(e: Event) {
+      const pointerEvent = e as PointerEvent
       setVisible(true)
-      setPosition({ x: e.clientX, y: e.clientY })
-      setCurrentPointerPosition({ x: e.clientX, y: e.clientY })
+      setPosition({ x: pointerEvent.clientX, y: pointerEvent.clientY })
+      setCurrentPointerPosition({
+        x: pointerEvent.clientX,
+        y: pointerEvent.clientY,
+      })
       setLastSelectedIndex(-1)
       setHoveredIndex(-1)
       setRotation(0)
@@ -284,13 +300,14 @@ export function RadialMenu({ items, onVisibleChange }: RadialMenuProps) {
       setDragging(false)
       setHoveredIndex(-1)
     }
-    window.addEventListener("pointerdown", onPointerDown)
-    window.addEventListener("pointerup", onPointerUp)
+
+    container.addEventListener("pointerdown", onPointerDown)
+    container.addEventListener("pointerup", onPointerUp)
     return () => {
-      window.removeEventListener("pointerdown", onPointerDown)
-      window.removeEventListener("pointerup", onPointerUp)
+      container.removeEventListener("pointerdown", onPointerDown)
+      container.removeEventListener("pointerup", onPointerUp)
     }
-  }, [])
+  }, [containerRef])
 
   function getPointerAngle(e: React.PointerEvent) {
     const rect = menuRef.current?.getBoundingClientRect()
