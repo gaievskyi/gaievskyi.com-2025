@@ -14,6 +14,13 @@ export function About({ className }: { className?: string }) {
         I develop elegant, user-centered, and visually appealing applications.{" "}
         You can find me on{" "}
         <ExternalLink
+          href="https://x.com/dgaievskyi"
+          className="dark:text-muted-foreground "
+        >
+          X
+        </ExternalLink>
+        ,{" "}
+        <ExternalLink
           href="https://t.me/designbeng"
           className="dark:text-muted-foreground "
         >
@@ -39,24 +46,6 @@ export function About({ className }: { className?: string }) {
         With background in front-end development, I consider myself a designer
         at <AnimatedHeart /> and enjoy building highly polished products, where
         every detail matters.
-      </p>
-      <p className="text-base font-medium text-foreground">
-        I love connecting with new people. <br />
-        Reach me at{" "}
-        <ExternalLink
-          href="https://x.com/dgaievskyi"
-          className="dark:text-muted-foreground "
-        >
-          @dgaievskyi
-        </ExternalLink>{" "}
-        or{" "}
-        <a
-          href="mailto:daniel@gaievskyi.com"
-          className="text-link hover:text-link-hover dark:text-muted-foreground "
-        >
-          daniel@gaievskyi.com
-        </a>
-        .
       </p>
       <p>
         I like projects where design and code naturally flow together, so that

@@ -2,7 +2,7 @@ import { HeaderContent } from "@/components/sections/header-content"
 import { About } from "@/components/sections/about"
 import { Contact } from "@/components/sections/contact"
 import { FooterContent } from "@/components/sections/footer-content"
-import { LabsVideoGrid } from "@/components/video/labs-video-grid"
+import { CraftsVideoGrid } from "@/components/video/crafts-video-grid"
 import { ProjectsVideoGrid } from "@/components/video/projects-video-grid"
 import { Grid, GridItem } from "@/components/ui/grid"
 import { CrossBackground } from "@/components/cross-background"
@@ -43,8 +43,8 @@ export default function IndexPage() {
           <Publications itemsPromise={articlesPromise} />
         </Suspense>
       </GridItem>
-      <GridItem as="section" id="labs" row={4} outlined="top" padding="md">
-        <LabsVideoGrid />
+      <GridItem as="section" id="crafts" row={4} outlined="top" padding="md">
+        <CraftsVideoGrid />
       </GridItem>
       <GridItem as="section" id="projects" row={5} outlined="top" padding="md">
         <ProjectsVideoGrid />

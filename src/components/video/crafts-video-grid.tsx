@@ -4,12 +4,12 @@ import { cn } from "@/lib/utils"
 
 const videos = Object.entries(labsMap)
 
-export function LabsVideoGrid({ className }: { className?: string }) {
+export function CraftsVideoGrid({ className }: { className?: string }) {
   return (
     <div className={cn(className)}>
       <div className="mb-8 flex items-center gap-6">
         <h2 className="relative">
-          Labs
+          Crafts
           <span className="absolute -top-1 -right-3 text-xs text-muted-foreground">
             {videos.length}
           </span>

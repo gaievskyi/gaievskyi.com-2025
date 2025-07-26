@@ -13,7 +13,7 @@ type VideoProps = PropsWithChildren &
     src: Asset
     slug: string
     asLink?: boolean
-    linkType?: "labs" | "projects"
+    linkType?: "crafts" | "projects"
     className?: string
     blurDataUrl?: string
   }>
@@ -22,13 +22,13 @@ export function Video({
   slug,
   src,
   asLink = false,
-  linkType = "labs",
+  linkType = "crafts",
   className,
   blurDataUrl,
 }: VideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const linkHref =
-    linkType === "projects" ? `/projects/${slug}` : `/labs/${slug}`
+    linkType === "projects" ? `/projects/${slug}` : `/crafts/${slug}`
 
   return (
     <ViewTransition name={`video-${slug}`}>

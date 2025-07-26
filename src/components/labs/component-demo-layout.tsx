@@ -2,7 +2,6 @@ import { BottomNavigation } from "@/components/labs/bottom-navigation"
 import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { unstable_ViewTransition as ViewTransition } from "react"
-import { AnimatedGroup } from "@/components/animated-group"
 import { BackAside } from "@/components/back-aside"
 
 type NavigationItem = {
@@ -14,7 +13,6 @@ type NavigationItem = {
 type ComponentDemoLayoutProps = {
   title: string
   date: string
-  description: string | ReactNode
   children: ReactNode
   previous?: NavigationItem
   next?: NavigationItem
@@ -23,39 +21,9 @@ type ComponentDemoLayoutProps = {
   slug?: string
 }
 
-const headerVariants = {
-  container: {
-    visible: {
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
-      },
-    },
-  },
-  item: {
-    hidden: {
-      opacity: 0,
-      y: 24,
-      scale: 0.96,
-      filter: "blur(4px)",
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1] as const,
-      },
-    },
-  },
-}
-
 export function ComponentDemoLayout({
   title,
   date,
-  description,
   children,
   previous,
   next,
@@ -67,19 +35,10 @@ export function ComponentDemoLayout({
     <>
       <BackAside />
       <article className="container mt-12 px-4 pt-8 sm:px-0 sm:pt-0">
-        <AnimatedGroup
-          variants={slug ? headerVariants : {}}
-          className="mb-6 flex flex-col gap-2"
-        >
+        <div className="mb-6 flex flex-col gap-2">
           <h1 className="text-sm font-semibold text-primary">{title}</h1>
           <h2 className="text-sm leading-none text-muted-foreground">{date}</h2>
-        </AnimatedGroup>
-        <AnimatedGroup
-          variants={slug ? headerVariants : {}}
-          className="text-sm text-pretty text-muted-foreground"
-        >
-          {description}
-        </AnimatedGroup>
+        </div>
 
         <ViewTransition name={`video-${slug}`}>
           <div

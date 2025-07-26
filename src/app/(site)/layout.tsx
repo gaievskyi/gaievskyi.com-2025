@@ -71,7 +71,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <link
         rel="preload"
-        href="/sprite.0c9c0721.svg"
+        href="/sprite.434ccfe6.svg"
         as="image"
         type="image/svg+xml"
       />
@@ -83,14 +83,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ProgressiveBlur
             position="top"
             direction="top"
-            className="h-[40px] md:h-[50px]"
+            className="h-[40px] md:h-[60px]"
           />
           {children}
-          <ProgressiveBlur
-            position="bottom"
-            direction="bottom"
-            className="h-[40px] md:h-[50px]"
-          />
         </Providers>
         <ScreenSizeIndicator />
       </body>

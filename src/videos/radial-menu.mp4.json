@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "src/videos/radial-menu.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "rIgtjj023d1rI6ioBkBFc01515UQAWdQJN1PAVVh2Z01bI",
+      "assetId": "AvfRDZVV2D5HolTz7KqxwaW5oIqUPI02M02mRgtqpsG800",
+      "playbackId": "T1sxypWpc5JF2Xe1GVj00D00UCpZNR1EgFHBmxDZRm00iw"
+    }
+  },
+  "createdAt": 1753550924139,
+  "updatedAt": 1753550928733,
+  "size": 929855,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/T1sxypWpc5JF2Xe1GVj00D00UCpZNR1EgFHBmxDZRm00iw.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/T1sxypWpc5JF2Xe1GVj00D00UCpZNR1EgFHBmxDZRm00iw/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAoAAQAcJaQAAudlpK82IAD+/wn/Rqz1JsyEVyDinD+8q/AAAA=="
+}

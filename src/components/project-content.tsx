@@ -105,7 +105,7 @@ export function ProjectContent({ video, slug, project }: ProjectContentProps) {
                 className="group inline-flex items-center justify-center gap-1 rounded-full bg-zinc-100 px-4 py-2 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 sm:w-auto sm:justify-start dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
               >
                 Try it out
-                <Icon name="sprite:arrow" />
+                <Icon name="sprite:arrow2" />
               </Link>
             </Magnetic>
           )}
