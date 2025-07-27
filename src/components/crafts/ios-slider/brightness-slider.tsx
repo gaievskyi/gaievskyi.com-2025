@@ -14,7 +14,6 @@ export function BrightnessSlider() {
 
   return (
     <IosSlider
-      defaultValue={45}
       value={value}
       onChange={onChange}
       icon={

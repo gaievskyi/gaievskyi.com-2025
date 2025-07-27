@@ -21,6 +21,10 @@ function ProgressBar({
     <motion.div
       className="pointer-events-none absolute right-0 bottom-0 left-0 origin-bottom bg-white"
       style={{ height: progressHeight }}
+      role="progressbar"
+      aria-valuenow={value}
+      aria-valuemin={min}
+      aria-valuemax={max}
     />
   )
 }
@@ -30,6 +34,7 @@ type IosSliderProps = Omit<
   "type" | "min" | "max"
 > & {
   defaultValue?: number
+  value?: number
   min?: number
   max?: number
   icon?: React.ReactNode
@@ -37,13 +42,14 @@ type IosSliderProps = Omit<
 
 export function IosSlider({
   defaultValue = 0,
+  value: valueProp = defaultValue,
   min = MIN_VALUE,
   max = MAX_VALUE,
   icon,
   onChange,
   ...props
 }: IosSliderProps) {
-  const [value, setValue] = useState(defaultValue)
+  const [value, setValue] = useState(defaultValue || valueProp)
   const inputRef = useRef<HTMLInputElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
@@ -129,18 +135,37 @@ export function IosSlider({
     onChange?.(e)
   }
 
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    const step = ((max - min) / 100) * 3
+    let newValue = value
+    switch (e.key) {
+      case "ArrowUp":
+        e.preventDefault()
+        newValue = Math.min(max, value + step)
+        break
+      case "ArrowDown":
+        e.preventDefault()
+        newValue = Math.max(min, value - step)
+        break
+      default:
+        return
+    }
+    updateValue(newValue)
+  }
+
   const transformOrigin =
     lastExtremeRef.current === "min" ? "50% 0%" : "50% 100%"
 
   return (
     <motion.div
       ref={containerRef}
-      className="relative flex h-56 w-22 touch-none items-end justify-center overflow-hidden rounded-full bg-ios-slider-bg shadow-[0_0_20px_rgba(255,255,255,0.05),inset_0_2px_0_rgba(255,255,255,0.1)] outline-1 select-none dark:outline-none"
+      className="relative flex h-56 w-22 touch-none items-end justify-center overflow-hidden rounded-full bg-ios-slider-bg shadow-[0_0_20px_rgba(255,255,255,0.05),inset_0_2px_0_rgba(255,255,255,0.1)] outline-1 outline-gray-200 select-none focus:ring-2 focus:ring-blue-500 dark:outline-none"
       style={{
         scaleY: containerScaleY,
         scaleX: containerScaleX,
         transformOrigin,
       }}
+      role="slider"
       tabIndex={0}
       onMouseLeave={resetStretch}
       onBlur={resetStretch}
@@ -148,6 +173,7 @@ export function IosSlider({
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
       onMouseDown={onMouseDown}
+      onKeyDown={onKeyDown}
     >
       <ProgressBar value={value} min={min} max={max} />
       <div className="pointer-events-none absolute bottom-[20px] left-1/2 -translate-x-1/2 text-ios-slider-icon">
@@ -162,6 +188,7 @@ export function IosSlider({
         value={value}
         onChange={onInputChange}
         className="absolute inset-0 h-full w-full appearance-none opacity-0 [writing-mode:vertical-lr]"
+        aria-hidden="true"
         {...props}
       />
     </motion.div>
