@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "motion/react"
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
 import { RadialMenu } from "@/components/crafts/radial-menu/radial-menu"
 import { Icon } from "@/components/ui/icon"

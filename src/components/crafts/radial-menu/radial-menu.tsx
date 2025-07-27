@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, useMemo } from "react"
-import { motion, AnimatePresence, useTransform, useSpring } from "framer-motion"
+import { motion, AnimatePresence, useTransform, useSpring } from "motion/react"
 import {
   CENTER_RADIUS,
   getAngleDifference,

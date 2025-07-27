@@ -1,6 +1,4 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
-import { DynamicIsland } from "@/components/crafts/dynamic-island/dynamic-island"
-import { Iphone15Pro } from "@/components/crafts/dynamic-island/iphone-15-pro"
 import { FractionalSlider } from "@/components/crafts/fractional-slider/fractional-slider"
 
 export default function FractionalSliderPage() {
