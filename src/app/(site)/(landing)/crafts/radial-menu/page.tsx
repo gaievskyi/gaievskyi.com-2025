@@ -1,42 +1,40 @@
-"use client"
-
-import { useState, useRef } from "react"
-import { motion, AnimatePresence } from "motion/react"
+import type { Metadata } from "next"
+import { RadialMenuDemo } from "./radial-menu-demo"
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
-import { RadialMenu } from "@/components/crafts/radial-menu/radial-menu"
-import { Icon } from "@/components/ui/icon"
 
-const items = [
-  {
-    icon: <Icon name="sprite:print" className="size-5" />,
-    label: "Print",
+export const metadata: Metadata = {
+  title: "Radial Menu",
+  description: "Radial Menu",
+  openGraph: {
+    siteName: "@dgaievskyi",
+    title: "Radial Menu",
+    type: "website",
+    url: "/crafts/radial-menu",
+    images: [
+      {
+        url: "https://image.mux.com/T1sxypWpc5JF2Xe1GVj00D00UCpZNR1EgFHBmxDZRm00iw/thumbnail.png?time=1.2",
+        alt: "Radial Menu",
+        width: 1920,
+        height: 1080,
+      },
+    ],
   },
-  {
-    icon: <Icon name="sprite:arrow" className="size-5 rotate-180" />,
-    label: "Forward",
+  twitter: {
+    images: [
+      {
+        url: "https://image.mux.com/T1sxypWpc5JF2Xe1GVj00D00UCpZNR1EgFHBmxDZRm00iw/thumbnail.png?time=1.2",
+        alt: "Radial Menu",
+        width: 1920,
+        height: 1080,
+      },
+    ],
+    card: "summary_large_image",
+    title: "Radial Menu",
+    creator: "@dgaievskyi",
   },
-  {
-    icon: <Icon name="sprite:save" className="size-5" />,
-    label: "Save",
-  },
-  {
-    icon: <Icon name="sprite:inspect" className="size-5" />,
-    label: "Inspect",
-  },
-  {
-    icon: <Icon name="sprite:arrow" className="size-5" />,
-    label: "Back",
-  },
-  {
-    icon: <Icon name="sprite:reload" className="size-4" />,
-    label: "Reload",
-  },
-]
+}
 
 export default function RadialMenuPage() {
-  const [menuVisible, setMenuVisible] = useState(false)
-  const demoContainerRef = useRef<HTMLDivElement>(null)
-
   return (
     <ComponentDemoLayout
       title="Radial Menu"
@@ -45,30 +43,7 @@ export default function RadialMenuPage() {
       previous={{ title: "Dynamic Island", href: "/crafts/dynamic-island" }}
       next={{ title: "iOS Slider", href: "/crafts/ios-slider" }}
     >
-      <div
-        ref={demoContainerRef}
-        className="relative size-full bg-white dark:bg-[#1C1C1C]"
-      >
-        <AnimatePresence initial={false}>
-          {!menuVisible && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-              data-visible={false}
-              className="pointer-events-none absolute top-1/2 left-1/2 -translate-1/2 text-sm text-nowrap text-gray-500 select-none dark:text-[#a0a0a0]"
-            >
-              Hold and rotate from anywhere
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <RadialMenu
-          items={items}
-          onVisibleChange={setMenuVisible}
-          containerRef={demoContainerRef}
-        />
-      </div>
+      <RadialMenuDemo />
     </ComponentDemoLayout>
   )
 }
