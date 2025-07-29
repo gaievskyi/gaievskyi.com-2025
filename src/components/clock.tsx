@@ -72,9 +72,9 @@ export function Clock() {
           />
         </Text>
       </NumberFlowGroup>
-      <Text as="span" size="sm">
+      <span suppressHydrationWarning className="text-sm">
         {gmtOffset}
-      </Text>
+      </span>
     </time>
   )
 }
