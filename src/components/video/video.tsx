@@ -1,9 +1,7 @@
-"use client"
-
 import BackgroundVideo from "next-video/background-video"
 import type { Asset } from "next-video/dist/assets.js"
 import Link from "next/link"
-import { type PropsWithChildren, useRef } from "react"
+import { type PropsWithChildren } from "react"
 import { unstable_ViewTransition as ViewTransition } from "react"
 
 import { cn } from "@/lib/utils"
@@ -26,7 +24,6 @@ export function Video({
   className,
   blurDataUrl,
 }: VideoProps) {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
   const linkHref =
     linkType === "projects" ? `/projects/${slug}` : `/crafts/${slug}`
 
@@ -41,26 +38,24 @@ export function Video({
         {asLink ? (
           <Link href={linkHref}>
             <BackgroundVideo
-              ref={videoRef}
               src={src}
               blurDataURL={blurDataUrl}
               muted
               playsInline
               loop
               autoPlay
-              className="size-full"
+              className="size-full object-cover"
             />
           </Link>
         ) : (
           <BackgroundVideo
-            ref={videoRef}
             src={src}
             blurDataURL={blurDataUrl}
             muted
             playsInline
             loop
             autoPlay
-            className="size-full"
+            className="size-full object-cover"
           />
         )}
       </div>
