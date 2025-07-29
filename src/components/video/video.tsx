@@ -28,26 +28,15 @@ export function Video({
     linkType === "projects" ? `/projects/${slug}` : `/crafts/${slug}`
 
   return (
-    <ViewTransition name={`video-${slug}`}>
-      <div
-        className={cn(
-          "rounded-xl size-full overflow-clip bg-transparent outline-solid outline-1 outline-border",
-          className,
-        )}
-      >
-        {asLink ? (
-          <Link href={linkHref}>
-            <BackgroundVideo
-              src={src}
-              blurDataURL={blurDataUrl}
-              muted
-              playsInline
-              loop
-              autoPlay
-              className="size-full object-cover"
-            />
-          </Link>
-        ) : (
+    // <ViewTransition name={`video-${slug}`}>
+    <div
+      className={cn(
+        "rounded-xl size-full overflow-clip bg-transparent outline-solid outline-1 outline-border",
+        className,
+      )}
+    >
+      {asLink ? (
+        <Link href={linkHref}>
           <BackgroundVideo
             src={src}
             blurDataURL={blurDataUrl}
@@ -57,8 +46,19 @@ export function Video({
             autoPlay
             className="size-full object-cover"
           />
-        )}
-      </div>
-    </ViewTransition>
+        </Link>
+      ) : (
+        <BackgroundVideo
+          src={src}
+          blurDataURL={blurDataUrl}
+          muted
+          playsInline
+          loop
+          autoPlay
+          className="size-full object-cover"
+        />
+      )}
+    </div>
+    // </ViewTransition>
   )
 }
