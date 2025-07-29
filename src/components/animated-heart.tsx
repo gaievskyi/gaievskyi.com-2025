@@ -60,8 +60,7 @@ export function AnimatedHeart({ className }: { className?: string }) {
   }
 
   return (
-    <button
-      type="button"
+    <span
       aria-label="Heart"
       className={cn("relative inline-block select-none", className)}
       onClick={onClick}
@@ -102,6 +101,6 @@ export function AnimatedHeart({ className }: { className?: string }) {
           </span>
         ))}
       </span>
-    </button>
+    </span>
   )
 }
