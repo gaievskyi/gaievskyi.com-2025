@@ -1,5 +1,5 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
-import type { Metadata } from 'next'
+import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 
 const VercelBadgeScene = dynamic(

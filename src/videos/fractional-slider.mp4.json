@@ -1,1 +1,23 @@
-{"status":"ready","originalFilePath":"src/videos/fractional-slider.mp4","provider":"mux","providerMetadata":{"mux":{"uploadId":"1aSJLxKCvceJYMWM4y5CpLpeitsADjxhfXhshjdan5o","assetId":"Wg55LmzahyE7Dh7BUWSoogswFjnR1WoaCL5oQuDVkEI","playbackId":"mUGYf7un01VCmnqD4jq8h9ttiQOexMt4eE3bOoxxFXPM"}},"createdAt":1753703842783,"updatedAt":1753703846954,"size":1098446,"sources":[{"src":"https://stream.mux.com/mUGYf7un01VCmnqD4jq8h9ttiQOexMt4eE3bOoxxFXPM.m3u8","type":"application/x-mpegURL"}],"poster":"https://image.mux.com/mUGYf7un01VCmnqD4jq8h9ttiQOexMt4eE3bOoxxFXPM/thumbnail.webp","blurDataURL":"data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAACQAQCdASoQAAoAAQAcJaQAAudYugAA/v9wLEmHctuEAA=="}
+{
+  "status": "ready",
+  "originalFilePath": "src/videos/fractional-slider.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "1aSJLxKCvceJYMWM4y5CpLpeitsADjxhfXhshjdan5o",
+      "assetId": "Wg55LmzahyE7Dh7BUWSoogswFjnR1WoaCL5oQuDVkEI",
+      "playbackId": "mUGYf7un01VCmnqD4jq8h9ttiQOexMt4eE3bOoxxFXPM"
+    }
+  },
+  "createdAt": 1753703842783,
+  "updatedAt": 1753703846954,
+  "size": 1098446,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/mUGYf7un01VCmnqD4jq8h9ttiQOexMt4eE3bOoxxFXPM.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/mUGYf7un01VCmnqD4jq8h9ttiQOexMt4eE3bOoxxFXPM/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAACQAQCdASoQAAoAAQAcJaQAAudYugAA/v9wLEmHctuEAA=="
+}

@@ -1,27 +1,25 @@
-import { cn } from "@/lib/utils"
 import { Clock } from "@/components/clock"
+import { Flex } from "@/components/ui/layout/flex"
+import { Text } from "@/components/ui/typography/text"
 
-export function FooterContent({ className }: { className?: string }) {
+export function FooterContent() {
   return (
-    <div
-      className={cn(
-        "flex justify-between gap-5 text-muted-foreground2",
-        className,
-      )}
-    >
-      <div className="flex items-center gap-2 text-sm">
-        {new Date().getFullYear()},
+    <Flex justify="between" gap="lg">
+      <Flex align="baseline" gap="sm">
+        <Text size="sm">{new Date().getFullYear()},</Text>
         <Clock />
-        <p className="inline-flex gap-1">
-          <span>&copy;</span>
-          <span className="hidden lg:inline">Daniel Gaievskyi</span>
-        </p>
-      </div>
-      <p className="flex items-center gap-4 text-sm">
-        <a href="mailto:daniel@gaievskyi.com" className="hover:text-brand">
-          Contact
-        </a>
-      </p>
-    </div>
+        <Text className="inline-flex gap-1">
+          <Text as="span" size="sm">
+            &copy;
+          </Text>
+          <Text as="span" size="sm" className="hidden lg:inline">
+            Daniel Gaievskyi
+          </Text>
+        </Text>
+      </Flex>
+      <Text size="sm">
+        <a href="mailto:daniel@gaievskyi.com">Contact</a>
+      </Text>
+    </Flex>
   )
 }

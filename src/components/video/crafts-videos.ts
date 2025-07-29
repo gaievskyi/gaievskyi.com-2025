@@ -1,3 +1,5 @@
+// TODO: refactor with dynamic imports
+
 import pendingWalletTransactionsVideo from "@/videos/pending-wallet-transactions.mp4"
 import dynamicIslandVideo from "@/videos/dynamic-island.mp4"
 import vercelBadgeVideo from "@/videos/vercel-badge.mp4"

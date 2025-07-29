@@ -1,20 +1,19 @@
+import { Heading } from "@/components/ui/typography/heading"
+import { Text } from "@/components/ui/typography/text"
 import { Video } from "@/components/video/video"
-import { videosMap } from "@/components/video/videos"
-import { cn } from "@/lib/utils"
+import { videosMap } from "@/components/video/projects-videos"
 
 const videos = Object.entries(videosMap)
 
-export function ProjectsVideoGrid({ className }: { className?: string }) {
+export function ProjectsVideoGrid() {
   return (
-    <div className={cn(className)}>
-      <div className="mb-8 flex items-center gap-6 ">
-        <h2 className="relative">
-          Projects
-          <span className="absolute -top-1 -right-3 text-xs text-muted-foreground">
-            {videos.length}
-          </span>
-        </h2>
-      </div>
+    <>
+      <Heading as="h2" className="mb-6 inline-flex items-center gap-1">
+        Projects
+        <Text as="sup" size="xs" color="muted">
+          {videos.length}
+        </Text>
+      </Heading>
       <div className="group pointer-events-none grid grid-cols-1 gap-4 sm:grid-cols-2">
         {videos.map(([slug, video]) => (
           <div
@@ -25,6 +24,6 @@ export function ProjectsVideoGrid({ className }: { className?: string }) {
           </div>
         ))}
       </div>
-    </div>
+    </>
   )
 }

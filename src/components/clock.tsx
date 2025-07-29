@@ -2,6 +2,7 @@
 
 import NumberFlow, { NumberFlowGroup } from "@number-flow/react"
 import { useEffect, useState } from "react"
+import { Text } from "@/components/ui/typography/text"
 
 function useClock() {
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -49,7 +50,7 @@ export function Clock() {
       className="text-muted-foreground2 inline-flex items-baseline gap-1"
     >
       <NumberFlowGroup>
-        <span className="flex items-baseline tabular-nums">
+        <Text as="span" size="sm" className="flex items-baseline tabular-nums">
           <NumberFlow
             trend={1}
             value={hours}
@@ -69,9 +70,11 @@ export function Clock() {
             digits={{ 1: { max: 5 } }}
             format={{ minimumIntegerDigits: 2 }}
           />
-        </span>
+        </Text>
       </NumberFlowGroup>
-      <span suppressHydrationWarning>{gmtOffset}</span>
+      <Text as="span" size="sm">
+        {gmtOffset}
+      </Text>
     </time>
   )
 }

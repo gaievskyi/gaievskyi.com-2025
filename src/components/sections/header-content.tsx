@@ -1,25 +1,19 @@
 import { ThemeSwitch } from "@/components/theme-switch"
-import { cn } from "@/lib/utils"
+import { Flex } from "@/components/ui/layout/flex"
+import { Heading } from "@/components/ui/typography/heading"
 
-export function HeaderContent({ className }: { className?: string }) {
+export function HeaderContent() {
   return (
-    <div
-      className={cn(
-        "text-sm flex items-center justify-between gap-2",
-        className,
-      )}
-    >
+    <Flex align="center" justify="between" gap="sm">
       <div>
-        <h1 className="font-semibold ">Daniel Gaievskyi</h1>
-        <h2 className="text-muted-foreground">
+        <Heading as="h1" size="sm" weight="semibold">
+          Daniel Gaievskyi
+        </Heading>
+        <Heading as="h2" size="sm" color="muted">
           Design Engineer
-          {/* Design Engineer @{" "}
-          <a href="https://authologic.com" target="_blank">
-            Authologic
-          </a> */}
-        </h2>
+        </Heading>
       </div>
       <ThemeSwitch />
-    </div>
+    </Flex>
   )
 }
