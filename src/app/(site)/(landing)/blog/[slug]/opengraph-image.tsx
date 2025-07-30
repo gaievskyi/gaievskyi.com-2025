@@ -1,7 +1,6 @@
 import { getArticle } from "@/cms/data-access/articles"
+import { getServerSideURL } from "@/lib/get-url"
 import { ImageResponse } from "next/og"
-import { readFile } from "node:fs/promises"
-import { join } from "node:path"
 
 export const size = {
   width: 834,
@@ -17,20 +16,26 @@ export default async function Image({
 }) {
   const { slug } = await params
   const article = await getArticle(slug)
+  const url = getServerSideURL()
 
-  let sfPro: Buffer | null = null
+  let sfPro: ArrayBuffer | null = null
+  let defaultOgImage: ArrayBuffer | null = null
+
   try {
-    sfPro = await readFile(
-      join(process.cwd(), "public/fonts/sf-pro/SFPro-Medium.woff"),
-    )
-  } catch {
-    console.warn("Could not load SF Pro font, using system font fallback")
-  }
+    const [fontResponse, imageResponse] = await Promise.all([
+      fetch(new URL(`${url}/fonts/sf-pro/SFPro-Medium.woff`)),
+      fetch(new URL(`${url}/images/opengraph-image.png`)),
+    ])
 
-  const defaultOgImage = await readFile(
-    join(process.cwd(), "public/images/opengraph-image.png"),
-  )
-  const defaultOgImageSrc = Uint8Array.from(defaultOgImage).buffer
+    if (fontResponse.ok) {
+      sfPro = await fontResponse.arrayBuffer()
+    }
+    if (imageResponse.ok) {
+      defaultOgImage = await imageResponse.arrayBuffer()
+    }
+  } catch {
+    console.warn("Could not load custom assets, using fallbacks")
+  }
 
   const fonts = sfPro
     ? [
@@ -46,21 +51,34 @@ export default async function Image({
   return new ImageResponse(
     (
       <div style={{ position: "relative", display: "flex" }}>
-        <img
-          // @ts-expect-error - everything works
-          src={defaultOgImageSrc}
-          alt="Daniel Gaievskyi"
-          width={834}
-          height={446}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            objectFit: "cover",
-          }}
-        />
+        {defaultOgImage ? (
+          <img
+            // @ts-expect-error - ArrayBuffer works for ImageResponse
+            src={defaultOgImage}
+            alt="Daniel Gaievskyi"
+            width={834}
+            height={446}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              objectFit: "cover",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            }}
+          />
+        )}
         <div
           style={{
             fontSize: 50,
