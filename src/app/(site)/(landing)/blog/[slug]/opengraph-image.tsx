@@ -17,13 +17,31 @@ export default async function Image({
 }) {
   const { slug } = await params
   const article = await getArticle(slug)
-  const sfPro = await readFile(
-    join(process.cwd(), "public/fonts/sf-pro/SFPro-Medium.woff"),
-  )
+
+  let sfPro: Buffer | null = null
+  try {
+    sfPro = await readFile(
+      join(process.cwd(), "public/fonts/sf-pro/SFPro-Medium.woff"),
+    )
+  } catch {
+    console.warn("Could not load SF Pro font, using system font fallback")
+  }
+
   const defaultOgImage = await readFile(
     join(process.cwd(), "public/images/opengraph-image.png"),
   )
   const defaultOgImageSrc = Uint8Array.from(defaultOgImage).buffer
+
+  const fonts = sfPro
+    ? [
+        {
+          name: "SF Pro",
+          data: sfPro,
+          style: "normal" as const,
+          weight: 400 as const,
+        },
+      ]
+    : []
 
   return new ImageResponse(
     (
@@ -59,7 +77,9 @@ export default async function Image({
             whiteSpace: "nowrap",
             textOverflow: "ellipsis",
             padding: "40px",
-            fontFamily: "SF Pro",
+            fontFamily: sfPro
+              ? "SF Pro"
+              : "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
           }}
         >
           {article.title}
@@ -68,14 +88,7 @@ export default async function Image({
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "SF Pro",
-          data: sfPro,
-          style: "normal",
-          weight: 400,
-        },
-      ],
+      fonts,
     },
   )
 }
