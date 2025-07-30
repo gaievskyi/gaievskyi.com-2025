@@ -18,10 +18,10 @@ export default async function Image({
   const { slug } = await params
   const article = await getArticle(slug)
   const sfPro = await readFile(
-    join(process.cwd(), "/public/fonts/sf-pro/SFPro-Medium.woff"),
+    join(process.cwd(), "public/fonts/sf-pro/SFPro-Medium.woff"),
   )
   const defaultOgImage = await readFile(
-    join(process.cwd(), "/public/images/opengraph-image.png"),
+    join(process.cwd(), "public/images/opengraph-image.png"),
   )
   const defaultOgImageSrc = Uint8Array.from(defaultOgImage).buffer
 
