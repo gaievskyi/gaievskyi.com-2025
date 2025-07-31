@@ -183,8 +183,8 @@
   .article ol {
     padding-left: 0;
   }
-  .article ol > li::marker {
-    content: none;
+  .article ol li {
+    list-style: none;
   }
   .article > ol > li::before {
     content: counter(list-item);
