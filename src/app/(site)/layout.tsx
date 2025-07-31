@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Daniel Gaievskyi",
+    title: "@dgaievskyi",
     creator: "@dgaievskyi",
   },
   alternates: {
