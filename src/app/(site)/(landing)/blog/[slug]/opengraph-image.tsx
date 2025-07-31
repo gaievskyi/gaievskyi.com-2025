@@ -56,7 +56,7 @@ export default async function Image({
             alignItems: "flex-end",
             whiteSpace: "nowrap",
             textOverflow: "ellipsis",
-            padding: "55px 37px",
+            padding: "55px 32px",
             fontFamily: "Inter",
           }}
         >
