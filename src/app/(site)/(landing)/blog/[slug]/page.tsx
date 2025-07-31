@@ -28,13 +28,17 @@ export async function generateMetadata({
   params: paramsPromise,
 }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await paramsPromise
-  const page = await getArticle(slug)
+  const article = await getArticle(slug)
   return {
-    title: page.title,
-    description: page.meta?.description || "",
+    title: article.title,
+    description: article.meta?.description || undefined,
     openGraph: {
-      title: page.title,
-      description: page.meta?.description || "",
+      title: article.title,
+      description: article.meta?.description || undefined,
+      siteName: "@dgaievskyi",
+      type: "article",
+      publishedTime: article.publishedAt || undefined,
+      authors: ["Daniel Gaievskyi"],
     },
   }
 }
