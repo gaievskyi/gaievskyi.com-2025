@@ -29,7 +29,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "src/app/(site)/llms.txt"  ],
+    ".next/types/**/*.ts",
+    "src/app/llms.txt"
+  ],
   "exclude": ["node_modules"]
 }

@@ -18,7 +18,6 @@ import type {
 } from "../../payload-types"
 import type { HTMLAttributes, ReactNode } from "react"
 import Link from "next/link"
-import { ExternalLink } from "@/components/ui/external-link"
 
 type NodeTypes =
   | DefaultNodeTypes

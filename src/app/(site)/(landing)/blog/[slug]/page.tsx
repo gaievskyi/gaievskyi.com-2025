@@ -31,6 +31,7 @@ const getArticleJsonLd = async (slug: string) => {
   const ld: WithContext<Article> = {
     "@context": "https://schema.org",
     "@type": "Article",
+    headline: article.title,
     name: article.title,
     description: article.meta?.description || undefined,
     author: personJsonLd,
