@@ -21,7 +21,6 @@ export const personJsonLd: WithContext<Person> = {
     "Someone who loves mixing different approaches, genres and styles to create unique, innovative experiences. I enjoy pushing boundaries and exploring new ways to express myself without limitations.",
   url: "https://gaievskyi.com",
   sameAs: [
-    "https://www.linkedin.com/in/gaievskyi/",
     "https://github.com/gaievskyi",
     "https://x.com/dgaievskyi",
     "https://t.me/designbeng",
