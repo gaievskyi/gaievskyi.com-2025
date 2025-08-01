@@ -9,10 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: ["Yandex", "Mail.ru"],
         disallow: ["/"],
       },
-      {
-        userAgent: "*",
-        allow: "/",
-      },
     ],
     sitemap: getServerSideURL() + "/sitemap.xml",
   }
