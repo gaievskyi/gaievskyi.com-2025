@@ -27,10 +27,6 @@ export const personJsonLd: WithContext<Person> = {
   ],
   jobTitle: "Design Engineer",
   email: "daniel@gaievskyi.com",
-  alumniOf: {
-    "@type": "Organization",
-    name: "University of Silesia",
-  },
   gender: "male",
   nationality: "Ukrainian",
 }
