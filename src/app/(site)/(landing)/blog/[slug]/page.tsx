@@ -12,6 +12,8 @@ import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
 import type { Metadata } from "next"
+import type { Article, WithContext } from "schema-dts"
+import { personJsonLd } from "@/app/(site)/(landing)/page"
 
 export async function generateStaticParams() {
   const slugs = await getArticlesSlugs()
@@ -22,6 +24,31 @@ type ArticlePageProps = {
   params: Promise<{
     slug: string
   }>
+}
+
+const getArticleJsonLd = async (slug: string) => {
+  const article = await getArticle(slug)
+  const ld: WithContext<Article> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    name: article.title,
+    description: article.meta?.description || undefined,
+    author: personJsonLd,
+    url: `https://gaievskyi.com/blog/${slug}`,
+    datePublished: article.publishedAt || undefined,
+    dateModified: article.updatedAt || undefined,
+    inLanguage: "en-US",
+    isFamilyFriendly: true,
+    genre: "Technology",
+    isAccessibleForFree: true,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Daniel Gaievskyi",
+      url: "https://gaievskyi.com",
+    },
+    audience: "Developers",
+  }
+  return ld
 }
 
 export async function generateMetadata({
@@ -49,10 +76,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   if (!article) {
     return notFound()
   }
+  const articleJsonLd = await getArticleJsonLd(slug)
   const { isEnabled: isDraft } = await draftMode()
   const tocItems = generateTableOfContents(article.content)
   return (
     <>
+      <script
+        id="json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <LivePreviewListener />
       {isDraft && <DraftIndicator />}
       <div className="relative min-h-screen">

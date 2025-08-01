@@ -9,11 +9,13 @@ import { ProgressiveBlur } from "@/components/progressive-blur"
 import { LetHimCook } from "@/components/console-message"
 
 const url = getServerSideURL()
+const name = "Daniel Gaievskyi"
+const description =
+  "Someone who loves mixing different approaches, genres and styles to create unique, innovative experiences. I enjoy pushing boundaries and exploring new ways to express myself without limitations."
 
 export const metadata: Metadata = {
-  title: "Daniel Gaievskyi",
-  description:
-    "Someone who loves mixing different approaches, genres and styles to create unique, innovative experiences. I enjoy pushing boundaries and exploring new ways to express myself without limitations.",
+  title: name,
+  description,
   category: "technology",
   keywords: [
     "Daniel Gaievskyi",
@@ -33,14 +35,14 @@ export const metadata: Metadata = {
     "software engineer",
   ],
   authors: [{ name: "Daniel Gaievskyi", url }],
-  creator: "Daniel Gaievskyi",
-  publisher: "Daniel Gaievskyi",
+  creator: name,
+  publisher: name,
   metadataBase: new URL(url),
   openGraph: {
     images: [
       {
         url: `/images/opengraph-image.png`,
-        alt: "Daniel Gaievskyi",
+        alt: name,
         width: 834,
         height: 446,
       },

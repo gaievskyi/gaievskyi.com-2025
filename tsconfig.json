@@ -30,6 +30,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/app/(site)/llms.txt"  ],
   "exclude": ["node_modules"]
 }
