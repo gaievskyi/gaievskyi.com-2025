@@ -19,12 +19,30 @@ export function Publications({ itemsPromise }: PublicationsProps) {
   const items = use(itemsPromise)
   return (
     <>
-      <Heading as="h2" className="mb-6 inline-flex items-center gap-1">
-        Publications
-        <Text as="sup" size="xs" color="muted">
-          {items.length}
-        </Text>
-      </Heading>
+      <Flex justify="between" align="center" className="mb-6">
+        <Heading as="h2" className="inline-flex items-center gap-1">
+          Publications
+          <Text as="sup" size="xs" color="muted">
+            {items.length}
+          </Text>
+        </Heading>
+        <Link href="/blog/rss.xml">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="lucide lucide-rss-icon lucide-rss size-4.5"
+          >
+            <path d="M4 11a9 9 0 0 1 9 9" />
+            <path d="M4 4a16 16 0 0 1 16 16" />
+            <circle cx="5" cy="19" r="1" />
+          </svg>
+        </Link>
+      </Flex>
       <div className="group/items">
         {items.map((item) => (
           <Link
