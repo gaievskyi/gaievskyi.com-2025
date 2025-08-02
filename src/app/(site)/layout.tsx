@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Providers } from "@/components/providers"
 import "@/styles/globals.css"
 import type { PropsWithChildren } from "react"
@@ -89,6 +91,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ScreenSizeIndicator />
       </body>
       <LetHimCook />
+      <SpeedInsights />
+      <Analytics />
     </html>
   )
 }
