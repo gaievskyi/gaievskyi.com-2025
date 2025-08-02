@@ -75,8 +75,7 @@ Last updated: ${new Date().toISOString().split("T")[0]}
 `
   return new Response(content, {
     headers: {
-      "Content-Type": "text/plain",
-      Charset: "utf-8",
+      "Content-Type": "text/plain; charset=utf-8",
     },
   })
 }
