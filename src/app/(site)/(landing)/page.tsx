@@ -27,8 +27,6 @@ export const personJsonLd: WithContext<Person> = {
   ],
   jobTitle: "Design Engineer",
   email: "daniel@gaievskyi.com",
-  gender: "male",
-  nationality: "Ukrainian",
 }
 
 export default function IndexPage() {

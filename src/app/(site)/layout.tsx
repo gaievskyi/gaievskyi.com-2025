@@ -44,7 +44,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     types: {
-      "application/rss+xml": `${url}/blog/rss.xml`,
       "text/plain": `${url}/llms.txt`,
     },
   },
@@ -72,7 +71,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <link
         rel="preload"
-        href="/sprites/sprite.958016db.svg"
+        href="/sprites/sprite.85958a4f.svg"
         as="image"
         type="image/svg+xml"
       />

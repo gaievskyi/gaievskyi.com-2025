@@ -314,9 +314,6 @@ export const sprites = defineSpriteMap([defineSprite(
      ["ring"],
      [11.25, 12.75, "0 0 15 17"]
    ), defineSpriteSymbol(
-     ["rss"],
-     [24]
-   ), defineSpriteSymbol(
      ["save"],
      [20, "0 0 24 24"]
    ), defineSpriteSymbol(
@@ -344,12 +341,12 @@ export const sprites = defineSpriteMap([defineSprite(
      ["x"],
      [24]
    )],
-  defineExternalAssetMeta('sprite.958016db.svg')
+  defineExternalAssetMeta('sprite.85958a4f.svg')
 )]
 )])
 
 export type SpritesMeta = {
-  "sprite": "arrow-back" | "arrow-back2" | "arrow" | "arrow2" | "chevron-up" | "error" | "ethereum" | "external-link" | "fast-forward" | "info" | "inspect" | "moon" | "pause" | "phone" | "play" | "podcast" | "print" | "reload" | "ring" | "rss" | "save" | "spinner" | "success" | "sun" | "sun2" | "system" | "v0" | "warning" | "x";
+  "sprite": "arrow-back" | "arrow-back2" | "arrow" | "arrow2" | "chevron-up" | "error" | "ethereum" | "external-link" | "fast-forward" | "info" | "inspect" | "moon" | "pause" | "phone" | "play" | "podcast" | "print" | "reload" | "ring" | "save" | "spinner" | "success" | "sun" | "sun2" | "system" | "v0" | "warning" | "x";
 }
 
 //#endregion

@@ -1,4 +1,3 @@
-import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
 import { Separator } from "@/components/ui/separator"
 import { Heading } from "@/components/ui/typography/heading"
@@ -20,17 +19,12 @@ export function Publications({ itemsPromise }: PublicationsProps) {
   const items = use(itemsPromise)
   return (
     <>
-      <Flex justify="between" align="center" className="mb-6">
-        <Heading as="h2" className="inline-flex items-center gap-1">
-          Publications
-          <Text as="sup" size="xs" color="muted">
-            {items.length}
-          </Text>
-        </Heading>
-        <Link href="/blog/rss.xml">
-          <Icon name="sprite:rss" className="size-4.5" />
-        </Link>
-      </Flex>
+      <Heading as="h2" className="inline-flex items-center gap-1 mb-6">
+        Publications
+        <Text as="sup" size="xs" color="muted">
+          {items.length}
+        </Text>
+      </Heading>
       <div className="group/items">
         {items.map((item) => (
           <Link
