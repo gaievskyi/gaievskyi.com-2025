@@ -142,7 +142,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </AnimatedGroup>
         {project.Content?.content && (
           <AnimatedGroup variants={contentVariants} className="-mt-4 w-full">
-            <RichText data={project.Content.content} enableGutter={false} />
+            <RichText
+              data={project.Content.content}
+              enableGutter={false}
+              className="prose-p:text-pretty"
+            />
           </AnimatedGroup>
         )}
       </Flex>
