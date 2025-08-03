@@ -13,7 +13,7 @@ const isProduction = process.env.NODE_ENV === "production"
 
 const nextConfig: NextConfig = {
   experimental: {
-    browserDebugInfoInTerminal: true,
+    browserDebugInfoInTerminal: !isProduction,
     inlineCss: true,
     reactCompiler: true,
     viewTransition: true,
@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
@@ -89,14 +90,6 @@ const nextConfig: NextConfig = {
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-          {
-            key: "X-XSS-Protection",
-            value: "1; mode=block",
           },
         ],
       },
