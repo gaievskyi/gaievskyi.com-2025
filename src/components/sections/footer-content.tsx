@@ -5,7 +5,7 @@ import { Text } from "@/components/ui/typography/text"
 export function FooterContent() {
   return (
     <Flex justify="between" gap="lg">
-      <Flex align="baseline" gap="sm">
+      <Flex align="center" gap="sm">
         <Text size="sm">{new Date().getFullYear()},</Text>
         <Clock />
         <Text className="inline-flex gap-1">

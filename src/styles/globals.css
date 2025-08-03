@@ -162,7 +162,7 @@
     @apply prose-blockquote:border-l-zinc-300 prose-blockquote:text-zinc-600;
     @apply prose-a:text-zinc-600 dark:prose-a:text-[#D3D3D2] prose-a:font-normal;
     @apply dark:prose-blockquote:border-l-zinc-700 dark:prose-blockquote:text-zinc-400;
-    @apply prose-strong:text-zinc-700 dark:prose-strong:text-[#d1d1d1];
+    @apply prose-strong:text-zinc-600 dark:prose-strong:text-[#d1d1d1];
     @apply prose-code:rounded prose-code:bg-zinc-100 prose-code:px-1.5 prose-code:py-0.5;
     @apply prose-code:text-sm prose-code:font-medium prose-code:text-zinc-900;
     @apply prose-code:outline prose-code:outline-dashed;
