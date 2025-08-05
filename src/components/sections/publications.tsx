@@ -19,7 +19,7 @@ export function Publications({ itemsPromise }: PublicationsProps) {
   const items = use(itemsPromise)
   return (
     <>
-      <Heading as="h2" className="inline-flex items-center gap-1 mb-6">
+      <Heading as="h2" className="mb-6 inline-flex items-center gap-1">
         Publications
         <Text as="sup" size="xs" color="muted">
           {items.length}

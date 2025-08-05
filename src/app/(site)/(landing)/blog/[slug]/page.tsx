@@ -117,16 +117,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   typeof article.illustration !== "number" && (
                     <Illustration src={article.illustration} />
                   )}
-                <Flex direction="col" gap="xs">
-                  <Heading size="xl" weight="medium" className="tracking-tight">
+                <Flex direction="col">
+                  <Heading size="lg" weight="medium" className="tracking-tight">
                     {article.title}
                   </Heading>
                   {article.publishedAt && (
                     <Text size="sm" color="muted">
-                      {Intl.DateTimeFormat("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
+                      {Intl.DateTimeFormat(undefined, {
+                        dateStyle: "long",
                       }).format(new Date(article.publishedAt))}
                     </Text>
                   )}

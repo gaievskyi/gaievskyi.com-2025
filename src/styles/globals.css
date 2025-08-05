@@ -152,29 +152,46 @@
     sans-serif;
 }
 
+@utility prose {
+  blockquote {
+    border-left: none;
+    opacity: 0.8;
+    padding-left: 0;
+    font-size: var(--text-lg);
+    font-style: normal;
+    &:first-of-type::before {
+      font-family: Georgia, serif;
+      font-size: var(--text-2xl);
+      content: "“";
+    }
+    &:last-of-type::after {
+      font-family: Georgia, serif;
+      font-size: var(--text-2xl);
+      content: "”";
+    }
+  }
+}
+
 @layer components {
   .article {
     margin-bottom: 4rem;
     @apply prose prose-base max-w-prose dark:prose-invert;
     @apply prose-headings:font-medium prose-headings:leading-loose;
-    @apply prose-h1:text-xl prose-h2:text-lg prose-h3:text-lg prose-h4:text-lg;
+    @apply prose-h1:text-lg prose-h2:text-lg prose-h3:text-lg prose-h4:text-lg;
     @apply prose-p:text-base prose-p:leading-7 prose-p:text-zinc-600 dark:prose-p:text-[#D3D3D2];
-    @apply prose-blockquote:border-l-zinc-300 prose-blockquote:text-zinc-600;
     @apply prose-a:text-zinc-600 dark:prose-a:text-[#D3D3D2] prose-a:font-normal;
-    @apply dark:prose-blockquote:border-l-zinc-700 dark:prose-blockquote:text-zinc-400;
     @apply prose-strong:text-zinc-600 dark:prose-strong:text-[#d1d1d1];
-    @apply prose-code:rounded prose-code:bg-zinc-100 prose-code:px-1.5 prose-code:py-0.5;
+    @apply prose-code:rounded prose-code:bg-zinc-100 prose-code:px-1 prose-code:py-0.5 prose-code:mr-0.5;
     @apply prose-code:text-sm prose-code:font-medium prose-code:text-zinc-900;
-    @apply prose-code:outline prose-code:outline-dashed;
-    @apply prose-code:before:content-none prose-code:after:content-none;
+    @apply prose-code:outline prose-code:outline-dashed prose-code:before:content-none prose-code:after:content-none;
     @apply dark:prose-code:bg-zinc-800 dark:prose-code:text-zinc-100;
     @apply prose-pre:border prose-pre:border-zinc-200 prose-pre:bg-zinc-900;
     @apply dark:prose-pre:border-zinc-800 dark:prose-pre:bg-zinc-950;
-    @apply prose-li:text-[15px] dark:prose-li:text-[#D3D3D2];
+    @apply dark:prose-li:text-[#D3D3D2];
     @apply dark:prose-hr:border-zinc-900 prose-hr:mt-16 prose-hr:mb-8;
   }
   .article ul > li {
-    @apply relative pl-4 list-none;
+    @apply relative pl-3 list-none;
   }
   .article ul > li::before {
     content: "-";
@@ -182,13 +199,22 @@
   }
   .article ol {
     padding-left: 0;
+    color: var(--color-muted-foreground);
+    counter-reset: list-item;
   }
   .article ol li {
     list-style: none;
+    font-size: var(--text-sm);
+    position: relative;
+    padding-left: 1.5rem;
+    counter-increment: list-item;
   }
   .article > ol > li::before {
     content: counter(list-item);
-    @apply text-zinc-500 dark:text-[#D3D3D2] mr-3;
+    @apply text-zinc-500 dark:text-[#D3D3D2] text-xs;
+    position: absolute;
+    left: 0;
+    top: 5px;
   }
   .article em,
   .article i,
