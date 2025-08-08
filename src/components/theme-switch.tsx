@@ -43,16 +43,17 @@ export function ThemeSwitch({ className }: { className?: string }) {
     <button
       onClick={onToggle}
       className={cn(
-        "inline-flex size-7 items-center justify-center rounded-md border border-border/50 bg-muted/50 shadow-xs backdrop-blur-xs transition-all duration-200 hover:text-muted-foreground hover:bg-muted/70 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:outline-hidden active:scale-95",
+        "inline-flex size-7 items-center justify-center rounded-md border border-border/50 bg-muted/50 shadow-xs backdrop-blur-xs transition-all duration-200 hover:text-muted-foreground hover:bg-muted/70 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:outline-hidden active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed",
         className,
       )}
       aria-label="Toggle theme"
       type="button"
+      disabled={!isMounted}
     >
       {isMounted ? (
         getThemeIcon(resolvedTheme)
       ) : (
-        <Spinner size="sm" className="bg-muted-foreground" />
+        <Spinner size="sm" className="bg-foreground" />
       )}
     </button>
   )
