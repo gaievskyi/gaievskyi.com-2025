@@ -110,7 +110,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               />
             </BackAside>
           </div>
-          <Flex justify="center" className="px-6 lg:px-0">
+          <Flex as="main" justify="center" className="px-6 lg:px-0">
             <article className="container w-full">
               <header className="mt-8 mb-12">
                 {article.illustration &&

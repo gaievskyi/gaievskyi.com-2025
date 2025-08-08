@@ -21,7 +21,10 @@ export function ProjectsVideoGrid() {
             key={slug}
             className="pointer-events-auto transition-opacity duration-300 ease-out group-hover:opacity-50 hover:opacity-100!"
           >
-            <Link href={`/projects/${slug}`}>
+            <Link
+              href={`/projects/${slug}`}
+              aria-label={`Explore project ${slug}`}
+            >
               <Video src={video} slug={slug} />
             </Link>
           </div>
