@@ -1,6 +1,7 @@
 "use client"
 
 import { Icon } from "@/components/ui/icon"
+import { Spinner } from "@/components/ui/spinner"
 import { useShortcut } from "@/hooks/use-shortcut"
 import { useIsMountedState } from "@/hooks/use-is-mounted-state"
 import { cn } from "@/lib/utils"
@@ -34,15 +35,15 @@ export function ThemeSwitch({ className }: { className?: string }) {
     setTheme(getNextTheme(theme))
   })
 
-  const handleToggle = () => {
+  const onToggle = () => {
     setTheme(getNextTheme(theme))
   }
 
   return (
     <button
-      onClick={handleToggle}
+      onClick={onToggle}
       className={cn(
-        "inline-flex size-7 items-center justify-center rounded-md border border-border/50 bg-muted/50 text-muted-foreground/60 shadow-xs backdrop-blur-xs transition-all duration-200 hover:text-muted-foreground hover:bg-muted/70 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:outline-hidden active:scale-95",
+        "inline-flex size-7 items-center justify-center rounded-md border border-border/50 bg-muted/50 shadow-xs backdrop-blur-xs transition-all duration-200 hover:text-muted-foreground hover:bg-muted/70 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:outline-hidden active:scale-95",
         className,
       )}
       aria-label="Toggle theme"
@@ -51,10 +52,7 @@ export function ThemeSwitch({ className }: { className?: string }) {
       {isMounted ? (
         getThemeIcon(resolvedTheme)
       ) : (
-        <Icon
-          name="sprite:spinner"
-          className="size-4 animate-spin text-current"
-        />
+        <Spinner size="sm" className="bg-muted-foreground" />
       )}
     </button>
   )
