@@ -41,7 +41,7 @@
     @apply relative pl-3 list-none;
   }
   .article ul > li::before {
-    @apply absolute content-[-] -left-2 text-zinc-600 dark:text-zinc-400;
+    @apply absolute content-["-"] -left-2 text-zinc-600 dark:text-zinc-400;
   }
   .article ol {
     padding-left: 0;
@@ -61,7 +61,7 @@
     font-size: var(--text-sm);
     position: absolute;
     left: 0;
-    top: 5px;
+    top: 0;
   }
   .article em,
   .article i,
