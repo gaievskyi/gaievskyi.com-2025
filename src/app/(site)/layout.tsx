@@ -1,14 +1,14 @@
-import type { Metadata } from "next"
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Providers } from "@/components/providers"
-import "@/styles/globals.css"
-import type { PropsWithChildren } from "react"
-import { getServerSideURL } from "@/lib/get-url"
-import { geistMono, geistSans, heldaneText } from "@/lib/fonts"
+import { LetHimCook } from "@/components/console-message"
 import { ScreenSizeIndicator } from "@/components/dev-screen-size-indicator"
 import { ProgressiveBlur } from "@/components/progressive-blur"
-import { LetHimCook } from "@/components/console-message"
+import { Providers } from "@/components/providers"
+import { geistMono, geistSans, heldaneText } from "@/lib/fonts"
+import { getServerSideURL } from "@/lib/get-url"
+import "@/styles/globals.css"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import type { Metadata } from "next"
+import type { PropsWithChildren } from "react"
 
 const url = getServerSideURL()
 const name = "Daniel Gaievskyi"
@@ -68,13 +68,6 @@ type RootLayoutProps = Readonly<PropsWithChildren>
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <link
-        rel="preload"
-        href="/sprites/sprite.85958a4f.svg"
-        as="fetch"
-        type="image/svg+xml"
-        crossOrigin="anonymous"
-      />
       <body
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${heldaneText.variable} ${geistSans.className} relative antialiased`}
