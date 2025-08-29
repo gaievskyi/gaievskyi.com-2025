@@ -1,10 +1,10 @@
 import { Icon } from "@/components/ui/icon"
 import Image from "next/image"
 import {
-  useState,
+  useCallback,
   useEffect,
   useRef,
-  useCallback,
+  useState,
   type MouseEvent,
 } from "react"
 
@@ -210,15 +210,18 @@ export function DynamicIslandMusic() {
             className="rotate-180 transition-transform duration-150 ease-out active:scale-90"
             onClick={handlePreviousTrack}
           >
-            <Icon name="sprite:fast-forward" className="size-6 text-white" />
+            <Icon
+              name="sprite:fast-forward"
+              className="mt-[5px] text-2xl text-white"
+            />
           </button>
 
           {/* Play/Pause */}
           <button onClick={togglePlayPause}>
             {isPlaying ? (
-              <Icon name="sprite:pause" className="size-8 text-white" />
+              <Icon name="sprite:pause" className="text-2xl text-white" />
             ) : (
-              <Icon name="sprite:play" className="size-8 text-white" />
+              <Icon name="sprite:play" className="text-2xl text-white" />
             )}
           </button>
 
@@ -227,13 +230,13 @@ export function DynamicIslandMusic() {
             onClick={handleNextTrack}
             className="transition-transform duration-150 ease-out active:scale-90"
           >
-            <Icon name="sprite:fast-forward" className="size-6 text-white" />
+            <Icon name="sprite:fast-forward" className="text-2xl text-white" />
           </button>
         </div>
 
         {/* AirPlay Icon - Right Aligned */}
         <button className="transition-transform duration-150 ease-out active:scale-90">
-          <Icon name="sprite:podcast" className="size-6 text-white" />
+          <Icon name="sprite:podcast" className="text-2xl text-white" />
         </button>
       </div>
     </div>

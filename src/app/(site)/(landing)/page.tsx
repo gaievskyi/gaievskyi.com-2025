@@ -1,16 +1,16 @@
-import type { WithContext, Person } from "schema-dts"
-import { HeaderContent } from "@/components/sections/header-content"
+import { getArticles } from "@/cms/data-access/articles"
+import { CrossBackground } from "@/components/cross-background"
+import { PublicationsSkeleton } from "@/components/publications-skeleton"
 import { About } from "@/components/sections/about"
 import { Contact } from "@/components/sections/contact"
-import { FooterContent } from "@/components/sections/footer-content"
 import { CraftsVideoGrid } from "@/components/sections/crafts-video-grid"
+import { FooterContent } from "@/components/sections/footer-content"
+import { HeaderContent } from "@/components/sections/header-content"
 import { ProjectsVideoGrid } from "@/components/sections/projects-video-grid"
-import { Grid, GridItem } from "@/components/ui/layout/grid"
-import { CrossBackground } from "@/components/cross-background"
 import { Publications } from "@/components/sections/publications"
-import { getArticles } from "@/cms/data-access/articles"
+import { Grid, GridItem } from "@/components/ui/layout/grid"
 import { Suspense } from "react"
-import { PublicationsSkeleton } from "@/components/publications-skeleton"
+import type { Person, WithContext } from "schema-dts"
 
 export const personJsonLd: WithContext<Person> = {
   "@context": "https://schema.org",

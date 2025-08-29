@@ -1,14 +1,14 @@
+import { AutoScrollTop } from "@/components/auto-scroll-top"
+import { BackAside } from "@/components/back-aside"
 import {
   BottomNavigation,
   type NavigationItem,
 } from "@/components/crafts/bottom-navigation"
-import type { ReactNode } from "react"
-import { cn } from "@/lib/utils"
-import { unstable_ViewTransition as ViewTransition } from "react"
-import { BackAside } from "@/components/back-aside"
 import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
-import { AutoScrollTop } from "@/components/auto-scroll-top"
+import { cn } from "@/lib/utils"
+import type { ReactNode } from "react"
+import { unstable_ViewTransition as ViewTransition } from "react"
 
 type ComponentDemoLayoutProps = {
   title: string
@@ -33,11 +33,9 @@ export function ComponentDemoLayout({
     <>
       <AutoScrollTop />
       <BackAside />
-      <article className="container mt-12 px-4 pt-8 sm:px-0 sm:pt-0">
-        <Flex direction="col" gap="sm" className="mb-6">
-          <Heading size="sm" weight="semibold">
-            {title}
-          </Heading>
+      <article className="container flex h-svh w-full flex-col justify-center px-4 pt-12 sm:px-0">
+        <Flex direction="col">
+          <Heading weight="semibold">{title}</Heading>
           <Heading as="h2" size="sm" color="muted">
             {date}
           </Heading>

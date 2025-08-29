@@ -1,12 +1,12 @@
-import { AutoScrollTop } from "@/components/auto-scroll-top"
-import { Video } from "@/components/video/video"
 import { getProject, getProjectsSlugs } from "@/cms/data-access/projects"
+import { AutoScrollTop } from "@/components/auto-scroll-top"
 import { BackAside } from "@/components/back-aside"
-import { isVideo, videosMap } from "@/components/video/projects-videos"
-import { notFound } from "next/navigation"
 import { Flex } from "@/components/ui/layout/flex"
-import { ProjectContent } from "./project-content"
+import { isVideo, videosMap } from "@/components/video/projects-videos"
+import { Video } from "@/components/video/video"
+import { notFound } from "next/navigation"
 import { Suspense } from "react"
+import { ProjectContent } from "./project-content"
 
 type ProjectPageProps = Readonly<{
   params: Promise<{
@@ -36,12 +36,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         direction="col"
         align="center"
         gap="lg"
-        className="container mx-auto my-12 min-h-[70svh] px-6 sm:px-0"
+        className="container mx-auto -mt-14 grid h-svh w-full max-w-3xl place-content-center px-6 sm:px-0"
       >
-        <Video src={video} slug={slug} />
         <Suspense>
           <ProjectContent projectPromise={projectPromise} />
         </Suspense>
+        <Video src={video} slug={slug} />
       </Flex>
     </>
   )

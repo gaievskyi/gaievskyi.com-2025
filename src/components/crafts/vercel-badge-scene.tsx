@@ -2,6 +2,12 @@
 "use client"
 
 import {
+  Environment,
+  Lightformer,
+  useGLTF,
+  useTexture,
+} from "@react-three/drei"
+import {
   Canvas,
   extend,
   useFrame,
@@ -9,23 +15,17 @@ import {
   type ThreeElement,
 } from "@react-three/fiber"
 import {
-  Environment,
-  Lightformer,
-  useGLTF,
-  useTexture,
-} from "@react-three/drei"
-import {
-  Physics,
   BallCollider,
   CuboidCollider,
+  Physics,
   RigidBody,
   useRopeJoint,
   useSphericalJoint,
   type RapierRigidBody,
   type RigidBodyProps,
 } from "@react-three/rapier"
-import { useEffect, useRef, useState } from "react"
 import { MeshLineGeometry, MeshLineMaterial } from "meshline"
+import { useEffect, useRef, useState } from "react"
 import * as THREE from "three"
 
 const cardGLB = "/models/tag.glb"
@@ -288,7 +288,7 @@ export default function VercelBadgeScene({
   transparent = true,
 }: VercelBadgeSceneProps) {
   return (
-    <div className="absolute z-50 flex h-svh w-full origin-center scale-100 transform items-center justify-center sm:-mt-16 ">
+    <div className="absolute z-50 flex h-svh w-full origin-center scale-100 transform items-center justify-center sm:-mt-20 ">
       <Canvas
         fallback={<div>Sorry, no WebGL supported!</div>}
         camera={{ position, fov }}

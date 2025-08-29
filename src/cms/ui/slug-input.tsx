@@ -1,7 +1,7 @@
 "use client"
 
 import { TextInput, useField } from "@payloadcms/ui"
-import { kebabCase } from "lodash"
+import kebabCase from "lodash.kebabcase"
 import { useEffect, useRef } from "react"
 
 import { type TextField } from "payload"

@@ -19,13 +19,13 @@ export function PublicationsSkeleton({ count = 3 }: { count?: number }) {
             <div key={index} className="py-2">
               <div className="flex items-center gap-4">
                 {/* Year skeleton */}
-                <Skeleton className="h-5 w-10 shrink-0" />
+                <Skeleton className="h-6 w-10 shrink-0" />
                 {/* Title skeleton - varying widths for more realistic look */}
                 <Skeleton
                   className={cn(
-                    "h-5 shrink-0",
+                    "h-6 shrink-0",
                     index === 0
-                      ? "w-32"
+                      ? "w-38"
                       : index === 1
                         ? "w-46"
                         : index === 2
@@ -36,7 +36,7 @@ export function PublicationsSkeleton({ count = 3 }: { count?: number }) {
                 {/* Dashed line */}
                 <Separator dashed />
                 {/* Date skeleton */}
-                <Skeleton className="h-5 w-10 shrink-0" />
+                <Skeleton className="h-6 w-11 shrink-0" />
               </div>
             </div>
           ))}

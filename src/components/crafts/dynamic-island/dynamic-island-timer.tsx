@@ -16,15 +16,9 @@ export function DynamicIslandTimer() {
       >
         <AnimatePresence initial={false} mode="wait">
           {isPaused ? (
-            <Icon
-              name="sprite:play"
-              className="size-5 fill-current text-[#FDB000]"
-            />
+            <Icon name="sprite:play" className="text-xl !text-[#FDB000]" />
           ) : (
-            <Icon
-              name="sprite:pause"
-              className="size-5 fill-current text-[#FDB000]"
-            />
+            <Icon name="sprite:pause" className="text-xl !text-[#FDB000]" />
           )}
         </AnimatePresence>
       </motion.button>
@@ -32,7 +26,7 @@ export function DynamicIslandTimer() {
         aria-label="Exit"
         className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3C3D3C] text-white transition-colors hover:bg-[#4A4B4A]"
       >
-        <Icon name="sprite:x" className="size-6 " />
+        <Icon name="sprite:x" className="text-xl" />
       </button>
       <div className="ml-auto flex items-baseline gap-1.5 pr-0.5 text-[#F7A815]">
         <Counter paused={isPaused} />

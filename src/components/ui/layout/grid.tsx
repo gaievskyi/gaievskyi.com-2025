@@ -1,12 +1,12 @@
-import {
-  Children,
-  type CSSProperties,
-  type ReactNode,
-  type ElementType,
-  type ComponentPropsWithoutRef,
-} from "react"
 import { cn } from "@/lib/utils"
 import { cva, type VariantProps } from "class-variance-authority"
+import {
+  Children,
+  type ComponentPropsWithoutRef,
+  type CSSProperties,
+  type ElementType,
+  type ReactNode,
+} from "react"
 
 type OutlinedPosition = "top" | "bottom" | "both"
 type RowPosition = number | `${number}/${number}`
@@ -18,7 +18,7 @@ const gridItemVariants = cva("col-2", {
       xs: "px-3 py-3 md:px-8 md:py-4",
       sm: "px-3 py-3 md:px-8 md:py-6",
       md: "px-3 py-8 md:px-8",
-      lg: "px-3 py-8 pb-12 md:px-8",
+      lg: "px-3 py-8 md:px-8",
     },
   },
   defaultVariants: {

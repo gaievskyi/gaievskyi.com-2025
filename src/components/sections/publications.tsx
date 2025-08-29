@@ -1,8 +1,8 @@
+import { LinkLoadingIndicator } from "@/components/link-loading-indicator"
 import { Flex } from "@/components/ui/layout/flex"
 import { Separator } from "@/components/ui/separator"
 import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
-import { LinkLoadingIndicator } from "@/components/link-loading-indicator"
 import Link from "next/link"
 import { use } from "react"
 
@@ -36,19 +36,17 @@ export function Publications({ itemsPromise }: PublicationsProps) {
             <Flex align="center" gap="sm">
               <LinkLoadingIndicator>
                 {item.publishedAt && (
-                  <Text as="span" size="sm" color="muted" className="mr-3">
+                  <Text as="span" color="muted" className="mr-3">
                     {Intl.DateTimeFormat("en-US", {
                       year: "numeric",
                     }).format(new Date(item.publishedAt))}
                   </Text>
                 )}
               </LinkLoadingIndicator>
-              <Text as="span" size="sm">
-                {item.title}
-              </Text>
+              <Text as="span">{item.title}</Text>
               <Separator dashed />
               {item.publishedAt && (
-                <Text as="span" size="sm" color="muted">
+                <Text as="span" color="muted">
                   {Intl.DateTimeFormat("en-US", {
                     month: "2-digit",
                     day: "2-digit",

@@ -13,25 +13,6 @@
 
 /* KEYFRAMES */
 
-@keyframes fly-heart {
-  0% {
-    transform: translate(-50%, -50%) scale(0) rotate(0deg);
-    opacity: 1;
-  }
-  20% {
-    transform: translate(-50%, -50%) scale(var(--heart-scale)) rotate(15deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(
-        calc(-50% + var(--heart-x)),
-        calc(-50% + var(--heart-y))
-      )
-      scale(0) rotate(45deg);
-    opacity: 0;
-  }
-}
-
 @keyframes spinner-leaf-fade {
   0%,
   100% {

@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from "react"
-import { motion, LayoutGroup } from "motion/react"
-import { useSound } from "@/hooks/use-sound"
-import Image from "next/image"
 import { Icon } from "@/components/ui/icon"
+import { useSound } from "@/hooks/use-sound"
+import { LayoutGroup, motion } from "motion/react"
+import Image from "next/image"
+import { useState } from "react"
 
 type PendingTransaction = {
   id: string
@@ -240,7 +240,7 @@ function PendingHeader({
   )
 }
 
-export function PendingWalletTransactions() {
+export function FamilyWallet() {
   const [isExpanded, setIsExpanded] = useState(false)
   const pendingCount = mockPendingTransactions.length
   const [playTriggerSound] = useSound("/sounds/trigger.mp3")
