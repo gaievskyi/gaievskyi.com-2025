@@ -7,7 +7,7 @@ import type { MetadataRoute } from "next"
 import { cacheLife } from "next/dist/server/use-cache/cache-life"
 import { cacheTag } from "next/dist/server/use-cache/cache-tag"
 
-const generateSitemap = async (): Promise<MetadataRoute.Sitemap> => {
+async function generateSitemap(): Promise<MetadataRoute.Sitemap> {
   "use cache"
   cacheTag("sitemap")
   cacheLife("max")

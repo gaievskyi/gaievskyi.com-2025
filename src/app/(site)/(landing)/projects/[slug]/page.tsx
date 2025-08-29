@@ -8,18 +8,14 @@ import { notFound } from "next/navigation"
 import { Suspense } from "react"
 import { ProjectContent } from "./project-content"
 
-type ProjectPageProps = Readonly<{
-  params: Promise<{
-    slug: string
-  }>
-}>
-
 export async function generateStaticParams() {
   const slugs = await getProjectsSlugs()
   return slugs.map(({ slug }) => ({ slug }))
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({
+  params,
+}: PageProps<"/projects/[slug]">) {
   const { slug } = await params
   const projectPromise = getProject(slug)
   const video = isVideo(slug) ? videosMap[slug] : undefined

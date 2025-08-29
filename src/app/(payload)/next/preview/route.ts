@@ -1,8 +1,8 @@
-import config from "../../../../../payload.config"
 import { draftMode } from "next/headers"
 import { redirect } from "next/navigation"
 import type { CollectionSlug } from "payload"
 import { getPayload, type PayloadRequest } from "payload"
+import config from "../../../../../payload.config"
 
 // const payloadToken = 'payload-token'
 

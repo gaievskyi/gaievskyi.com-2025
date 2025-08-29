@@ -8,7 +8,6 @@ import "@/styles/globals.css"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next"
-import type { PropsWithChildren } from "react"
 
 const url = getServerSideURL()
 const name = "Daniel Gaievskyi"
@@ -63,9 +62,7 @@ export const viewport = {
   ],
 }
 
-type RootLayoutProps = Readonly<PropsWithChildren>
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body

@@ -1,29 +1,23 @@
+import { personJsonLd } from "@/app/(site)/(landing)/page"
 import { getArticle, getArticlesSlugs } from "@/cms/data-access/articles"
 import { DraftIndicator } from "@/cms/draft-indicator"
 import { LivePreviewListener } from "@/cms/live-preview-listener"
 import { RichText } from "@/cms/rich-text"
-import { draftMode } from "next/headers"
-import { notFound } from "next/navigation"
-import { Illustration } from "@/components/ui/illustration"
-import { generateTableOfContents } from "@/components/ui/table-of-contents/generate-toc"
 import { BackAside } from "@/components/back-aside"
-import { TableOfContents } from "@/components/ui/table-of-contents/table-of-contents"
+import { Illustration } from "@/components/ui/illustration"
 import { Flex } from "@/components/ui/layout/flex"
+import { generateTableOfContents } from "@/components/ui/table-of-contents/generate-toc"
+import { TableOfContents } from "@/components/ui/table-of-contents/table-of-contents"
 import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
 import type { Metadata } from "next"
+import { draftMode } from "next/headers"
+import { notFound } from "next/navigation"
 import type { Article, WithContext } from "schema-dts"
-import { personJsonLd } from "@/app/(site)/(landing)/page"
 
 export async function generateStaticParams() {
   const slugs = await getArticlesSlugs()
   return slugs.map(({ slug }) => ({ slug }))
-}
-
-type ArticlePageProps = {
-  params: Promise<{
-    slug: string
-  }>
 }
 
 const getArticleJsonLd = async (slug: string) => {
@@ -53,7 +47,7 @@ const getArticleJsonLd = async (slug: string) => {
 
 export async function generateMetadata({
   params: paramsPromise,
-}: ArticlePageProps): Promise<Metadata> {
+}: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await paramsPromise
   const article = await getArticle(slug)
   return {
@@ -70,7 +64,9 @@ export async function generateMetadata({
   }
 }
 
-export default async function ArticlePage({ params }: ArticlePageProps) {
+export default async function ArticlePage({
+  params,
+}: PageProps<"/blog/[slug]">) {
   const { slug } = await params
   const article = await getArticle(slug)
   if (!article) {

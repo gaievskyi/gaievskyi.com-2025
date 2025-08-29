@@ -7,7 +7,7 @@
     "clean": "rimraf .next node_modules",
     "dev": "next dev & bunx --bun next-video sync -w --dir ./src/videos",
     "format": "prettier --log-level warn --write --cache . ",
-    "lint": "next lint",
+    "lint": "eslint src",
     "preview": "next build && next start",
     "start": "next start",
     "typecheck": "tsc -p ./tsconfig.json --noEmit --emitDeclarationOnly false",

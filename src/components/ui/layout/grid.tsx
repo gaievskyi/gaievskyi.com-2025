@@ -97,6 +97,7 @@ function GridItem<T extends ElementType = "div">({
   }
 
   return (
+    // @ts-expect-error - cannot type correctly yet
     <Component
       className={cn(
         gridItemVariants({ padding }),
@@ -140,6 +141,7 @@ function Grid<T extends ElementType = "div">({
   const rows = Children.count(children)
 
   return (
+    // @ts-expect-error - cannot type correctly yet
     <Component
       className={cn("overflow-x-clip px-3", className)}
       style={fluidCol}

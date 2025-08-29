@@ -1,6 +1,6 @@
+import { cn } from "@/lib/utils"
 import { cva, type VariantProps } from "class-variance-authority"
 import type { ElementType, HTMLAttributes, ReactNode, RefObject } from "react"
-import { cn } from "@/lib/utils"
 
 const flexVariants = cva("flex", {
   variants: {
@@ -86,7 +86,9 @@ function Flex({
   ...props
 }: FlexProps) {
   return (
+    // @ts-expect-error - cannot type correctly yet
     <Component
+      // @ts-expect-error - cannot type correctly yet
       className={cn(
         flexVariants({
           direction,
