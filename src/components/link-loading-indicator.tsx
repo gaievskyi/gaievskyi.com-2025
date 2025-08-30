@@ -2,6 +2,7 @@
 
 import { Spinner } from "@/components/ui/spinner"
 import { useLinkStatus } from "next/link"
+import { useSpinDelay } from "spin-delay"
 
 export function LinkLoadingIndicator({
   children,
@@ -9,5 +10,10 @@ export function LinkLoadingIndicator({
   children: React.ReactNode
 }) {
   const { pending } = useLinkStatus()
-  return pending ? <Spinner size="sm" className="mr-8 bg-current" /> : children
+  const showSpinner = useSpinDelay(pending, { delay: 250, minDuration: 100 })
+  return showSpinner ? (
+    <Spinner size="sm" className="mr-8 bg-current" />
+  ) : (
+    children
+  )
 }
