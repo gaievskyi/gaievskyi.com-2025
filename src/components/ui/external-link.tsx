@@ -1,10 +1,9 @@
 import { Icon } from "@/components/ui/icon"
 import { cn } from "@/lib/utils"
-import type { PropsWithChildren, ComponentProps } from "react"
+import type { ComponentProps, PropsWithChildren } from "react"
 
 export const ExternalLink = ({
   className,
-  iconClassName,
   children,
   ...props
 }: PropsWithChildren & ComponentProps<"a"> & { iconClassName?: string }) => (
@@ -17,12 +16,6 @@ export const ExternalLink = ({
     {...props}
   >
     {children}
-    <Icon
-      name="sprite:external-link"
-      className={cn(
-        "size-4 text-black/40 stroke-current dark:text-muted-foreground",
-        iconClassName,
-      )}
-    />
+    <Icon name="sprite:arrow2" className="text-sm" />
   </a>
 )
