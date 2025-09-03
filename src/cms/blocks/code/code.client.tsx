@@ -1,6 +1,6 @@
 "use client"
 
-import { CopyButton } from "@/components/buttons/copy-button"
+import { CopyButton } from "@/components/copy-button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useIsMountedState } from "@/hooks/use-is-mounted-state"
 import { useTheme } from "next-themes"

@@ -1,11 +1,11 @@
 import { CopyText } from "@/components/ui/copy-text"
 import { Flex } from "@/components/ui/layout/flex"
-import {
-  PreviewCard,
-  PreviewCardContent,
-  PreviewCardTrigger,
-} from "@/components/ui/preview-card"
 import { Separator } from "@/components/ui/separator"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { Text } from "@/components/ui/typography/text"
 
 export function FooterContent() {
@@ -24,11 +24,13 @@ export function FooterContent() {
           </Text>
         </Text>
       </Flex>
-      <PreviewCard>
-        <PreviewCardTrigger href="mailto:daniel@gaievskyi.com">
-          <Text size="sm">Contact</Text>
-        </PreviewCardTrigger>
-        <PreviewCardContent className="max-w-[180px]">
+      <Tooltip>
+        <TooltipTrigger>
+          <a href="mailto:daniel@gaievskyi.com">
+            <Text size="sm">Contact</Text>
+          </a>
+        </TooltipTrigger>
+        <TooltipContent className="max-w-[180px]">
           <Flex direction="col" gap="sm">
             <Text size="sm" color="muted">
               Twitter
@@ -40,8 +42,8 @@ export function FooterContent() {
             </Text>
             <CopyText content="daniel@gaievskyi.com" />
           </Flex>
-        </PreviewCardContent>
-      </PreviewCard>
+        </TooltipContent>
+      </Tooltip>
     </Flex>
   )
 }

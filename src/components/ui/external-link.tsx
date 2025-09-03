@@ -10,7 +10,7 @@ export const ExternalLink = ({
   <a
     target="_blank"
     className={cn(
-      "inline-flex group items-baseline gap-0.5 text-link no-underline transition-colors duration-200 hover:text-link-hover",
+      "inline-flex items-baseline gap-0.5 text-link no-underline transition-colors duration-200 hover:text-link-hover",
       className,
     )}
     {...props}

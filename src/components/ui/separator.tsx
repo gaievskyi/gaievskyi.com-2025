@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { Separator as BaseSeparator } from "@base-ui-components/react/separator"
 import { cva } from "class-variance-authority"
-import * as React from "react"
+import type { ComponentProps } from "react"
 
 const separatorVariants = cva(
   "shrink-0 data-[orientation=horizontal]:h-px data-[orientation=vertical]:w-px",
@@ -18,7 +18,7 @@ const separatorVariants = cva(
   },
 )
 
-type SeparatorProps = React.ComponentProps<typeof BaseSeparator> & {
+type SeparatorProps = ComponentProps<typeof BaseSeparator> & {
   dashed?: boolean
 }
 

@@ -1,5 +1,6 @@
 "use client"
 
+import { useTheme } from 'next-themes'
 import { Children, useEffect, useRef } from "react"
 
 type FuzzyTextProps = {
@@ -7,7 +8,6 @@ type FuzzyTextProps = {
   fontSize?: number | string
   fontWeight?: string | number
   fontFamily?: string
-  color?: string
   enableHover?: boolean
   baseIntensity?: number
   hoverIntensity?: number
@@ -18,11 +18,14 @@ function FuzzyText({
   fontSize = "clamp(2rem, 8vw, 8rem)",
   fontWeight = 900,
   fontFamily = "inherit",
-  color = "#fff",
   enableHover = true,
   baseIntensity = 0.18,
   hoverIntensity = 0.5,
 }: FuzzyTextProps) {
+  const { resolvedTheme } = useTheme()
+  const isDark = resolvedTheme === "dark"
+  const color = isDark ? "#fff" : "#000"
+
   const canvasRef = useRef<
     HTMLCanvasElement & { cleanupFuzzyText?: () => void }
   >(null)

@@ -1,7 +1,11 @@
 "use client"
 import { useScroll } from "@/hooks/use-scroll"
 import { cn } from "@/lib/utils"
-import { type HTMLMotionProps, motion } from "motion/react"
+import { type HTMLMotionProps, LazyMotion } from "motion/react"
+import * as m from "motion/react-m"
+
+const features = () =>
+  import("./lazy-motion-animations").then((mod) => mod.default)
 
 export const GRADIENT_ANGLES = {
   top: 0,
@@ -57,17 +61,18 @@ export function ProgressiveBlur({
         )})`
 
         return (
-          <motion.div
-            key={index}
-            className="pointer-events-none absolute inset-0 rounded-[inherit]"
-            style={{
-              maskImage: gradient,
-              WebkitMaskImage: gradient,
-              backdropFilter: `blur(${index * blurIntensity}px)`,
-              WebkitBackdropFilter: `blur(${index * blurIntensity}px)`,
-            }}
-            {...props}
-          />
+          <LazyMotion strict key={index} features={features}>
+            <m.div
+              className="pointer-events-none absolute inset-0 rounded-[inherit]"
+              style={{
+                maskImage: gradient,
+                WebkitMaskImage: gradient,
+                backdropFilter: `blur(${index * blurIntensity}px)`,
+                WebkitBackdropFilter: `blur(${index * blurIntensity}px)`,
+              }}
+              {...props}
+            />
+          </LazyMotion>
         )
       })}
     </div>

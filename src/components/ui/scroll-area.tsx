@@ -1,13 +1,13 @@
 import { cn } from "@/lib/utils"
 import { ScrollArea as BaseScrollArea } from "@base-ui-components/react/scroll-area"
-import * as React from "react"
+import type { ComponentProps } from "react"
 
 function ScrollArea({
   className,
   children,
   orientation,
   ...props
-}: React.ComponentProps<typeof BaseScrollArea.Root> & {
+}: ComponentProps<typeof BaseScrollArea.Root> & {
   orientation?: "horizontal" | "vertical"
 }) {
   return (
@@ -32,7 +32,7 @@ function ScrollBar({
   className,
   orientation = "vertical",
   ...props
-}: React.ComponentProps<typeof BaseScrollArea.Scrollbar>) {
+}: ComponentProps<typeof BaseScrollArea.Scrollbar>) {
   return (
     <BaseScrollArea.Scrollbar
       data-slot="scroll-area-scrollbar"

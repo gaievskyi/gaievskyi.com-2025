@@ -1,9 +1,12 @@
+import abstract1 from "@/../public/images/abstract-1.avif"
+import abstract2 from "@/../public/images/abstract-2.avif"
+import abstract3 from "@/../public/images/abstract-3.avif"
 import { ExternalLink } from "@/components/ui/external-link"
 import {
-  PreviewCard,
-  PreviewCardContent,
-  PreviewCardTrigger,
-} from "@/components/ui/preview-card"
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { Text } from "@/components/ui/typography/text"
 import Image from "next/image"
 
@@ -11,8 +14,8 @@ export function Socials() {
   return (
     <Text color="muted">
       You can find me on{" "}
-      <PreviewCard>
-        <PreviewCardTrigger
+      <Tooltip>
+        <TooltipTrigger
           render={
             <ExternalLink
               href="https://x.com/dgaievskyi"
@@ -22,14 +25,12 @@ export function Socials() {
             </ExternalLink>
           }
         />
-        <PreviewCardContent className="text-sm">
+        <TooltipContent className="text-sm">
           <Image
             loading="lazy"
-            width="250"
-            height="130"
-            src="/images/abstract-1.avif"
+            src={abstract1}
             alt="Station Hofplein signage in Rotterdam, Netherlands"
-            className="aspect-video rounded object-cover"
+            className="aspect-video h-[130px] w-full rounded object-cover"
           />
           <p className="my-2">I tweet tweets.</p>
           <a
@@ -39,11 +40,11 @@ export function Socials() {
           >
             @dgaievskyi
           </a>
-        </PreviewCardContent>
-      </PreviewCard>
+        </TooltipContent>
+      </Tooltip>
       ,{" "}
-      <PreviewCard>
-        <PreviewCardTrigger
+      <Tooltip>
+        <TooltipTrigger
           render={
             <ExternalLink
               href="https://t.me/designbeng"
@@ -53,14 +54,12 @@ export function Socials() {
             </ExternalLink>
           }
         />
-        <PreviewCardContent className="text-sm">
+        <TooltipContent className="text-sm">
           <Image
             loading="lazy"
-            width="250"
-            height="130"
-            src="/images/abstract-2.avif"
+            src={abstract2}
             alt="Station Hofplein signage in Rotterdam, Netherlands"
-            className="aspect-video rounded object-cover"
+            className="aspect-video h-[130px] w-full rounded object-cover"
           />
           <p className="my-2">I post posts.</p>
           <a
@@ -70,11 +69,11 @@ export function Socials() {
           >
             @designbeng
           </a>
-        </PreviewCardContent>
-      </PreviewCard>
+        </TooltipContent>
+      </Tooltip>
       , and{" "}
-      <PreviewCard>
-        <PreviewCardTrigger
+      <Tooltip>
+        <TooltipTrigger
           render={
             <ExternalLink
               href="https://github.com/gaievskyi"
@@ -84,14 +83,12 @@ export function Socials() {
             </ExternalLink>
           }
         />
-        <PreviewCardContent className="text-sm">
+        <TooltipContent className="text-sm">
           <Image
             loading="lazy"
-            width="250"
-            height="130"
-            src="/images/abstract-3.avif"
+            src={abstract3}
             alt="Station Hofplein signage in Rotterdam, Netherlands"
-            className="aspect-video rounded object-cover"
+            className="aspect-video h-[130px] w-full rounded object-cover"
           />
           <p className="my-2">I code codes.</p>
           <a
@@ -101,8 +98,8 @@ export function Socials() {
           >
             @gaievskyi
           </a>
-        </PreviewCardContent>
-      </PreviewCard>
+        </TooltipContent>
+      </Tooltip>
       .
     </Text>
   )
