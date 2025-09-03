@@ -1,4 +1,4 @@
-import { Code } from "./code.client"
+import { Code } from "./code-component"
 
 export type CodeBlockProps = {
   code: string

@@ -20,6 +20,9 @@ export function CopyButton({ text, tooltipSide, ...props }: CopyButtonProps) {
   const onClick: MouseEventHandler<HTMLButtonElement> = async (e) => {
     await navigator.clipboard.writeText(text)
     setIsCopied(true)
+    setTimeout(() => {
+      setIsCopied(false)
+    }, 1500)
     props.onClick?.(e)
   }
 

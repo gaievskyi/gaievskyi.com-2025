@@ -1,4 +1,4 @@
-import config from "../../../payload.config"
+import config from "@payload-config"
 import { getPayload } from "payload"
 import { cache as dedupe } from "react"
 import type { Project } from "../../../payload-types"

@@ -10,6 +10,9 @@ export function CopyText({ content }: { content: string }) {
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(content)
     setIsCopied(true)
+    setTimeout(() => {
+      setIsCopied(false)
+    }, 1500)
   }
 
   return (

@@ -1,6 +1,6 @@
 import { cacheTag } from "next/dist/server/use-cache/cache-tag"
 import type { Article } from "../../../payload-types"
-import config from "../../../payload.config"
+import config from "@payload-config"
 import { draftMode } from "next/headers"
 import { getPayload } from "payload"
 import { cache as dedupe } from "react"

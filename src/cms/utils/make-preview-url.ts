@@ -37,6 +37,6 @@ export const makePreviewURL = ({ collection, slug, req }: Props) => {
   }
 
   const protocol = isProduction ? "https:" : req.protocol
-  const url = `${protocol}//${req.host}/next/preview?${encodedParams.toString()}`
+  const url = `${protocol}//${req.host}/api/preview?${encodedParams.toString()}`
   return url
 }

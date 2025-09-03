@@ -20,7 +20,7 @@ export function DraftIndicator() {
 
   async function fetchDraftPreviewUser() {
     try {
-      const draftModeResponse = await fetch("/next/check-draft-mode", {
+      const draftModeResponse = await fetch("/api/check-draft-mode", {
         method: "GET",
       })
       if (!draftModeResponse.ok) {
@@ -73,8 +73,11 @@ export function DraftIndicator() {
       <div className="fixed top-4 right-4 z-50 rounded-full px-4 py-2 text-sm shadow-[rgba(0,_0,_0,_0.25)_0px_16px_32px_0px]">
         <div className="bg-card absolute inset-0 rounded-full" />
         <div className="relative flex items-center gap-2">
-          <span className="aspect-square h-3 animate-pulse rounded-full bg-yellow-500" />
-          <span className="text-white">Draft</span>
+          <div className="relative">
+            <div className="aspect-square size-3 animate-[spin_3s_linear_infinite] rounded-full border border-dashed border-yellow-500" />
+            <div className="absolute inset-0 aspect-square size-3 rounded-full border border-dashed border-yellow-500/30" />
+          </div>
+          <span className="text-current">Draft</span>
         </div>
       </div>
     </>

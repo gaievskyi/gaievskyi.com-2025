@@ -1,6 +1,6 @@
 "use client"
 
-import { useTheme } from 'next-themes'
+import { useTheme } from "next-themes"
 import { Children, useEffect, useRef } from "react"
 
 type FuzzyTextProps = {
