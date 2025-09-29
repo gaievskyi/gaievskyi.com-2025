@@ -1,5 +1,8 @@
-import "./env/env"
-// ^ validate env during build
+import { createJiti } from "jiti"
+const jiti = createJiti(import.meta.url)
+await jiti.import("./env/env")
+// ^ validate env
+
 import svg from "@neodx/svg/webpack"
 import { withPayload } from "@payloadcms/next/withPayload"
 import type { NextConfig } from "next"

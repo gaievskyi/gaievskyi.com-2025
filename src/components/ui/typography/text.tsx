@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 import { Slot } from "@radix-ui/react-slot"
-import type { PropsWithChildren } from "react"
+import type { ComponentProps, PropsWithChildren } from "react"
 import {
   typographyVariants,
   type TypographyVariants,
@@ -11,16 +11,30 @@ type TextBaseProps = PropsWithChildren & {
 }
 
 type TextAsChildProps = {
-  asChild: true
+  asChild?: boolean
   as?: never
 }
-type TextAsProps = {
-  as?: "span" | "div" | "label" | "sup" | "p"
-  asChild?: false
-}
-type TextProps = TextBaseProps &
-  TypographyVariants &
-  (TextAsChildProps | TextAsProps)
+type TextSpanProps = {
+  as?: "span"
+  asChild?: never
+} & ComponentProps<"span">
+type TextDivProps = {
+  as: "div"
+  asChild?: never
+} & ComponentProps<"div">
+type TextLabelProps = {
+  as: "label"
+  asChild?: never
+} & ComponentProps<"label">
+type TextSupProps = { as: "sup"; asChild?: never } & ComponentProps<"sup">
+type TextPProps = { as: "p"; asChild?: never } & ComponentProps<"p">
+type TextProps =
+  | TextAsChildProps
+  | TextSpanProps
+  | TextDivProps
+  | TextLabelProps
+  | TextPProps
+  | TextSupProps
 
 function Text({
   children,
@@ -32,10 +46,9 @@ function Text({
   italic = false,
   color = "default",
   ...textProps
-}: TextProps) {
-  const Component = asChild ? Slot : Tag
+}: TextProps & TextBaseProps & TypographyVariants) {
   return (
-    <Component
+    <Slot
       {...textProps}
       className={cn(
         "leading-normal tracking-normal",
@@ -43,8 +56,8 @@ function Text({
         className,
       )}
     >
-      {children}
-    </Component>
+      {asChild ? children : <Tag>{children}</Tag>}
+    </Slot>
   )
 }
 
