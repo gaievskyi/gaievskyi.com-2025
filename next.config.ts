@@ -1,3 +1,6 @@
+import "./env/env"
+// ^ validate env
+
 import svg from "@neodx/svg/webpack"
 import { withPayload } from "@payloadcms/next/withPayload"
 import type { NextConfig } from "next"
