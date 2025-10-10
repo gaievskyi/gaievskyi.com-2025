@@ -81,7 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </body>
       <LetHimCook />
       <SpeedInsights />
-      <Analytics />
+      <Analytics mode="production" />
     </html>
   )
 }
