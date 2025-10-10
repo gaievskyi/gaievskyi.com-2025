@@ -9,6 +9,7 @@ import { ProjectsVideoGrid } from "@/components/sections/projects-video-grid"
 import { Publications } from "@/components/sections/publications"
 import { Socials } from "@/components/sections/socials"
 import { Grid, GridItem } from "@/components/ui/layout/grid"
+import Script from "next/script"
 import { Suspense } from "react"
 import type { Person, WithContext } from "schema-dts"
 
@@ -33,13 +34,6 @@ export default function IndexPage() {
   const articlesPromise = getArticles()
   return (
     <>
-      <script
-        id="json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
       <Grid as="main">
         <GridItem
           as="header"
@@ -98,6 +92,13 @@ export default function IndexPage() {
           <FooterContent />
         </GridItem>
       </Grid>
+      <Script
+        id="json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
     </>
   )
 }

@@ -13,6 +13,7 @@ import { Text } from "@/components/ui/typography/text"
 import type { Metadata } from "next"
 import { draftMode } from "next/headers"
 import { notFound } from "next/navigation"
+import Script from "next/script"
 import type { Article, WithContext } from "schema-dts"
 
 export async function generateStaticParams() {
@@ -77,13 +78,6 @@ export default async function ArticlePage({
   const tocItems = generateTableOfContents(article.content)
   return (
     <>
-      <script
-        id="json-ld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleJsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
       <LivePreviewListener />
       {isDraft && <DraftIndicator />}
       <div className="relative min-h-screen">
@@ -131,6 +125,13 @@ export default async function ArticlePage({
           </Flex>
         </div>
       </div>
+      <Script
+        id="json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
     </>
   )
 }
