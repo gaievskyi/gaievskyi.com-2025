@@ -12,7 +12,8 @@
     "start": "next start",
     "typecheck": "tsc -p ./tsconfig.json --noEmit --emitDeclarationOnly false",
     "generate:importmap": "payload generate:importmap",
-    "generate:types": "payload generate:types"
+    "generate:types": "payload generate:types",
+    "generate:sprite": "bun scripts/build-sprite.ts"
   },
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-beta.4",

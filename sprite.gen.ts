@@ -291,7 +291,7 @@ export const sprites = defineSpriteMap([defineSprite(
      [24]
    ), defineSpriteSymbol(
      ["github"],
-     [24]
+     [32]
    ), defineSpriteSymbol(
      ["info"],
      [24]
@@ -347,7 +347,7 @@ export const sprites = defineSpriteMap([defineSprite(
      ["x"],
      [24]
    )],
-  defineExternalAssetMeta('sprite.f08663cc.svg')
+  defineExternalAssetMeta('sprite.f1213f0c.svg')
 )]
 )])
 
