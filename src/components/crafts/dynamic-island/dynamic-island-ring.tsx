@@ -1,22 +1,19 @@
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "motion/react"
 import { Icon } from "@/components/ui/icon"
+import { useTimeout } from "@/hooks/use-timeout"
+import { AnimatePresence, motion } from "motion/react"
+import { useState } from "react"
 
 export function DynamicIslandRing() {
   const [isSilent, setIsSilent] = useState(false)
   const [firstTime, setFirstTime] = useState(true)
 
-  useEffect(() => {
-    const id = setTimeout(
-      () => {
-        setFirstTime(false)
-        setIsSilent((s) => !s)
-      },
-      firstTime ? 1000 : 2000,
-    )
-
-    return () => clearTimeout(id)
-  }, [isSilent, firstTime])
+  useTimeout(
+    () => {
+      setFirstTime(false)
+      setIsSilent((s) => !s)
+    },
+    firstTime ? 1000 : 2000,
+  )
 
   return (
     <motion.div

@@ -3,10 +3,10 @@ import Image from "next/image"
 
 export function DynamicIslandCall() {
   return (
-    <div className="font-system flex w-[284px] items-center justify-between py-3 pr-3 pl-4">
+    <div className="font-system flex w-[300px] items-center justify-between py-3 pr-3 pl-4">
       {/* Profile Picture */}
       <div className="flex items-center gap-3">
-        <div className="size-9 flex-shrink-0 overflow-hidden rounded-full bg-gray-200">
+        <div className="size-10 shrink-0 overflow-hidden rounded-full bg-gray-200">
           <Image
             src="https://avatars.githubusercontent.com/u/91077711?v=4"
             alt="Makaroni"
@@ -35,10 +35,7 @@ export function DynamicIslandCall() {
           aria-label="Decline call"
           className="flex size-10 items-center justify-center rounded-full bg-[#ff453a] transition-colors hover:bg-[#ff3b30]"
         >
-          <Icon
-            name="sprite:phone"
-            className="size-5 rotate-[135deg] text-white"
-          />
+          <Icon name="sprite:phone" className="size-5 rotate-135 text-white" />
         </button>
 
         {/* Accept Button - Green */}

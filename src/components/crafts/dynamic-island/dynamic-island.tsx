@@ -1,7 +1,7 @@
 "use client"
 
-import { AnimatedBackground } from "@/components/animated-background"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AnimatePresence, motion, type Variants } from "motion/react"
 import { useState } from "react"
 import { DynamicIslandCall } from "./dynamic-island-call"
@@ -207,12 +207,9 @@ const VIEW_VARIANTS = [
 ] as const
 type ViewVariant = (typeof VIEW_VARIANTS)[number]
 
-const isViewVariant = (value: string | null): value is ViewVariant =>
-  typeof value === "string" && VIEW_VARIANTS.includes(value as ViewVariant)
-
 type DynamicIslandControlsProps = {
   view: ViewVariant
-  onViewSwitch: (newActiveId: string | null) => void
+  onViewSwitch: (view: ViewVariant) => void
 }
 
 function DynamicIslandControls({
@@ -223,29 +220,18 @@ function DynamicIslandControls({
     <div className="flex w-full items-center justify-center">
       <ScrollArea className="w-full">
         <div className="flex items-center justify-center px-2 pb-4">
-          <div className="flex w-fit items-center rounded-full border border-transparent bg-gray-100 p-1 shadow-sm backdrop-blur-xl dark:border-white/20 dark:bg-white/10 dark:shadow-lg">
-            <AnimatedBackground
-              defaultValue={view}
-              onValueChange={onViewSwitch}
-              className="rounded-full bg-white shadow-sm dark:bg-white/20"
-              transition={{
-                type: "spring",
-                bounce: 0.3,
-                duration: 0.3,
-              }}
-            >
-              {VIEW_VARIANTS.map((v) => (
-                <button
-                  key={v}
-                  data-id={v}
-                  type="button"
-                  className="relative p-2 text-xs font-medium whitespace-nowrap text-gray-600 capitalize transition-all duration-200 hover:text-gray-800 data-[checked=true]:text-gray-900 sm:px-4 sm:text-sm md:px-5 dark:text-white/70 dark:hover:text-white/90 dark:data-[checked=true]:text-white"
-                >
-                  {v}
-                </button>
+          <Tabs
+            value={view}
+            onValueChange={(value) => onViewSwitch(value as ViewVariant)}
+          >
+            <TabsList>
+              {VIEW_VARIANTS.map((view) => (
+                <TabsTrigger key={view} value={view} className="capitalize">
+                  {view}
+                </TabsTrigger>
               ))}
-            </AnimatedBackground>
-          </div>
+            </TabsList>
+          </Tabs>
         </div>
       </ScrollArea>
     </div>
@@ -284,11 +270,9 @@ export function DynamicIsland() {
   const [variantKey, setVariantKey] =
     useState<`${ViewVariant}-${ViewVariant}`>("idle-idle")
 
-  const switchView = (newActiveId: string | null) => {
-    if (isViewVariant(newActiveId)) {
-      setView(newActiveId)
-      setVariantKey(`${view}-${newActiveId}`)
-    }
+  const switchView = (newView: ViewVariant) => {
+    setView(newView)
+    setVariantKey(`${view}-${newView}`)
   }
 
   return (

@@ -1,7 +1,8 @@
 import { Icon } from "@/components/ui/icon"
+import { useInterval } from "@/hooks/use-inteval"
 import NumberFlow from "@number-flow/react"
 import { AnimatePresence, motion } from "motion/react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export function DynamicIslandTimer() {
   const [isPaused, setIsPaused] = useState(false)
@@ -16,9 +17,9 @@ export function DynamicIslandTimer() {
       >
         <AnimatePresence initial={false} mode="wait">
           {isPaused ? (
-            <Icon name="sprite:play" className="text-xl !text-[#FDB000]" />
+            <Icon name="sprite:play" className="text-xl text-[#FDB000]!" />
           ) : (
-            <Icon name="sprite:pause" className="text-xl !text-[#FDB000]" />
+            <Icon name="sprite:pause" className="text-xl text-[#FDB000]!" />
           )}
         </AnimatePresence>
       </motion.button>
@@ -38,22 +39,15 @@ export function DynamicIslandTimer() {
 function Counter({ paused }: { paused?: boolean }) {
   const [count, setCount] = useState(60)
 
-  useEffect(() => {
+  useInterval(() => {
     if (paused) return
-
-    const id = setInterval(() => {
-      setCount((c) => {
-        if (c === 0) {
-          return 60
-        }
-        return c - 1
-      })
-    }, 1000)
-
-    return () => {
-      clearInterval(id)
-    }
-  }, [paused])
+    setCount((c) => {
+      if (c === 0) {
+        return 60
+      }
+      return c - 1
+    })
+  }, 1000)
 
   return (
     <div className="font-system relative w-[64px] overflow-hidden text-3xl font-light whitespace-nowrap">

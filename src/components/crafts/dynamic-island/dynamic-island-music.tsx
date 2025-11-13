@@ -1,4 +1,5 @@
 import { Icon } from "@/components/ui/icon"
+import { cn } from "@/lib/utils"
 import Image from "next/image"
 import {
   useCallback,
@@ -51,12 +52,10 @@ export function DynamicIslandMusic() {
   const currentTrack = playlist[currentTrackIndex]
   const progress = (currentTime / currentTrack.duration) * 100
 
-  // Handle track transition with animation
   const handleTrackTransition = (newIndex: number, resetTime = true) => {
     setIsTransitioning(true)
     setProgressAnimating(true)
 
-    // After a brief delay, update the track info
     setTimeout(() => {
       setCurrentTrackIndex(newIndex)
       if (resetTime) {
@@ -65,26 +64,22 @@ export function DynamicIslandMusic() {
       setIsTransitioning(false)
     }, 150)
 
-    // Reset progress animation after transition
     setTimeout(() => {
       setProgressAnimating(false)
     }, 300)
   }
 
-  // Handle next track
   const handleNextTrack = useCallback(() => {
     const nextIndex =
       currentTrackIndex === playlist.length - 1 ? 0 : currentTrackIndex + 1
     handleTrackTransition(nextIndex)
   }, [currentTrackIndex])
 
-  // Auto-progress when playing
   useEffect(() => {
     if (isPlaying) {
       intervalRef.current = setInterval(() => {
         setCurrentTime((prev) => {
           if (prev >= currentTrack.duration) {
-            // Auto-advance to next track
             handleNextTrack()
             return 0
           }
@@ -105,27 +100,22 @@ export function DynamicIslandMusic() {
     }
   }, [isPlaying, currentTrack.duration, handleNextTrack])
 
-  // Handle play/pause toggle
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying)
   }
 
-  // Handle previous track
   const handlePreviousTrack = () => {
     if (currentTime > 10) {
-      // If more than 10 seconds in, restart current track with animation
       setProgressAnimating(true)
       setCurrentTime(0)
       setTimeout(() => setProgressAnimating(false), 300)
     } else {
-      // Go to previous track
       const prevIndex =
         currentTrackIndex === 0 ? playlist.length - 1 : currentTrackIndex - 1
       handleTrackTransition(prevIndex)
     }
   }
 
-  // Handle progress bar click to seek
   const handleProgressClick = (e: MouseEvent<HTMLDivElement>) => {
     const progressBar = e.currentTarget
     const rect = progressBar.getBoundingClientRect()
@@ -133,8 +123,6 @@ export function DynamicIslandMusic() {
     const progressBarWidth = rect.width
     const clickedProgress = (clickX / progressBarWidth) * 100
     const newTime = Math.floor((clickedProgress / 100) * currentTrack.duration)
-
-    // Add seeking animation
     setProgressAnimating(true)
     setCurrentTime(newTime)
     setTimeout(() => setProgressAnimating(false), 200)
@@ -146,9 +134,10 @@ export function DynamicIslandMusic() {
       <div className="flex items-center gap-3">
         {/* Album Art */}
         <div
-          className={`size-12 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 transition-all duration-300 ease-out ${
-            isTransitioning ? "scale-95 opacity-80" : "scale-100 opacity-100"
-          }`}
+          className={cn(
+            "size-12 shrink-0 overflow-hidden rounded-lg bg-linear-to-br from-orange-400 via-pink-500 to-purple-600 transition-all duration-300 ease-out",
+            isTransitioning ? "scale-95 opacity-80" : "scale-100 opacity-100",
+          )}
         >
           <Image
             src={currentTrack.cover}
@@ -162,11 +151,12 @@ export function DynamicIslandMusic() {
         {/* Song Info */}
         <div className="flex min-w-0 flex-col font-medium">
           <div
-            className={`font-system transition-all duration-300 ease-out ${
+            className={cn(
+              "font-system transition-all duration-300 ease-out",
               isTransitioning
                 ? "translate-x-2 transform opacity-0"
-                : "translate-x-0 transform opacity-100"
-            }`}
+                : "translate-x-0 transform opacity-100",
+            )}
           >
             <span className="block truncate text-sm leading-tight text-white">
               {currentTrack.title}
@@ -188,11 +178,12 @@ export function DynamicIslandMusic() {
           onClick={handleProgressClick}
         >
           <div
-            className={`h-full bg-[#707070] transition-all ${
+            className={cn(
+              "h-full bg-[#707070] transition-all",
               progressAnimating
                 ? "duration-300 ease-out"
-                : "duration-100 ease-linear"
-            }`}
+                : "duration-100 ease-linear",
+            )}
             style={{ width: `${progress}%` }}
           />
         </div>
