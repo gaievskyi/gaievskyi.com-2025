@@ -46,14 +46,12 @@ export function ComponentDemoLayout({
             align="center"
             justify="center"
             className={cn(
-              "overflow-hidden h-[380px] relative mt-10 rounded-xl outline-1 outline-[rgba(255,255,255,0.03)]",
+              "overflow-hidden [corner-shape:squircle] h-[380px] relative mt-10 rounded-3xl outline-1 outline-border",
+              decoratedBackground &&
+                "bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(0,0,0,0.05)_10px,rgba(0,0,0,0.03)_11px)]",
+              "dark:bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(255,255,255,0.03)_10px,rgba(255,255,255,0.03)_11px)]",
               className,
             )}
-            style={{
-              backgroundImage: decoratedBackground
-                ? "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.03) 10px, rgba(255, 255, 255, 0.03) 11px)"
-                : "none",
-            }}
           >
             {children}
           </Flex>

@@ -43,7 +43,7 @@ export function ThemeSwitch({ className }: { className?: string }) {
     <button
       onClick={onToggle}
       className={cn(
-        "inline-flex size-7 items-center justify-center rounded-md border border-border/50 bg-muted/50 shadow-xs backdrop-blur-xs transition-colors duration-200 hover:text-muted-foreground hover:bg-muted/70 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed",
+        "[corner-shape:squircle] inline-flex size-7 items-center justify-center rounded-xl border border-border/50 bg-muted/50 shadow-xs backdrop-blur-xs transition-colors duration-200 hover:text-muted-foreground hover:bg-muted/70 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed",
         className,
       )}
       aria-label="Toggle theme"

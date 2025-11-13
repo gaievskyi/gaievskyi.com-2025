@@ -1,7 +1,9 @@
 import BackgroundVideo from "next-video/background-video"
 import type { Asset } from "next-video/dist/assets.js"
-import { type PropsWithChildren } from "react"
-import { unstable_ViewTransition as ViewTransition } from "react"
+import {
+  unstable_ViewTransition as ViewTransition,
+  type PropsWithChildren,
+} from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -18,7 +20,7 @@ export function Video({ slug, src, className, blurDataUrl }: VideoProps) {
     <ViewTransition name={`video-${slug}`}>
       <div
         className={cn(
-          "rounded-xl size-full overflow-clip bg-transparent outline-solid outline-1 outline-border",
+          "rounded-3xl [corner-shape:squircle] size-full overflow-clip bg-transparent outline-solid outline-1 outline-border",
           className,
         )}
       >

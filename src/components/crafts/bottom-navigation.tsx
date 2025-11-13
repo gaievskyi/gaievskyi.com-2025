@@ -1,5 +1,5 @@
-import Link from "next/link"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 export type NavigationItem = {
   title: string
@@ -29,7 +29,7 @@ export function BottomNavigation({
         {previous ? (
           <Link
             href={previous.href}
-            className="flex items-center gap-3 rounded-lg p-4 transition-all hover:bg-accent/50 dark:hover:bg-accent/30"
+            className="flex items-center gap-3 rounded-lg p-4 transition-all [corner-shape:squircle] hover:bg-accent/50 dark:hover:bg-accent/30"
           >
             <div className="flex flex-col gap-1 text-left">
               <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
@@ -50,7 +50,7 @@ export function BottomNavigation({
         {next ? (
           <Link
             href={next.href}
-            className="group flex items-center justify-end gap-3 rounded-lg p-4 transition-all hover:bg-accent/50 dark:hover:bg-accent/30"
+            className="group flex items-center justify-end gap-3 rounded-lg p-4 transition-all [corner-shape:squircle] hover:bg-accent/50 dark:hover:bg-accent/30"
           >
             <div className="flex flex-col gap-1 text-right">
               <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
