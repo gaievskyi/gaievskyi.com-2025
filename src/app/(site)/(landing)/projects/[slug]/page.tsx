@@ -5,6 +5,7 @@ import { isVideo, videosMap } from "@/components/video/projects-videos"
 import { Video } from "@/components/video/video"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
+import { ProjectActions } from "./project-actions"
 import { ProjectContent } from "./project-content"
 
 export async function generateStaticParams() {
@@ -36,6 +37,9 @@ export default async function ProjectPage({
           <ProjectContent projectPromise={projectPromise} />
         </Suspense>
         <Video src={video} slug={slug} />
+        <Suspense>
+          <ProjectActions projectPromise={projectPromise} />
+        </Suspense>
       </Flex>
     </>
   )

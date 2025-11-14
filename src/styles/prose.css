@@ -23,7 +23,7 @@
   .article {
     @apply mb-16;
     @apply prose prose-base max-w-prose dark:prose-invert;
-    @apply prose-headings:font-medium prose-headings:leading-loose prose-headings:tracking-tight;
+    @apply prose-headings:font-medium prose-headings:leading-loose prose-headings:mt-20 prose-headings:tracking-tight;
     @apply prose-h1:text-lg prose-h2:text-lg prose-h3:text-lg prose-h4:text-lg;
     @apply prose-p:text-base prose-p:leading-7 prose-p:text-zinc-600 dark:prose-p:text-[#D3D3D2];
     @apply prose-a:text-zinc-600 dark:prose-a:text-[#D3D3D2] prose-a:font-normal;

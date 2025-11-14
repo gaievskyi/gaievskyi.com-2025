@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button"
+import { Flex } from "@/components/ui/layout/flex"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 
@@ -20,25 +22,28 @@ export function BottomNavigation({
   return (
     <nav
       className={cn(
-        "flex items-center mb-16 justify-between gap-4 border-t border-border pt-8 mt-12",
+        "flex items-center mb-16 justify-between border-t border-border pt-8 mt-12",
         className,
       )}
     >
       {/* Previous Link */}
       <div className="flex-1">
         {previous ? (
-          <Link
-            href={previous.href}
-            className="flex items-center gap-3 rounded-lg p-4 transition-all [corner-shape:squircle] hover:bg-accent/50 dark:hover:bg-accent/30"
-          >
-            <div className="flex flex-col gap-1 text-left">
-              <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                Previous
-              </span>
-              <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
-                {previous.title}
-              </span>
-            </div>
+          <Link href={previous.href}>
+            <Button
+              variant="ghost"
+              size="xl"
+              className="size-full justify-start"
+            >
+              <Flex direction="col" gap="sm">
+                <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                  Previous
+                </span>
+                <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
+                  {previous.title}
+                </span>
+              </Flex>
+            </Button>
           </Link>
         ) : (
           <div className="h-16" />
@@ -48,18 +53,17 @@ export function BottomNavigation({
       {/* Next Link */}
       <div className="flex-1">
         {next ? (
-          <Link
-            href={next.href}
-            className="group flex items-center justify-end gap-3 rounded-lg p-4 transition-all [corner-shape:squircle] hover:bg-accent/50 dark:hover:bg-accent/30"
-          >
-            <div className="flex flex-col gap-1 text-right">
-              <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-                Next
-              </span>
-              <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
-                {next.title}
-              </span>
-            </div>
+          <Link href={next.href}>
+            <Button variant="ghost" size="xl" className="size-full justify-end">
+              <Flex direction="col" gap="sm" align="end">
+                <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase ">
+                  Next
+                </span>
+                <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
+                  {next.title}
+                </span>
+              </Flex>
+            </Button>
           </Link>
         ) : (
           <div className="h-16" />

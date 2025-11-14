@@ -1,17 +1,8 @@
 "use client"
 
 import { AnimatedGroup } from "@/components/animated-group"
-import { Magnetic } from "@/components/magnetic"
-import { Button } from "@/components/ui/button"
-import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 import { Heading } from "@/components/ui/typography/heading"
-import Link from "next/link"
 import { use } from "react"
 import type { Project } from "../../../../../../payload-types"
 
@@ -27,7 +18,7 @@ const expandVariants = {
   item: {
     hidden: {
       opacity: 0,
-      y: 24,
+      y: 32,
       scale: 0.96,
       filter: "blur(4px)",
     },
@@ -55,7 +46,7 @@ export function ProjectContent({ projectPromise }: ProjectContentProps) {
   return (
     <AnimatedGroup
       variants={expandVariants}
-      className="mb-4 flex w-full items-center justify-between"
+      className="mb-4 flex w-full items-center"
     >
       <Flex direction="col" gap="xs">
         <Heading size="3xl" weight="medium">
@@ -71,36 +62,6 @@ export function ProjectContent({ projectPromise }: ProjectContentProps) {
             year: "numeric",
           })}
         </time>
-      </Flex>
-      <Flex gap="sm" className="mt-4">
-        {project.url && (
-          <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
-            <Link href={project.url} target="_blank">
-              <Button size="lg">
-                Try it out
-                <Icon name="sprite:arrow2" />
-              </Button>
-            </Link>
-          </Magnetic>
-        )}
-        {project.githubUrl && (
-          <Tooltip>
-            <TooltipTrigger
-              render={
-                <Button variant="ghost" size="icon">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icon name="sprite:github" className="mt-1" />
-                  </a>
-                </Button>
-              }
-            />
-            <TooltipContent side="right">Source code</TooltipContent>
-          </Tooltip>
-        )}
       </Flex>
     </AnimatedGroup>
   )
