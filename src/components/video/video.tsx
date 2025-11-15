@@ -20,7 +20,7 @@ export function Video({ slug, src, className, blurDataUrl }: VideoProps) {
     <ViewTransition name={`video-${slug}`}>
       <div
         className={cn(
-          "rounded-3xl [corner-shape:squircle] size-full overflow-clip bg-transparent outline-solid outline-1 outline-border",
+          "rounded-3xl corner-squircle size-full overflow-clip bg-transparent outline-solid outline-1 outline-border",
           className,
         )}
       >

@@ -6,13 +6,13 @@ import { Text } from "@/components/ui/typography/text"
 export function About() {
   return (
     <Flex direction="col" gap="xl">
-      <Text color="muted">
+      <Text color="muted" className="text-sm md:text-base">
         I’m drawn to experiments. I dive in fast, and explore broadly. Whether
         I’m shaping early ideas, refining products in production, or crafting
         visuals for one-off moments, I make sure everything feels and looks
         excellent.
       </Text>
-      <Text color="muted">
+      <Text color="muted" className="text-sm md:text-base">
         If you share this vision, and are looking for a partner to push your
         product forward, reach out at{" "}
         <ExternalLink
@@ -30,7 +30,7 @@ export function About() {
         </ExternalLink>
         .
       </Text>
-      <Heading as="h2" color="muted">
+      <Heading as="h2" color="muted" className="text-sm md:text-base">
         Based in Poland, available remotely worldwide.
       </Heading>
     </Flex>

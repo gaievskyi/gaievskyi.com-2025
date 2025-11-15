@@ -136,7 +136,7 @@ function Grid<T extends ElementType = "div">({
 
   const fluidCol: CSSProperties = {
     "--fluid-col":
-      "clamp(20px, calc(20px + (80 * ((100vw - 450px) / (1024 - 450)))), 100px)",
+      "clamp(0px, calc(20px + (80 * ((100vw - 450px) / (1024 - 450)))), 80px)",
   }
   const rows = Children.count(children)
 

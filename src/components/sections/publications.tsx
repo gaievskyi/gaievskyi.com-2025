@@ -31,22 +31,28 @@ export function Publications({ itemsPromise }: PublicationsProps) {
           <Link
             key={item.slug}
             href={`/blog/${item.slug}`}
-            className="group/item block py-2 transition-all duration-300 ease-out group-hover/items:blur-[2px] hover:!opacity-100 hover:!blur-none"
+            className="group/item block py-2 transition-all duration-300 ease-out group-hover/items:blur-[2px] hover:opacity-100! hover:blur-none!"
           >
             <Flex align="center" gap="sm">
               <LinkLoadingIndicator>
                 {item.publishedAt && (
-                  <Text as="span" color="muted" className="mr-3">
+                  <Text
+                    as="span"
+                    color="muted"
+                    className="mr-3 text-sm md:text-base"
+                  >
                     {Intl.DateTimeFormat("en-US", {
                       year: "numeric",
                     }).format(new Date(item.publishedAt))}
                   </Text>
                 )}
               </LinkLoadingIndicator>
-              <Text as="span">{item.title}</Text>
+              <Text as="span" className="text-sm md:text-base">
+                {item.title}
+              </Text>
               <Separator dashed />
               {item.publishedAt && (
-                <Text as="span" color="muted">
+                <Text as="span" color="muted" className="text-sm md:text-base">
                   {Intl.DateTimeFormat("en-US", {
                     month: "2-digit",
                     day: "2-digit",

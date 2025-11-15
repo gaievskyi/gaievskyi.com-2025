@@ -3,7 +3,7 @@ import { Text } from "@/components/ui/typography/text"
 
 export function Socials() {
   return (
-    <Text color="muted">
+    <Text color="muted" className="text-sm md:text-base">
       You can find me on{" "}
       <ExternalLink
         href="https://x.com/dgaievskyi"
