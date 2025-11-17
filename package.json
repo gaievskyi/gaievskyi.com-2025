@@ -16,7 +16,7 @@
     "generate:sprite": "bun scripts/build-sprite.ts"
   },
   "dependencies": {
-    "@base-ui-components/react": "^1.0.0-beta.4",
+    "@base-ui-components/react": "^1.0.0-beta.5",
     "@number-flow/react": "^0.5.10",
     "@payloadcms/db-postgres": "^3.64.0",
     "@payloadcms/live-preview-react": "^3.64.0",
