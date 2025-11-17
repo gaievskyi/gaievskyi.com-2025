@@ -111,7 +111,11 @@ export default async function ArticlePage({
           <Flex as="main" justify="center" className="px-6 lg:px-0">
             <article className="container w-full">
               <header className="mt-8 mb-20">
-                <Flex align="center" justify="between" className="mb-6">
+                <Flex
+                  align="start"
+                  justify="between"
+                  className="mb-6 flex-col gap-1 sm:flex-row sm:items-center"
+                >
                   <Breadcrumb>
                     <BreadcrumbList>
                       <BreadcrumbItem>
@@ -138,7 +142,7 @@ export default async function ArticlePage({
                   {article.publishedAt && (
                     <time
                       dateTime={article.publishedAt}
-                      className="text-xs text-muted-foreground sm:text-sm"
+                      className="text-xs text-muted-foreground sm:text-sm sm:whitespace-nowrap"
                     >
                       {Intl.DateTimeFormat(undefined, {
                         dateStyle: "long",
