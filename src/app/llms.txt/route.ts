@@ -37,7 +37,7 @@ export async function GET() {
         `[Radial Menu](${url}/crafts/radial-menu)`,
         `[Dynamic Island](${url}/crafts/dynamic-island)`,
         `[Vercel Badge](${url}/crafts/vercel-badge)`,
-        `[Family Wallet](${url}/crafts/family-wallet)`,
+        `[Family Transactions](${url}/crafts/family-transactions)`,
       ],
       projects: projects
         .map(

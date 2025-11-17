@@ -3,7 +3,7 @@
 import dynamicIslandVideo from "@/videos/dynamic-island.mp4"
 import fractionalSliderVideo from "@/videos/fractional-slider.mp4"
 import iosSliderVideo from "@/videos/ios-slider.mp4"
-import familyWallet from "@/videos/pending-wallet-transactions.mp4"
+import familyTransactions from "@/videos/pending-wallet-transactions.mp4"
 import radialMenuVideo from "@/videos/radial-menu.mp4"
 import vercelBadgeVideo from "@/videos/vercel-badge.mp4"
 
@@ -13,5 +13,5 @@ export const craftsMap = {
   "radial-menu": radialMenuVideo,
   "dynamic-island": dynamicIslandVideo,
   "vercel-badge": vercelBadgeVideo,
-  "family-wallet": familyWallet,
+  "family-transactions": familyTransactions,
 } as const

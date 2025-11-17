@@ -93,14 +93,14 @@ async function generateSitemap(): Promise<MetadataRoute.Sitemap> {
       ],
     },
     {
-      url: url + "/crafts/family-wallet",
+      url: url + "/crafts/family-transactions",
       lastModified: new Date(),
-      images: [craftsMap["family-wallet"].poster + "?time=0"],
+      images: [craftsMap["family-transactions"].poster + "?time=0"],
       videos: [
         {
-          title: "Family Wallet",
-          thumbnail_loc: craftsMap["family-wallet"].poster + "?time=0",
-          description: "Family wallet experiment",
+          title: "Family Transactions",
+          thumbnail_loc: craftsMap["family-transactions"].poster + "?time=0",
+          description: "Family transactions tracker",
         },
       ],
     },

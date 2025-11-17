@@ -47,8 +47,8 @@ export default function VercelBadgePage() {
         title="Vercel Badge"
         date="June 2024"
         previous={{
-          title: "Family Wallet",
-          href: "/crafts/family-wallet",
+          title: "Family Transactions",
+          href: "/crafts/family-transactions",
         }}
         next={{
           title: "Dynamic Island",

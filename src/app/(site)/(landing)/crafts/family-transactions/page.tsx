@@ -1,20 +1,20 @@
 import { ComponentDemoLayout } from "@/components/crafts/component-demo-layout"
-import { FamilyWallet } from "@/components/crafts/family-wallet"
+import { FamilyTransactions } from "@/components/crafts/family-transactions"
 import { craftsMap } from "@/components/video/crafts-videos"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Family Wallet",
-  description: "Family Wallet",
+  title: "Family Transactions",
+  description: "Family Transactions",
   openGraph: {
     siteName: "@dgaievskyi",
-    title: "Family Wallet",
+    title: "Family Transactions",
     type: "website",
-    url: "/crafts/family-wallet",
+    url: "/crafts/family-transactions",
     images: [
       {
-        url: craftsMap["family-wallet"].poster + "?time=0",
-        alt: "Family Wallet",
+        url: craftsMap["family-transactions"].poster + "?time=0",
+        alt: "Family Transactions",
         width: 1920,
         height: 1080,
       },
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   twitter: {
     images: [
       {
-        url: craftsMap["family-wallet"].poster + "?time=0",
-        alt: "Family Wallet",
+        url: craftsMap["family-transactions"].poster + "?time=0",
+        alt: "Family Transactions",
         width: 1920,
         height: 1080,
       },
     ],
     card: "summary_large_image",
-    title: "Family Wallet",
+    title: "Family Transactions",
     creator: "@dgaievskyi",
   },
 }
@@ -38,15 +38,16 @@ export const metadata: Metadata = {
 export default function FamilyWalletPage() {
   return (
     <ComponentDemoLayout
-      title="Family Wallet"
+      title="Family Transactions"
       date="January 2024"
       next={{
         title: "Vercel Badge",
         href: "/crafts/vercel-badge",
       }}
-      slug="family-wallet"
+      slug="family-transactions"
+      className="items-start pt-4"
     >
-      <FamilyWallet />
+      <FamilyTransactions />
     </ComponentDemoLayout>
   )
 }
