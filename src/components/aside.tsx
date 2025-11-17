@@ -54,7 +54,7 @@ export function Aside({ children, expandable = false }: AsideProps) {
       <div className="relative h-full w-60 rounded-r-3xl border-r bg-background/95 backdrop-blur-sm py-6 px-6">
         <Toggle
           onClick={pin}
-          className="absolute top-1/2 -right-8 -translate-y-2/3 rounded-r-xl flex items-center gap-2 px-0 py-12 rounded-l-none before:rounded-l-none border-y border-r bg-background/95 border-border"
+          className="absolute top-1/2 delay-100 transition-colors -right-8 -translate-y-2/3 rounded-r-xl flex items-center gap-2 px-0 py-12 rounded-l-none before:rounded-l-none border-y border-r bg-background/95 border-border"
         >
           <Icon name="sprite:ellipsis-vertical" className="size-6!" />
         </Toggle>
