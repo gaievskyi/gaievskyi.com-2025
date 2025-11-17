@@ -68,7 +68,7 @@ export function ProjectContent({ projectPromise }: ProjectContentProps) {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbPage>
-                <Heading size="lg" weight="medium" className="tracking-tight">
+                <Heading weight="medium" className="tracking-tight">
                   {project.title}
                 </Heading>
               </BreadcrumbPage>

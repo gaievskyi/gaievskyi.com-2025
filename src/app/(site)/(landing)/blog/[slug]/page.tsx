@@ -128,11 +128,7 @@ export default async function ArticlePage({
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
                         <BreadcrumbPage>
-                          <Heading
-                            size="lg"
-                            weight="medium"
-                            className="tracking-tight"
-                          >
+                          <Heading weight="medium" className="tracking-tight">
                             {article.title}
                           </Heading>
                         </BreadcrumbPage>
