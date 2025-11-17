@@ -1,4 +1,5 @@
 import { LinkLoadingIndicator } from "@/components/link-loading-indicator"
+import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
 import { Separator } from "@/components/ui/separator"
 import { Heading } from "@/components/ui/typography/heading"
@@ -36,15 +37,21 @@ export function Publications({ itemsPromise }: PublicationsProps) {
             <Flex align="center" gap="sm">
               <LinkLoadingIndicator>
                 {item.publishedAt && (
-                  <Text
-                    as="span"
-                    color="muted"
-                    className="mr-3 text-sm md:text-base"
-                  >
-                    {Intl.DateTimeFormat("en-US", {
-                      year: "numeric",
-                    }).format(new Date(item.publishedAt))}
-                  </Text>
+                  <div className="relative overflow-clip mr-3 inline-flex items-center justify-center text-sm md:text-base">
+                    <Text
+                      as="span"
+                      color="muted"
+                      className="transition-all duration-300 ease-out group-hover/item:-translate-x-full "
+                    >
+                      {Intl.DateTimeFormat("en-US", {
+                        year: "numeric",
+                      }).format(new Date(item.publishedAt))}
+                    </Text>
+                    <Icon
+                      name="sprite:arrow2"
+                      className="absolute text-xl translate-x-full opacity-0 transition-[translate,opacity] duration-250 ease-out group-hover/item:translate-x-0 group-hover/item:opacity-100"
+                    />
+                  </div>
                 )}
               </LinkLoadingIndicator>
               <Text as="span" className="text-sm md:text-base">
