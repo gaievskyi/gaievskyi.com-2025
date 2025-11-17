@@ -43,6 +43,12 @@
   --animate-spinner-leaf-fade: spinner-leaf-fade 700ms linear infinite;
   --animate-skeleton-wave: skeleton-wave 1.3s ease-in-out infinite;
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning: var(--warning);
+  --color-success-foreground: var(--success-foreground);
+  --color-success: var(--success);
+  --color-info-foreground: var(--info-foreground);
+  --color-info: var(--info);
 }
 
 @theme {
@@ -93,6 +99,12 @@
   --ios-slider-bg: oklch(0.7 0 0);
   --ios-sun: oklch(0.85 0.15 85);
   --destructive-foreground: var(--color-red-700);
+  --info: var(--color-blue-500);
+  --info-foreground: var(--color-blue-700);
+  --success: var(--color-emerald-500);
+  --success-foreground: var(--color-emerald-700);
+  --warning: var(--color-amber-500);
+  --warning-foreground: var(--color-amber-700);
 }
 
 .dark {
@@ -120,6 +132,12 @@
   --iphone-border: oklch(0.25 0 0);
   --ios-slider-bg: oklch(0.3 0 0);
   --destructive-foreground: var(--color-red-400);
+  --info: var(--color-blue-500);
+  --info-foreground: var(--color-blue-400);
+  --success: var(--color-emerald-500);
+  --success-foreground: var(--color-emerald-400);
+  --warning: var(--color-amber-500);
+  --warning-foreground: var(--color-amber-400);
 }
 
 @utility container {

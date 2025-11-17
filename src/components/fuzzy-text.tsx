@@ -20,7 +20,7 @@ function FuzzyText({
   fontWeight = 900,
   fontFamily = "inherit",
   enableHover = true,
-  baseIntensity = 0.18,
+  baseIntensity = 0.2,
   hoverIntensity = 0.5,
   className,
 }: FuzzyTextProps) {
@@ -49,7 +49,7 @@ function FuzzyText({
 
       const computedFontFamily =
         fontFamily === "inherit"
-          ? globalThis.getComputedStyle(canvas).fontFamily || "sans-serif"
+          ? getComputedStyle(canvas).fontFamily || "sans-serif"
           : fontFamily
 
       const fontSizeStr =
@@ -61,7 +61,7 @@ function FuzzyText({
         const temp = document.createElement("span")
         temp.style.fontSize = fontSize
         document.body.append(temp)
-        const computedSize = globalThis.getComputedStyle(temp).fontSize
+        const computedSize = getComputedStyle(temp).fontSize
         numericFontSize = Number.parseFloat(computedSize)
         temp.remove()
       }
@@ -134,7 +134,7 @@ function FuzzyText({
             1,
           )
         }
-        animationFrameId = globalThis.requestAnimationFrame(run)
+        animationFrameId = requestAnimationFrame(run)
       }
 
       run()
@@ -181,7 +181,7 @@ function FuzzyText({
       }
 
       const cleanup = () => {
-        globalThis.cancelAnimationFrame(animationFrameId)
+        cancelAnimationFrame(animationFrameId)
         if (enableHover) {
           canvas.removeEventListener("mousemove", handleMouseMove)
           canvas.removeEventListener("mouseleave", handleMouseLeave)
@@ -197,7 +197,7 @@ function FuzzyText({
 
     return () => {
       isCancelled = true
-      globalThis.cancelAnimationFrame(animationFrameId)
+      cancelAnimationFrame(animationFrameId)
       if (canvas && canvas.cleanupFuzzyText) {
         canvas.cleanupFuzzyText()
       }

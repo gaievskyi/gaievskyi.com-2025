@@ -14,12 +14,15 @@ export default function NotFoundPage() {
           This page does not exist or has been removed.
         </p>
         <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
-          <Link href="/">
-            <Button size="lg">
-              <span>Go home</span>
-              <Icon name="sprite:arrow2" />
-            </Button>
-          </Link>
+          <Button
+            size="lg"
+            render={
+              <Link href="/">
+                <span>Go home</span>
+                <Icon name="sprite:arrow2" />
+              </Link>
+            }
+          />
         </Magnetic>
       </Flex>
     </main>
