@@ -32,10 +32,10 @@ function TabsList({
       style={
         {
           "--tabs-padding": "2px",
-          "--tabs-outer-radius": "var(--radius-md)",
-          "--tabs-outer-radius-squircle": "var(--radius-lg)",
-          "--tabs-inner-radius": `calc(var(--radius-md) - var(--tabs-padding))`,
-          "--tabs-inner-radius-squircle": `calc(var(--radius-lg) - var(--tabs-padding))`,
+          "--tabs-outer-radius": "var(--radius-lg)",
+          "--tabs-outer-radius-squircle": "var(--radius-xl)",
+          "--tabs-inner-radius": `calc(var(--radius-lg) - var(--tabs-padding))`,
+          "--tabs-inner-radius-squircle": `calc(var(--radius-xl) - var(--tabs-padding))`,
         } as React.CSSProperties
       }
       className={cn(

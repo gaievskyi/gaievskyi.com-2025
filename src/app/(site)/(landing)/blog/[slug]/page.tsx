@@ -3,7 +3,7 @@ import { getArticle, getArticlesSlugs } from "@/cms/data-access/articles"
 import { DraftIndicator } from "@/cms/draft-indicator"
 import { LivePreviewListener } from "@/cms/live-preview-listener"
 import { RichText } from "@/cms/rich-text"
-import { BackAside } from "@/components/back-aside"
+import { Aside } from "@/components/aside"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,11 +12,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { Icon } from "@/components/ui/icon"
 import { Illustration } from "@/components/ui/illustration"
 import { Flex } from "@/components/ui/layout/flex"
 import { generateTableOfContents } from "@/components/ui/table-of-contents/generate-toc"
 import { TableOfContents } from "@/components/ui/table-of-contents/table-of-contents"
 import { Heading } from "@/components/ui/typography/heading"
+import { Text } from "@/components/ui/typography/text"
 import type { Metadata } from "next"
 import { draftMode } from "next/headers"
 import Link from "next/link"
@@ -90,23 +92,22 @@ export default async function ArticlePage({
       {isDraft && <DraftIndicator />}
       <div className="relative min-h-screen">
         <div className="px-4 pt-4 lg:hidden">
-          <BackAside>
+          <Aside>
             <TableOfContents
               containerSelector="article"
               items={tocItems}
               className="py-8"
             />
-          </BackAside>
+          </Aside>
         </div>
         <div className="pb-28 lg:grid lg:grid-cols-[280px_1fr_280px] lg:gap-6 lg:px-6 lg:pt-4">
           <div className="hidden lg:block">
-            <BackAside>
-              <TableOfContents
-                containerSelector="article"
-                className="mt-32"
-                items={tocItems}
-              />
-            </BackAside>
+            <Aside expandable>
+              <Text size="sm" weight="medium" className="mb-8 ml-4">
+                Reading "{article.title}"
+              </Text>
+              <TableOfContents containerSelector="article" items={tocItems} />
+            </Aside>
           </div>
           <Flex as="main" justify="center" className="px-6 lg:px-0">
             <article className="container w-full">
@@ -120,6 +121,7 @@ export default async function ArticlePage({
                     <BreadcrumbList>
                       <BreadcrumbItem>
                         <BreadcrumbLink render={<Link href="/" />}>
+                          <Icon name="sprite:arrow-back" className="size-4.5" />{" "}
                           Index
                         </BreadcrumbLink>
                       </BreadcrumbItem>

@@ -214,7 +214,7 @@ export function TableOfContents({
           }}
           style={{ overflow: "hidden" }}
         >
-          <ScrollArea className="h-fit max-h-[60svh] pt-4 lg:pt-24">
+          <ScrollArea className="h-fit max-h-[60svh]">
             <div className="space-y-1 pr-3">
               {items.map((item) => (
                 <TocItem

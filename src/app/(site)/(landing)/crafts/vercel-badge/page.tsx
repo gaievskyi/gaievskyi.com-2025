@@ -54,7 +54,7 @@ export default function VercelBadgePage() {
           title: "Dynamic Island",
           href: "/crafts/dynamic-island",
         }}
-        className="mt-32"
+        className="h-[550px]"
       >
         {null}
       </ComponentDemoLayout>

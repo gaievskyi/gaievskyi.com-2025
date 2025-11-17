@@ -9,6 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
 import Link from "next/link"
@@ -55,13 +56,15 @@ export function ProjectContent({ projectPromise }: ProjectContentProps) {
   return (
     <AnimatedGroup
       variants={expandVariants}
-      className="mb-4 flex w-full items-center"
+      className="flex w-full flex-col justify-between mb-4"
     >
-      <Flex direction="col" gap="xs">
+      <Flex gap="sm" align="center" justify="between">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink render={<Link href="/" />}>Index</BreadcrumbLink>
+              <BreadcrumbLink render={<Link href="/" />}>
+                <Icon name="sprite:arrow-back" className="size-4.5" /> Index
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>Projects</BreadcrumbItem>
