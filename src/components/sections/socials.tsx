@@ -13,7 +13,7 @@ export function Socials() {
       </ExternalLink>
       ,{" "}
       <ExternalLink
-        href="https://t.me/designbeng"
+        href="https://t.me/cybermysh"
         className="dark:text-foreground dark:hover:text-white"
       >
         Telegram
