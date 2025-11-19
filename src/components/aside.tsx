@@ -20,7 +20,7 @@ export function Aside({ children, expandable = false }: AsideProps) {
 
   if (!expandable) {
     return (
-      <aside className="isolate z-51 h-fit lg:fixed lg:top-10 lg:left-2 lg:ml-2">
+      <aside className="isolate z-51 h-fit  lg:left-2 lg:ml-2">
         {children}
         <div className="fixed top-11 left-7 z-51 hidden sm:block">
           <ThemeSwitch />
@@ -50,7 +50,7 @@ export function Aside({ children, expandable = false }: AsideProps) {
 
   return (
     <aside
-      className="group isolate z-51 h-full lg:fixed lg:top-0 lg:left-0 -translate-x-[280px] lg:-translate-x-[250px] transition-transform duration-700 data-[state=collapsed]:duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform data-[state=expanded]:translate-x-0"
+      className="group isolate z-51 h-full lg:fixed lg:top-0 lg:left-0 -translate-x-[260px] transition-transform duration-700 data-[state=collapsed]:duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform data-[state=expanded]:translate-x-0"
       data-state={state}
       onMouseEnter={expand}
       onMouseLeave={collapse}

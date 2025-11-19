@@ -92,7 +92,7 @@ export default async function ArticlePage({
       {isDraft && <DraftIndicator />}
       <div className="relative min-h-screen">
         <div className="pb-28 lg:grid lg:grid-cols-[280px_1fr_280px] lg:gap-6 lg:px-6 lg:pt-4">
-          <div className="fixed z-51 left-0 top-0  lg:static block">
+          <div className="fixed z-51 left-0 top-0 lg:static hidden md:block">
             <Aside expandable>
               <Text size="sm" weight="medium" className="mb-4 mt-6">
                 {article.title}
@@ -102,6 +102,11 @@ export default async function ArticlePage({
           </div>
           <Flex as="main" justify="center" className="px-6 lg:px-0">
             <article className="container w-full">
+              <TableOfContents
+                containerSelector="article"
+                items={tocItems}
+                className="py-8 md:hidden"
+              />
               <header className="mt-8 mb-20">
                 <Flex
                   align="start"
