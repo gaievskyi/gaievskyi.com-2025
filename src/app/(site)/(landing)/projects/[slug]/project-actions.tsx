@@ -3,13 +3,13 @@
 import { AnimatedGroup } from "@/components/animated-group"
 import { Magnetic } from "@/components/magnetic"
 import { Button } from "@/components/ui/button"
+import { HapticLink } from "@/components/ui/haptic-link"
 import { Icon } from "@/components/ui/icon"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import Link from "next/link"
 import { use } from "react"
 import type { Project } from "../../../../../../payload-types"
 
@@ -57,12 +57,12 @@ export function ProjectActions({ projectPromise }: ProjectActionsProps) {
     >
       {project.url && (
         <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
-          <Link href={project.url} target="_blank">
+          <HapticLink href={project.url} target="_blank">
             <Button size="lg">
               Try it out
               <Icon name="sprite:arrow2" />
             </Button>
-          </Link>
+          </HapticLink>
         </Magnetic>
       )}
       {project.githubUrl && (

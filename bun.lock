@@ -33,6 +33,7 @@
         "react-dom": "19.2.0",
         "shiki": "^3.15.0",
         "spin-delay": "^2.0.1",
+        "tactus": "^0.0.3",
         "three": "^0.181.1",
         "zod": "^4.1.12",
       },
@@ -2068,6 +2069,8 @@
     "synckit": ["synckit@0.11.11", "", { "dependencies": { "@pkgr/core": "^0.2.9" } }, "sha512-MeQTA1r0litLUf0Rp/iisCaL8761lKAZHaimlbGK4j0HysC4PLfqygQj9srcs0m2RdtDYnF8UuYyKpbjHYp7Jw=="],
 
     "tabbable": ["tabbable@6.3.0", "", {}, "sha512-EIHvdY5bPLuWForiR/AN2Bxngzpuwn1is4asboytXtpTgsArc+WmSJKVLlhdh71u7jFcryDqB2A8lQvj78MkyQ=="],
+
+    "tactus": ["tactus@0.0.3", "", {}, "sha512-P7sEp/QcdNwJh8QIZoCc86rFDWRWATn7eySNdoSqjR4MR+fqlVDd8uCJqHi26OvZKdAUkjYwJ/M6+ZzZ83I6rw=="],
 
     "tailwind-api-utils": ["tailwind-api-utils@1.0.3", "", { "dependencies": { "enhanced-resolve": "^5.18.1", "jiti": "^2.4.2", "local-pkg": "^1.1.1" }, "peerDependencies": { "tailwindcss": "^3.3.0 || ^4.0.0 || ^4.0.0-beta" } }, "sha512-KpzUHkH1ug1sq4394SLJX38ZtpeTiqQ1RVyFTTSY2XuHsNSTWUkRo108KmyyrMWdDbQrLYkSHaNKj/a3bmA4sQ=="],
 

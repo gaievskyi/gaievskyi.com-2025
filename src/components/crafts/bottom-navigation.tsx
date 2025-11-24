@@ -26,7 +26,6 @@ export function BottomNavigation({
         className,
       )}
     >
-      {/* Previous Link */}
       <div className="flex-1">
         {previous ? (
           <Link href={previous.href}>
@@ -49,8 +48,6 @@ export function BottomNavigation({
           <div className="h-16" />
         )}
       </div>
-
-      {/* Next Link */}
       <div className="flex-1">
         {next ? (
           <Link href={next.href}>

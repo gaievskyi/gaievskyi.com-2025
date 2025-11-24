@@ -9,10 +9,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { HapticLink } from "@/components/ui/haptic-link"
 import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
-import Link from "next/link"
 import { use } from "react"
 import type { Project } from "../../../../../../payload-types"
 
@@ -62,7 +62,7 @@ export function ProjectContent({ projectPromise }: ProjectContentProps) {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink render={<Link href="/" />}>
+              <BreadcrumbLink render={<HapticLink href="/" />}>
                 <Icon name="sprite:arrow-back" className="size-4.5" /> Index
               </BreadcrumbLink>
             </BreadcrumbItem>

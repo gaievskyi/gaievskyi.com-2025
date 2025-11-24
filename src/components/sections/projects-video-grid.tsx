@@ -1,8 +1,8 @@
+import { HapticLink } from "@/components/ui/haptic-link"
 import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
 import { videosMap } from "@/components/video/projects-videos"
 import { Video } from "@/components/video/video"
-import Link from "next/link"
 
 const videos = Object.entries(videosMap)
 
@@ -21,13 +21,13 @@ export function ProjectsVideoGrid() {
             key={slug}
             className="pointer-events-auto transition-opacity duration-300 ease-out group-hover:opacity-50 hover:opacity-100!"
           >
-            <Link
+            <HapticLink
               href={`/projects/${slug}`}
               aria-label={`Explore project ${slug}`}
               className="video-link block rounded-xl"
             >
               <Video src={video} slug={slug} />
-            </Link>
+            </HapticLink>
           </div>
         ))}
       </div>

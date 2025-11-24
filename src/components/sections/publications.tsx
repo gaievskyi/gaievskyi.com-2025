@@ -1,13 +1,9 @@
 import { getArticles } from "@/cms/data-access/articles"
-import { LinkLoadingIndicator } from "@/components/link-loading-indicator"
-import { PublicationsSkeletons } from "@/components/publications-skeletons"
-import { Icon } from "@/components/ui/icon"
-import { Flex } from "@/components/ui/layout/flex"
+import { PublicationItem } from "@/components/sections/publication-item"
 import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
-import Link from "next/link"
 import { Suspense, use } from "react"
 
 export function Publications() {
@@ -24,55 +20,28 @@ export function Publications() {
           </Text>
         </Suspense>
       </Heading>
-      <Suspense fallback={<PublicationsSkeletons count={items.length} />}>
-        <div className="group/items">
-          {items.map((item) => (
-            <Link
-              key={item.slug}
-              href={`/blog/${item.slug}`}
-              className="group/item block py-2 transition-all duration-300 ease-out group-hover/items:blur-[2px] hover:opacity-100! hover:blur-none!"
-            >
-              <Flex align="center" gap="sm">
-                <LinkLoadingIndicator>
-                  {item.publishedAt && (
-                    <div className="relative overflow-clip mr-3 inline-flex items-center justify-center text-sm md:text-base">
-                      <Text
-                        as="span"
-                        color="muted"
-                        className="transition-all duration-300 ease-out group-hover/item:-translate-x-full "
-                      >
-                        {Intl.DateTimeFormat("en-US", {
-                          year: "numeric",
-                        }).format(new Date(item.publishedAt))}
-                      </Text>
-                      <Icon
-                        name="sprite:arrow2"
-                        className="absolute text-xl translate-x-full opacity-0 transition-[translate,opacity] duration-250 ease-out group-hover/item:translate-x-0 group-hover/item:opacity-100"
-                      />
-                    </div>
-                  )}
-                </LinkLoadingIndicator>
-                <Text as="span" className="text-sm md:text-base">
-                  {item.title}
-                </Text>
+      <div className="group/items">
+        <Suspense
+          fallback={Array.from({ length: items.length }).map((_, index) => (
+            <div key={index} className="py-2">
+              <div className="flex items-center gap-4">
+                {/* Year */}
+                <Skeleton className="h-5 md:h-6 w-9 md:w-10 shrink-0" />
+                {/* Title */}
+                <Skeleton className="md:h-6 h-5 shrink-0 w-32 md:w-38" />
+                {/* Dashed line */}
                 <Separator dashed />
-                {item.publishedAt && (
-                  <Text
-                    as="span"
-                    color="muted"
-                    className="text-sm md:text-base"
-                  >
-                    {Intl.DateTimeFormat("en-US", {
-                      month: "2-digit",
-                      day: "2-digit",
-                    }).format(new Date(item.publishedAt))}
-                  </Text>
-                )}
-              </Flex>
-            </Link>
+                {/* Date */}
+                <Skeleton className="md:h-6 h-5 w-9 md:w-11 shrink-0" />
+              </div>
+            </div>
           ))}
-        </div>
-      </Suspense>
+        >
+          {items.map((item) => (
+            <PublicationItem key={item.id} {...item} />
+          ))}
+        </Suspense>
+      </div>
     </>
   )
 }

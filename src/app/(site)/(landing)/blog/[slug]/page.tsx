@@ -12,6 +12,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { HapticLink } from "@/components/ui/haptic-link"
 import { Icon } from "@/components/ui/icon"
 import { Illustration } from "@/components/ui/illustration"
 import { Flex } from "@/components/ui/layout/flex"
@@ -21,7 +22,6 @@ import { Heading } from "@/components/ui/typography/heading"
 import { Text } from "@/components/ui/typography/text"
 import type { Metadata } from "next"
 import { draftMode } from "next/headers"
-import Link from "next/link"
 import { notFound } from "next/navigation"
 import Script from "next/script"
 import type { Article, WithContext } from "schema-dts"
@@ -116,7 +116,7 @@ export default async function ArticlePage({
                   <Breadcrumb>
                     <BreadcrumbList>
                       <BreadcrumbItem>
-                        <BreadcrumbLink render={<Link href="/" />}>
+                        <BreadcrumbLink render={<HapticLink href="/" />}>
                           <Icon name="sprite:arrow-back" className="size-4.5" />{" "}
                           Index
                         </BreadcrumbLink>

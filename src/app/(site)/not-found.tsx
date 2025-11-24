@@ -1,9 +1,9 @@
 import { Magnetic } from "@/components/magnetic"
 import { NotFound } from "@/components/not-found"
 import { Button } from "@/components/ui/button"
+import { HapticLink } from "@/components/ui/haptic-link"
 import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
-import Link from "next/link"
 
 export default function NotFoundPage() {
   return (
@@ -17,10 +17,10 @@ export default function NotFoundPage() {
           <Button
             size="lg"
             render={
-              <Link href="/">
+              <HapticLink href="/">
                 <span>Go home</span>
                 <Icon name="sprite:arrow2" />
-              </Link>
+              </HapticLink>
             }
           />
         </Magnetic>
