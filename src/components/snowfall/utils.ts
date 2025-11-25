@@ -8,6 +8,9 @@ interface Particle {
   readonly rotation: number
   readonly rotationSpeed: number
   readonly sinOffset: number
+  readonly complexity: number // 0-1: simple circle to detailed snowflake
+  readonly flutter: number // wobble effect
+  readonly depth: number // 0-1: affects blur and parallax
 }
 
 interface Dimensions {
@@ -43,13 +46,15 @@ const CONFIG = {
   melt: { intervalFrames: 30, spots: 15, rate: 0.1 },
   smooth: { intervalFrames: 5, weight: 0.7, neighborWeight: 0.15 },
   particle: {
-    radius: { min: 1.5, max: 4 },
-    speed: { min: 0.3, max: 1.1 },
-    wind: { min: -0.3, max: 0.3 },
-    opacity: { min: 0.6, max: 1 },
-    rotation: { min: -0.01, max: 0.01 },
-    swayAmplitude: 0.3,
-    swayFrequency: 0.01,
+    radius: { min: 0.8, max: 3.5 },
+    speed: { min: 0.5, max: 2 },
+    wind: { min: -0.15, max: 0.15 },
+    opacity: { min: 0.4, max: 0.95 },
+    rotation: { min: -0.02, max: 0.02 },
+    swayAmplitude: 0.5,
+    swayFrequency: 0.008,
+    flutterAmplitude: 0.15,
+    flutterFrequency: 0.05,
   },
 } as const
 
@@ -69,11 +74,11 @@ const THEME_STYLES: Record<"dark" | "light", ThemeStyle> = {
     },
     particle: {
       fill: "255, 255, 255",
-      shadow: "rgba(255, 255, 255, 0.4)",
-      blur: 3,
-      width: 0.5,
+      shadow: "rgba(255, 255, 255, 0.6)",
+      blur: 4,
+      width: 0.3,
     },
-    filter: "drop-shadow(0 0 2px rgba(255, 255, 255, 0.3))",
+    filter: "drop-shadow(0 0 3px rgba(255, 255, 255, 0.5))",
     heapFilter: "drop-shadow(0 -2px 4px rgba(255, 255, 255, 0.2))",
   },
   light: {
@@ -90,12 +95,12 @@ const THEME_STYLES: Record<"dark" | "light", ThemeStyle> = {
       blur: 4,
     },
     particle: {
-      fill: "220, 235, 255",
-      shadow: "rgba(80, 140, 220, 0.8)",
-      blur: 6,
-      width: 0.8,
+      fill: "245, 250, 255",
+      shadow: "rgba(120, 170, 240, 0.7)",
+      blur: 5,
+      width: 0.4,
     },
-    filter: "drop-shadow(0 0 4px rgba(100, 150, 220, 0.5))",
+    filter: "drop-shadow(0 0 3px rgba(150, 190, 240, 0.6))",
     heapFilter: "drop-shadow(0 -2px 8px rgba(80, 130, 200, 0.4))",
   },
 } as const
@@ -130,37 +135,56 @@ const calculateDeltaTime = (currentTime: number, lastTime: number): number =>
     CONFIG.animation.maxDeltaMultiplier,
   )
 
-const createParticle = (width: number, height: number): Particle => ({
-  x: random(0, width),
-  y: -random(0, height),
-  radius: random(CONFIG.particle.radius.min, CONFIG.particle.radius.max),
-  speed: random(CONFIG.particle.speed.min, CONFIG.particle.speed.max),
-  wind: random(CONFIG.particle.wind.min, CONFIG.particle.wind.max),
-  opacity: random(CONFIG.particle.opacity.min, CONFIG.particle.opacity.max),
-  rotation: random(0, Math.PI * 2),
-  rotationSpeed: random(
-    CONFIG.particle.rotation.min,
-    CONFIG.particle.rotation.max,
-  ),
-  sinOffset: random(0, Math.PI * 2),
-})
+const createParticle = (width: number, height: number): Particle => {
+  const depth = Math.random() // Random depth layer
+  const radius = random(CONFIG.particle.radius.min, CONFIG.particle.radius.max)
+
+  // Larger flakes fall faster and are more opaque (closer to camera)
+  const normalizedSize = (radius - CONFIG.particle.radius.min) /
+    (CONFIG.particle.radius.max - CONFIG.particle.radius.min)
+
+  return {
+    x: random(0, width),
+    y: -random(0, height),
+    radius,
+    speed: random(CONFIG.particle.speed.min, CONFIG.particle.speed.max) *
+      (0.7 + normalizedSize * 0.6), // Larger = faster
+    wind: random(CONFIG.particle.wind.min, CONFIG.particle.wind.max),
+    opacity: random(CONFIG.particle.opacity.min, CONFIG.particle.opacity.max) *
+      (0.6 + normalizedSize * 0.4), // Larger = more opaque
+    rotation: random(0, Math.PI * 2),
+    rotationSpeed: random(
+      CONFIG.particle.rotation.min,
+      CONFIG.particle.rotation.max,
+    ),
+    sinOffset: random(0, Math.PI * 2),
+    complexity: Math.random() < 0.7 ? random(0.3, 1) : 0, // 30% simple circles
+    flutter: random(0.5, 1.5),
+    depth,
+  }
+}
 
 const updateParticle = (
   p: Particle,
   deltaTime: number,
   dimensions: Dimensions,
-): Particle => ({
-  ...p,
-  y: p.y + p.speed * deltaTime,
-  x: wrap(
-    p.x +
-      p.wind * deltaTime +
-      Math.sin(p.y * CONFIG.particle.swayFrequency + p.sinOffset) *
-        CONFIG.particle.swayAmplitude,
-    dimensions.width,
-  ),
-  rotation: p.rotation + p.rotationSpeed * deltaTime,
-})
+): Particle => {
+  const swayX = Math.sin(p.y * CONFIG.particle.swayFrequency + p.sinOffset) *
+    CONFIG.particle.swayAmplitude * p.flutter
+
+  const flutterX = Math.sin(p.y * CONFIG.particle.flutterFrequency + p.rotation) *
+    CONFIG.particle.flutterAmplitude * p.flutter
+
+  return {
+    ...p,
+    y: p.y + p.speed * deltaTime,
+    x: wrap(
+      p.x + p.wind * deltaTime + swayX + flutterX,
+      dimensions.width,
+    ),
+    rotation: p.rotation + p.rotationSpeed * deltaTime,
+  }
+}
 
 const shouldResetParticle = (
   p: Particle,
@@ -168,41 +192,88 @@ const shouldResetParticle = (
   visibleBottom: number,
 ): boolean => p.y >= visibleBottom - heapHeight
 
-const createSnowflakePath = (radius: number): Path2D => {
+const createSnowflakePath = (radius: number, complexity: number): Path2D => {
   const path = new Path2D()
-  const armCount = 6
-  const branchLength = radius * 0.16
 
-  // Center circle
-  path.arc(0, 0, radius * 0.3, 0, Math.PI * 2)
-  // Arms with branches
+  // Simple circle for low complexity
+  if (complexity < 0.1) {
+    path.arc(0, 0, radius, 0, Math.PI * 2)
+    return path
+  }
+
+  const armCount = 6
+  const armLength = radius
+  const branchLength = radius * 0.4
+  const centerSize = radius * 0.25
+
+  // Center circle (smaller for elegance)
+  path.arc(0, 0, centerSize, 0, Math.PI * 2)
+
+  // Six arms with varying detail based on complexity
   Array.from({ length: armCount }, (_, i) => {
     const angle = (Math.PI * 2 * i) / armCount
-    const [x, y] = [Math.cos(angle) * radius, Math.sin(angle) * radius]
-    const [branchX, branchY] = [x * 0.6, y * 0.6]
+    const cos = Math.cos(angle)
+    const sin = Math.sin(angle)
+
     // Main arm
-    path.moveTo(0, 0)
-    path.lineTo(x, y)
-    // Branches
-    const angles = [angle - Math.PI / 6, angle + Math.PI / 6]
-    angles.forEach((a) => {
-      path.moveTo(branchX, branchY)
+    path.moveTo(cos * centerSize, sin * centerSize)
+    path.lineTo(cos * armLength, sin * armLength)
+
+    if (complexity > 0.3) {
+      // Inner branches
+      const innerPos = 0.4
+      const innerX = cos * armLength * innerPos
+      const innerY = sin * armLength * innerPos
+      const innerBranchLen = branchLength * 0.6
+
+      const branch1Angle = angle - Math.PI / 4
+      path.moveTo(innerX, innerY)
       path.lineTo(
-        branchX + Math.cos(a) * branchLength,
-        branchY + Math.sin(a) * branchLength,
+        innerX + Math.cos(branch1Angle) * innerBranchLen,
+        innerY + Math.sin(branch1Angle) * innerBranchLen,
       )
-    })
+
+      const branch2Angle = angle + Math.PI / 4
+      path.moveTo(innerX, innerY)
+      path.lineTo(
+        innerX + Math.cos(branch2Angle) * innerBranchLen,
+        innerY + Math.sin(branch2Angle) * innerBranchLen,
+      )
+    }
+
+    if (complexity > 0.6) {
+      // Outer branches
+      const outerPos = 0.75
+      const outerX = cos * armLength * outerPos
+      const outerY = sin * armLength * outerPos
+      const outerBranchLen = branchLength * 0.4
+
+      const branch3Angle = angle - Math.PI / 5
+      path.moveTo(outerX, outerY)
+      path.lineTo(
+        outerX + Math.cos(branch3Angle) * outerBranchLen,
+        outerY + Math.sin(branch3Angle) * outerBranchLen,
+      )
+
+      const branch4Angle = angle + Math.PI / 5
+      path.moveTo(outerX, outerY)
+      path.lineTo(
+        outerX + Math.cos(branch4Angle) * outerBranchLen,
+        outerY + Math.sin(branch4Angle) * outerBranchLen,
+      )
+    }
   })
 
   return path
 }
 
 const getOrCreatePath = (
-  cache: Map<number, Path2D>,
+  cache: Map<string, Path2D>,
   radius: number,
+  complexity: number,
 ): Path2D => {
-  const key = Math.round(radius * 10)
-  if (!cache.has(key)) cache.set(key, createSnowflakePath(radius))
+  const key = `${Math.round(radius * 10)}-${Math.round(complexity * 10)}`
+  if (!cache.has(key)) cache.set(key, createSnowflakePath(radius, complexity))
   return cache.get(key)!
 }
 
@@ -329,22 +400,36 @@ const renderParticle = (
   style: ThemeStyle,
   isDark: boolean,
 ): void => {
-  const opacity = isDark ? particle.opacity * 0.8 : particle.opacity
+  // Depth affects opacity and blur
+  const depthOpacity = 0.5 + particle.depth * 0.5
+  const finalOpacity = particle.opacity * depthOpacity * (isDark ? 0.85 : 1)
+  const depthBlur = style.particle.blur * (0.7 + particle.depth * 0.6)
 
   ctx.save()
   ctx.translate(particle.x, particle.y)
   ctx.rotate(particle.rotation)
+
+  // Enhanced glow effect
   applyContextStyle(ctx, {
     color: style.particle.shadow,
-    blur: style.particle.blur,
+    blur: depthBlur,
   })
   ctx.shadowOffsetX = 0
   ctx.shadowOffsetY = 0
-  ctx.fillStyle = `rgba(${style.particle.fill}, ${opacity})`
-  ctx.strokeStyle = `rgba(${style.particle.fill}, ${opacity})`
-  ctx.lineWidth = style.particle.width
+
+  const fillColor = `rgba(${style.particle.fill}, ${finalOpacity})`
+  ctx.fillStyle = fillColor
+  ctx.strokeStyle = fillColor
+  ctx.lineWidth = style.particle.width * (particle.complexity > 0.1 ? 1 : 0.5)
+
+  // Fill for all shapes
   ctx.fill(path)
-  ctx.stroke(path)
+
+  // Stroke only for detailed snowflakes
+  if (particle.complexity > 0.1) {
+    ctx.stroke(path)
+  }
+
   ctx.restore()
 }
 

@@ -28,7 +28,7 @@ interface SnowfallProps {
   snowflakeCount?: number
 }
 
-export function Snowfall({ snowflakeCount = 50 }: SnowfallProps = {}) {
+export function Snowfall({ snowflakeCount = 100 }: SnowfallProps = {}) {
   const snowflakesCanvasRef = useRef<HTMLCanvasElement>(null)
   const heapCanvasRef = useRef<HTMLCanvasElement>(null)
   const { resolvedTheme } = useTheme()
@@ -68,7 +68,7 @@ export function Snowfall({ snowflakeCount = 50 }: SnowfallProps = {}) {
     let particles = Array.from({ length: snowflakeCount }, () =>
       createParticle(dimensions.width, dimensions.height),
     )
-    const pathCache = new Map<number, Path2D>()
+    const pathCache = new Map<string, Path2D>()
 
     const resize = debounce(() => {
       dimensions = getDimensions()
@@ -151,7 +151,7 @@ export function Snowfall({ snowflakeCount = 50 }: SnowfallProps = {}) {
         renderParticle(
           snowflakesCtx,
           updated,
-          getOrCreatePath(pathCache, updated.radius),
+          getOrCreatePath(pathCache, updated.radius, updated.complexity),
           style,
           isDark,
         )
