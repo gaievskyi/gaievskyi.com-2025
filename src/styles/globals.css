@@ -107,6 +107,20 @@
   --success-foreground: var(--color-emerald-700);
   --warning: var(--color-amber-500);
   --warning-foreground: var(--color-amber-700);
+  --snowfall-particle-fill: 255, 255, 255;
+  --snowfall-particle-shadow: rgba(120, 170, 240, 0.7);
+  --snowfall-particle-blur: 5px;
+  --snowfall-particle-width: 0.4px;
+  --snowfall-heap-gradient-1: rgba(230, 240, 255, 1);
+  --snowfall-heap-gradient-2: rgba(220, 235, 255, 0.95);
+  --snowfall-heap-gradient-3: rgba(200, 225, 255, 0.85);
+  --snowfall-heap-shadow-color: rgba(50, 100, 180, 0.6);
+  --snowfall-heap-shadow-blur: 15px;
+  --snowfall-heap-shadow-offset: -3px;
+  --snowfall-heap-stroke-color: rgba(100, 150, 220, 0.8);
+  --snowfall-heap-stroke-width: 2px;
+  --snowfall-heap-stroke-shadow: rgba(80, 130, 200, 0.5);
+  --snowfall-heap-stroke-blur: 4px;
 }
 
 .dark {
@@ -140,6 +154,20 @@
   --success-foreground: var(--color-emerald-400);
   --warning: var(--color-amber-500);
   --warning-foreground: var(--color-amber-400);
+  --snowfall-particle-fill: 255, 255, 255;
+  --snowfall-particle-shadow: rgba(255, 255, 255, 0.6);
+  --snowfall-particle-blur: 4px;
+  --snowfall-particle-width: 0.3px;
+  --snowfall-heap-gradient-1: rgba(255, 255, 255, 0.95);
+  --snowfall-heap-gradient-2: rgba(255, 255, 255, 0.85);
+  --snowfall-heap-gradient-3: rgba(255, 255, 255, 0.7);
+  --snowfall-heap-shadow-color: rgba(255, 255, 255, 0.2);
+  --snowfall-heap-shadow-blur: 8px;
+  --snowfall-heap-shadow-offset: -2px;
+  --snowfall-heap-stroke-color: rgba(255, 255, 255, 0.3);
+  --snowfall-heap-stroke-width: 1px;
+  --snowfall-heap-stroke-shadow: transparent;
+  --snowfall-heap-stroke-blur: 0px;
 }
 
 @utility container {
