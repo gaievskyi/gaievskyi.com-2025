@@ -1,6 +1,6 @@
 export const CONFIG = {
   canvas: { alpha: true, desynchronized: true, willReadFrequently: false },
-  heap: { sampleRate: 200, maxHeightRatio: 0.25 },
+  heap: { sampleRate: 200, maxHeightRatio: 0.15 },
   animation: { targetFps: 120, maxDeltaMultiplier: 2 },
   melt: { intervalFrames: 30, spots: 15, rate: 0.2 },
   smooth: { intervalFrames: 5, weight: 0.7, neighborWeight: 0.15 },
