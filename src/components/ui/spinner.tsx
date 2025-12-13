@@ -17,8 +17,7 @@ const spinnerVariants = cva("relative block opacity-[0.65]", {
 })
 
 export interface SpinnerProps
-  extends ComponentProps<"span">,
-    VariantProps<typeof spinnerVariants> {
+  extends ComponentProps<"span">, VariantProps<typeof spinnerVariants> {
   loading?: boolean
   asChild?: boolean
   ref?: Ref<HTMLSpanElement>

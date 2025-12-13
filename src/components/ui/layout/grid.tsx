@@ -15,10 +15,22 @@ const gridItemVariants = cva("col-2", {
   variants: {
     padding: {
       none: "",
-      xs: "px-3 py-3 md:px-8 md:py-4",
-      sm: "px-3 py-3 md:px-8 md:py-6",
-      md: "px-3 py-8 md:px-8",
-      lg: "px-3 py-8 md:px-8",
+      xs: `
+        px-3 py-3
+        md:px-8 md:py-4
+      `,
+      sm: `
+        px-3 py-3
+        md:px-8 md:py-6
+      `,
+      md: `
+        px-3 py-8
+        md:px-8
+      `,
+      lg: `
+        px-3 py-8
+        md:px-8
+      `,
     },
   },
   defaultVariants: {
@@ -133,18 +145,16 @@ function Grid<T extends ElementType = "div">({
   ...props
 }: GridProps<T>) {
   const Component = as || "div"
-
-  const fluidCol: CSSProperties = {
-    "--fluid-col":
-      "clamp(0px, calc(20px + (80 * ((100vw - 450px) / (1024 - 450)))), 100px)",
-  }
   const rows = Children.count(children)
 
   return (
     // @ts-expect-error - cannot type correctly yet
     <Component
       className={cn("overflow-x-clip px-3", className)}
-      style={fluidCol}
+      style={{
+        "--fluid-col":
+          "clamp(0px, calc(20px + (80 * ((100vw - 450px) / (1024 - 450)))), 100px)" as CSSProperties,
+      }}
       {...props}
     >
       <div

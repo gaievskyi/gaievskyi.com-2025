@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useRef } from "react"
-import { motion, useMotionValue, useTransform, animate } from "motion/react"
+import { animate, motion, useMotionValue, useTransform } from "motion/react"
+import { useRef, useState } from "react"
 
 const MIN_VALUE = 0
 const MAX_VALUE = 100
@@ -154,6 +154,7 @@ export function IosSlider({
   }
 
   const transformOrigin =
+    // eslint-disable-next-line react-hooks/refs
     lastExtremeRef.current === "min" ? "50% 0%" : "50% 100%"
 
   return (

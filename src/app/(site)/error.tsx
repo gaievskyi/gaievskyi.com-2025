@@ -14,7 +14,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { HapticLink } from '@/components/ui/haptic-link'
+import { HapticLink } from "@/components/ui/haptic-link"
 import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
 import * as motion from "motion/react-client"

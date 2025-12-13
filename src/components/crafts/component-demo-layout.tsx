@@ -10,12 +10,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { HapticLink } from '@/components/ui/haptic-link'
+import { HapticLink } from "@/components/ui/haptic-link"
 import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
 import { Heading } from "@/components/ui/typography/heading"
 import { cn } from "@/lib/utils"
-import Link from "next/link"
 import type { ReactNode } from "react"
 import { ViewTransition } from "react"
 

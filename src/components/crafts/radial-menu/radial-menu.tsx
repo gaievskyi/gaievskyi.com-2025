@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState, useMemo } from "react"
-import { motion, AnimatePresence, useTransform, useSpring } from "motion/react"
+import { cn } from "@/lib/utils"
+import { AnimatePresence, motion, useSpring, useTransform } from "motion/react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import {
   CENTER_RADIUS,
   getAngleDifference,
@@ -12,7 +13,6 @@ import {
   normalizeAngle,
   RADIUS,
 } from "./math"
-import { cn } from "@/lib/utils"
 import { RadialMenuContext, useRadialMenu } from "./radial-menu-context"
 
 export type RadialMenuItem = {
@@ -115,6 +115,7 @@ function RadialMenuActiveIndicator() {
       ringAngle.set(0)
       prevActiveIndex.current = activeIndex
       isInitialSelection.current = true
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShouldAnimate(false)
       return
     }
@@ -405,6 +406,7 @@ export function RadialMenu({
   const nearestIndex = useMemo(() => {
     if (!dragging) return -1
 
+    // eslint-disable-next-line react-hooks/refs
     const rect = menuRef.current?.getBoundingClientRect()
     if (!rect) return -1
 

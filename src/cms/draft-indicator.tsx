@@ -59,10 +59,6 @@ export function DraftIndicator() {
   }
 
   useEffect(() => {
-    if (globalThis.window === undefined || globalThis.window.frameElement) {
-      setShowDraftPreview(false)
-      return
-    }
     fetchDraftPreviewUser()
   }, [])
 
@@ -70,7 +66,7 @@ export function DraftIndicator() {
 
   return (
     <>
-      <div className="fixed top-4 right-4 z-50 rounded-full px-4 py-2 text-sm shadow-[rgba(0,_0,_0,_0.25)_0px_16px_32px_0px]">
+      <div className="fixed top-4 right-4 z-50 rounded-full px-4 py-2 text-sm shadow-[rgba(0,0,0,0.25)_0px_16px_32px_0px]">
         <div className="bg-card absolute inset-0 rounded-full" />
         <div className="relative flex items-center gap-2">
           <div className="relative">

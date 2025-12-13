@@ -2,7 +2,6 @@
 
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
-import { useIsMobile } from "@/hooks/use-is-mobile"
 import { cn } from "@/lib/utils"
 import { useCallback, useEffect, useRef, useState } from "react"
 import type { TocItem } from "./generate-toc"
@@ -11,10 +10,9 @@ type TocItemProps = {
   item: TocItem
   isActive: boolean
   onScrollTo: (id: string) => void
-  isMobile: boolean
 }
 
-function TocItem({ item, isActive, onScrollTo, isMobile }: TocItemProps) {
+function TocItem({ item, isActive, onScrollTo }: TocItemProps) {
   const getTickWidth = () => {
     if (item.level === 1) return isActive ? "w-12" : "w-8"
     if (item.level === 2) return isActive ? "w-6" : "w-4"
@@ -74,8 +72,7 @@ export function TableOfContents({
   containerSelector = "main",
   items,
 }: TableOfContentsProps) {
-  const [activeId, setActiveId] = useState<string>("")
-  const isMobile = useIsMobile()
+  const [activeId, setActiveId] = useState<string>(items[0]?.id || "")
 
   const isScrollingRef = useRef(false)
   const scrollEndTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -130,6 +127,7 @@ export function TableOfContents({
         currentActiveId = headingId
       }
     }
+    // eslint-disable-next-line react-you-might-not-need-an-effect/no-derived-state, react-hooks/set-state-in-effect
     setActiveId(currentActiveId)
 
     const elementsToObserve = items
@@ -195,7 +193,6 @@ export function TableOfContents({
               item={item}
               isActive={activeId === item.id}
               onScrollTo={scrollToHeading}
-              isMobile={isMobile}
             />
           ))}
         </div>

@@ -27,44 +27,42 @@ export default async function Image({
   ])
 
   return new ImageResponse(
-    (
-      <div style={{ position: "relative", display: "flex" }}>
-        <img
-          // @ts-expect-error - ArrayBuffer works for ImageResponse
-          src={defaultOgImage}
-          alt="Daniel Gaievskyi"
-          width={834}
-          height={446}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            objectFit: "cover",
-          }}
-        />
-        <div
-          style={{
-            fontSize: 50,
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            inset: 0,
-            color: "white",
-            display: "flex",
-            alignItems: "flex-end",
-            whiteSpace: "nowrap",
-            textOverflow: "ellipsis",
-            padding: "55px 32px",
-            fontFamily: "Inter",
-          }}
-        >
-          {article.title}
-        </div>
-        )
+    <div style={{ position: "relative", display: "flex" }}>
+      <img
+        // @ts-expect-error - ArrayBuffer works for ImageResponse
+        src={defaultOgImage}
+        alt="Daniel Gaievskyi"
+        width={834}
+        height={446}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          objectFit: "cover",
+        }}
+      />
+      <div
+        style={{
+          fontSize: 50,
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          inset: 0,
+          color: "white",
+          display: "flex",
+          alignItems: "flex-end",
+          whiteSpace: "nowrap",
+          textOverflow: "ellipsis",
+          padding: "55px 32px",
+          fontFamily: "Inter",
+        }}
+      >
+        {article.title}
       </div>
-    ),
+      )
+    </div>,
     {
       ...size,
       fonts: [

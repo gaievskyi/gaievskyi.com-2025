@@ -15,12 +15,11 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { HapticLink } from '@/components/ui/haptic-link'
+import { HapticLink } from "@/components/ui/haptic-link"
 import { Icon } from "@/components/ui/icon"
 import { Flex } from "@/components/ui/layout/flex"
 import "@/styles/globals.css"
 import { motion } from "motion/react"
-import Link from "next/link"
 import { useEffect, useState } from "react"
 
 type GlobalErrorPageProps = {

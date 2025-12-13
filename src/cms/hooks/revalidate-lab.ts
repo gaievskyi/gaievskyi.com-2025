@@ -1,8 +1,9 @@
+import ms from "ms"
+import { revalidatePath, revalidateTag } from "next/cache"
 import type {
   CollectionAfterChangeHook,
   CollectionAfterDeleteHook,
 } from "payload"
-import { revalidatePath, revalidateTag } from "next/cache"
 import type { Lab } from "../../../payload-types"
 
 export const revalidateLab: CollectionAfterChangeHook<Lab> = ({
@@ -15,14 +16,14 @@ export const revalidateLab: CollectionAfterChangeHook<Lab> = ({
       const path = `/labs/${doc.slug}`
       payload.logger.info(`Revalidating lab: ${path}`)
       revalidatePath(path)
-      revalidateTag("labs")
+      revalidateTag("labs", { expire: ms("1 day") })
     }
     // If the lab was previously published, we need to revalidate the old path
     if (previousDoc._status === "published" && doc._status !== "published") {
       const oldPath = `/labs/${previousDoc.slug}`
       payload.logger.info(`Revalidating old lab at path: ${oldPath}`)
       revalidatePath(oldPath)
-      revalidateTag("labs")
+      revalidateTag("labs", { expire: ms("1 day") })
     }
   }
   return doc
@@ -35,7 +36,7 @@ export const revalidateLabDelete: CollectionAfterDeleteHook<Lab> = ({
   if (!context.disableRevalidate) {
     const path = `/labs/${doc?.slug}`
     revalidatePath(path)
-    revalidateTag("labs")
+    revalidateTag("labs", { expire: ms("1 day") })
   }
   return doc
 }

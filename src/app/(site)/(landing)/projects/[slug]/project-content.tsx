@@ -51,7 +51,6 @@ type ProjectContentProps = Readonly<{
 
 export function ProjectContent({ projectPromise }: ProjectContentProps) {
   const project = use(projectPromise)
-  const projectDate = new Date(project.createdAt)
 
   return (
     <AnimatedGroup

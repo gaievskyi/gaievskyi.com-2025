@@ -1,13 +1,13 @@
 "use client"
 
+import { motion, type Variants } from "motion/react"
 import {
-  type ReactNode,
-  type JSX,
+  Children,
   useMemo,
   type ElementType,
-  Children,
+  type JSX,
+  type ReactNode,
 } from "react"
-import { motion, type Variants } from "motion/react"
 
 type PresetType = "fade" | "blur"
 
@@ -74,6 +74,7 @@ function AnimatedGroup({
   )
 
   return (
+    // eslint-disable-next-line react-hooks/static-components
     <MotionComponent
       initial="hidden"
       animate="visible"

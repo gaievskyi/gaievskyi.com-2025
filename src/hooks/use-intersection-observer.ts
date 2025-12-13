@@ -1,42 +1,17 @@
-import { useRef, useCallback, useEffect } from "react"
+import { useCallback, useEffect, useRef } from "react"
 
 export type UseIntersectionObserverOptions =
   globalThis.IntersectionObserverInit & {
-    /**
-     * Callback function called when intersection changes occur
-     */
     onIntersect?: (entries: IntersectionObserverEntry[]) => void
-    /**
-     * Whether the observer should be enabled
-     * @default true
-     */
     enabled?: boolean
   }
 
 export type UseIntersectionObserverReturn = {
-  /**
-   * Observe a single element
-   */
   observe: (element: Element) => void
-  /**
-   * Unobserve a single element
-   */
   unobserve: (element: Element) => void
-  /**
-   * Observe multiple elements
-   */
   observeElements: (elements: Element[]) => void
-  /**
-   * Unobserve multiple elements
-   */
   unobserveElements: (elements: Element[]) => void
-  /**
-   * Disconnect the observer and unobserve all elements
-   */
   disconnect: () => void
-  /**
-   * Check if the observer is currently active
-   */
   isObserving: boolean
 }
 
@@ -146,6 +121,7 @@ export function useIntersectionObserver({
     observeElements,
     unobserveElements,
     disconnect,
+    // eslint-disable-next-line react-hooks/refs
     isObserving: Boolean(observerRef.current && enabled),
   }
 }

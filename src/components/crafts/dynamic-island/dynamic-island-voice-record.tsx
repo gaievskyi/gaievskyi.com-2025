@@ -16,6 +16,7 @@ export function DynamicIslandVoiceRecord() {
     const initialHeights = [
       4, 8, 5, 4, 30, 8, 30, 14, 30, 50, 10, 6, 30, 6, 4, 8, 5, 4, 8, 4,
     ]
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setWaveformHeights(initialHeights)
 
     // Animate marquee effect for gray dots
