@@ -1,7 +1,5 @@
 import "./env/env"
 // ^ validate env
-
-import svg from "@neodx/svg/webpack"
 import { withPayload } from "@payloadcms/next/withPayload"
 import type { NextConfig } from "next"
 import { withNextVideo } from "next-video/process"
@@ -19,7 +17,6 @@ const nextConfig: NextConfig = {
     },
   },
   experimental: {
-    turbopackFileSystemCacheForDev: true,
     browserDebugInfoInTerminal: !isProduction,
     inlineCss: true,
     useCache: true,
@@ -51,20 +48,6 @@ const nextConfig: NextConfig = {
   },
   compiler: {
     removeConsole: isProduction ? { exclude: ["error", "info"] } : false,
-  },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.plugins.push(
-        svg({
-          cleanup: "auto",
-          inputRoot: "src/assets",
-          output: "public/sprites",
-          fileName: "{name}.{hash:8}.svg",
-          metadata: "sprite.gen.ts",
-        }),
-      )
-    }
-    return config
   },
   async headers() {
     return [
