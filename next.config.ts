@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
     },
   },
   experimental: {
+    globalNotFound: true,
     browserDebugInfoInTerminal: !isProduction,
     inlineCss: true,
     useCache: true,
