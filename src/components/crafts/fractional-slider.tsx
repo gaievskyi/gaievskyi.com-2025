@@ -1,5 +1,6 @@
 "use client"
 
+import { usePrevious } from "@/hooks/use-previous"
 import { useSound } from "@/hooks/use-sound"
 import { cn } from "@/lib/utils"
 import {
@@ -93,6 +94,7 @@ export function FractionalSlider() {
   const willChange = useWillChange()
   const containerRef = useRef<HTMLDivElement>(null)
   const [currentValue, setCurrentValue] = useState(0)
+  const prevValue = usePrevious(currentValue)
   const [playTick] = useSound("/sounds/tick.mp3", {
     interrupt: true,
   })
@@ -110,15 +112,16 @@ export function FractionalSlider() {
     return Math.round(Math.max(MIN, Math.min(MAX, rawValue)))
   })
 
-  value.on("change", (latestValue) => {
-    setCurrentValue(latestValue)
-  })
-
   useEffect(() => {
-    if (currentValue !== 0) {
-      playTick()
-    }
-  }, [currentValue, playTick])
+    return value.on("change", (latestValue) => {
+      if (latestValue !== prevValue) {
+        setCurrentValue(latestValue)
+        if (latestValue !== 0) {
+          playTick()
+        }
+      }
+    })
+  }, [value, prevValue, playTick])
 
   useEffect(() => {
     const onWheel = (event: WheelEvent) => {
