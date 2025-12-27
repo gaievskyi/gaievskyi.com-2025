@@ -1,13 +1,11 @@
 /* VIEW TRANSITIONS */
 
-::view-transition-group(*),
-::view-transition-old(*),
-::view-transition-new(*) {
-  animation-duration: theme("transitionDuration.700");
+::view-transition-group(.scale),
+::view-transition-old(.scale),
+::view-transition-new(.scale) {
+  animation-duration: 700ms;
+  /* out-expo https://www.easing.dev/out-expo */
   animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-}
-::view-transition-old(root),
-::view-transition-new(root) {
   transform-origin: top center;
 }
 

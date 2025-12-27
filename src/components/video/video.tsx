@@ -14,7 +14,7 @@ type VideoProps = PropsWithChildren &
 
 export function Video({ slug, src, className, blurDataUrl }: VideoProps) {
   return (
-    <ViewTransition name={`video-${slug}`}>
+    <ViewTransition name={`video-${slug}`} default="scale">
       <div
         className={cn(
           "rounded-lg corner-squircle supports-corner:rounded-2xl size-full overflow-clip bg-transparent outline-solid outline-1 outline-border",

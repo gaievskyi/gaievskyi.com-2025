@@ -9,6 +9,7 @@ import { Socials } from "@/components/sections/socials"
 import { Snowfall } from "@/components/snowfall/snowfall"
 import { Grid, GridItem } from "@/components/ui/layout/grid"
 import Script from "next/script"
+import { ViewTransition } from "react"
 import type { Person, WithContext } from "schema-dts"
 
 export const personJsonLd: WithContext<Person> = {
@@ -30,7 +31,7 @@ export const personJsonLd: WithContext<Person> = {
 
 export default function IndexPage() {
   return (
-    <>
+    <ViewTransition>
       <Snowfall />
       <Grid as="main">
         <GridItem
@@ -95,6 +96,6 @@ export default function IndexPage() {
           __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
         }}
       />
-    </>
+    </ViewTransition>
   )
 }

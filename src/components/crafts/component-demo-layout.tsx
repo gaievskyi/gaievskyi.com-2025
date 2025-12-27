@@ -68,7 +68,7 @@ export function ComponentDemoLayout({
           {date}
         </time>
       </Flex>
-      <ViewTransition name={`video-${slug}`}>
+      <ViewTransition name={`video-${slug}`} default="scale">
         <Flex
           as="main"
           align="center"
