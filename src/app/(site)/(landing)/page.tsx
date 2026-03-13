@@ -5,13 +5,16 @@ import { HeaderContent } from "@/components/sections/header-content"
 import { Publications } from "@/components/sections/publications"
 import { Socials } from "@/components/sections/socials"
 import { Videos } from "@/components/sections/videos"
-import { Snowfall } from "@/components/snowfall/snowfall"
 import { Grid, GridItem } from "@/components/ui/layout/grid"
 import { craftsMap } from "@/components/video/crafts-videos"
 import { videosMap } from "@/components/video/projects-videos"
+import dynamic from 'next/dynamic'
 import Script from "next/script"
 import { ViewTransition } from "react"
 import type { Person, WithContext } from "schema-dts"
+
+// turn on in winter
+// const Snowfall = dynamic(() => import("@/components/snowfall/snowfall").then((mod) => mod.Snowfall))
 
 export const personJsonLd: WithContext<Person> = {
   "@context": "https://schema.org",
@@ -33,7 +36,7 @@ export const personJsonLd: WithContext<Person> = {
 export default function IndexPage() {
   return (
     <ViewTransition>
-      <Snowfall />
+      {/* <Snowfall /> */}
       <Grid as="main">
         <GridItem
           as="header"
