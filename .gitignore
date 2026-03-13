@@ -9,6 +9,11 @@
 .yarn/install-state.gz
 /public/media
 
+# non-bun lockifles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
 # testing
 /coverage
 
@@ -31,8 +36,9 @@ yarn-error.log*
 .vscode
 .idea
 
-# local env files
-.env*.local
+# env files
+.env*
+!.env.example
 
 # vercel
 .vercel
@@ -47,5 +53,3 @@ src/videos/*
 !src/videos/*.js
 !src/videos/*.ts
 public/_next-video
-
-.env

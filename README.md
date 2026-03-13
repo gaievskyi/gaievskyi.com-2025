@@ -2,7 +2,7 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Website of [Daniel v2025](https://gaievskyi.com/).
+Website of [Daniel](https://gaievskyi.com/) (2025).
 
 ![Vercel](https://readmebadge.vercel.app/badges/vercel.svg)
 ![Next.js](https://readmebadge.vercel.app/badges/nextjs.svg)
@@ -35,7 +35,8 @@ bun run start # Start production server
 bun run build # Build for production
 bun run preview # Build and start production server
 bun run lint # Run eslint
-bun run format # Format with prettier
+bun run format # Format with oxcfmt
+bun run format:check # Check formatting with oxcfmt
 bun run typecheck # Run tsc
 bun run clean # Clean project
 bun run sprite # Build SVG sprite

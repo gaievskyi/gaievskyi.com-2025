@@ -5,8 +5,6 @@ import { type HTMLMotionProps, useScroll, useTransform } from "motion/react"
 import * as m from "motion/react-m"
 import { useMemo } from "react"
 
-
-
 export const GRADIENT_ANGLES = {
   top: 0,
   right: 90,

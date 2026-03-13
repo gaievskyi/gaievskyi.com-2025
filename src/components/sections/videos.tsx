@@ -18,11 +18,9 @@ export function Videos({ title, videos, basePath, itemLabel }: VideosProps) {
     <>
       <Flex className="mb-6">
         <Heading as="h2">{title}</Heading>
-        <Text
-          size="xs"
-          color="muted"
-          as="sup"
-          >{videoEntries.length}</Text>
+        <Text size="xs" color="muted" as="sup">
+          {videoEntries.length}
+        </Text>
       </Flex>
       <Flex wrap="wrap" gap="md" className="group">
         {videoEntries.map(([slug, video]) => (
