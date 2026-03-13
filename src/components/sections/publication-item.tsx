@@ -22,11 +22,11 @@ export function PublicationItem({
       <Flex align="center" gap="sm">
         <LinkLoadingIndicator>
           {publishedAt && (
-            <div className="relative overflow-clip mr-3 inline-flex items-center justify-center">
+            <div className="relative mr-3 inline-flex items-center justify-center overflow-clip">
               <Text
                 as="span"
                 color="muted"
-                className="transition-all text-sm md:text-base duration-300 ease-out group-hover/item:-translate-x-full "
+                className="text-sm transition-all duration-300 ease-out group-hover/item:-translate-x-full md:text-base"
               >
                 {Intl.DateTimeFormat("en-US", {
                   year: "numeric",
@@ -34,7 +34,7 @@ export function PublicationItem({
               </Text>
               <Icon
                 name="sprite:arrow2"
-                className="absolute text-xl translate-x-full opacity-0 transition-[translate,opacity] duration-250 ease-out group-hover/item:translate-x-0 group-hover/item:opacity-100"
+                className="absolute translate-x-full text-xl opacity-0 transition-[translate,opacity] duration-250 ease-out group-hover/item:translate-x-0 group-hover/item:opacity-100"
               />
             </div>
           )}

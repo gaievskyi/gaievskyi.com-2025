@@ -18,7 +18,7 @@ export const typographyVariants = cva("m-0 sm:text-pretty", {
       bold: "font-bold",
     },
     italic: {
-      true: "font-heldane text-[15px] italic",
+      true: "italic font-heldane text-[15px]",
       false: "",
     },
     color: {

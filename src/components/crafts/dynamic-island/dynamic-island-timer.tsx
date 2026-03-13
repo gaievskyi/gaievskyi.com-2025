@@ -14,7 +14,7 @@ export function DynamicIslandTimer() {
         aria-label="Pause timer"
         onClick={() => setIsPaused((p) => !p)}
         whileTap={{ scale: 0.9 }}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-[#5A3C07] transition-colors hover:bg-[#694608]"
+        className="flex size-10 items-center justify-center rounded-full bg-[#5A3C07] transition-colors hover:bg-[#694608]"
       >
         <AnimatePresence initial={false} mode="wait">
           {isPaused ? (
@@ -26,7 +26,7 @@ export function DynamicIslandTimer() {
       </m.button>
       <button
         aria-label="Exit"
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3C3D3C] text-white transition-colors hover:bg-[#4A4B4A]"
+        className="flex size-10 items-center justify-center rounded-full bg-[#3C3D3C] text-white transition-colors hover:bg-[#4A4B4A]"
       >
         <Icon name="sprite:x" className="text-2xl" />
       </button>

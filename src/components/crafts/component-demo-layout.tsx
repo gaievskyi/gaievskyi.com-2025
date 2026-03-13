@@ -74,7 +74,7 @@ export function ComponentDemoLayout({
           align="center"
           justify="center"
           className={cn(
-            "overflow-hidden rounded-2xl corner-squircle supports-corner:rounded-3xl h-[380px] relative mt-10 outline-1 outline-border",
+            "relative mt-10 h-[380px] overflow-hidden rounded-2xl outline-1 outline-border corner-squircle supports-corner:rounded-3xl",
             decoratedBackground &&
               "bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(0,0,0,0.05)_10px,rgba(0,0,0,0.03)_11px)]",
             decoratedBackground &&

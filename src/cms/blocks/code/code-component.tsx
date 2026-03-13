@@ -28,7 +28,7 @@ export async function Code({ code, language = "" }: Props) {
     })
 
     return (
-      <ScrollArea className="relative rounded border border-border bg-white dark:bg-black">
+      <ScrollArea className="relative rounded-sm border border-border bg-white dark:bg-black">
         <div
           className="relative w-max min-w-full p-4 text-xs"
           dangerouslySetInnerHTML={{ __html: html }}
@@ -41,7 +41,7 @@ export async function Code({ code, language = "" }: Props) {
   } catch (error) {
     console.error("Error generating syntax highlighting:", error)
     return (
-      <ScrollArea className="relative rounded border border-border bg-white dark:bg-black">
+      <ScrollArea className="relative rounded-sm border border-border bg-white dark:bg-black">
         <pre className="relative w-max min-w-full p-4 text-xs">
           <code>{code}</code>
         </pre>

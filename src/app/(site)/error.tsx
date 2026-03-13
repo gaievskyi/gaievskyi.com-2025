@@ -33,7 +33,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
   }, [error])
 
   return (
-    <main className="container max-w-md mx-auto grid h-svh place-content-center gap-8">
+    <main className="container mx-auto grid h-svh max-w-md place-content-center gap-8">
       <m.div
         initial={{
           opacity: 0,
@@ -41,7 +41,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
         }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className="flex flex-col items-end size-full mx-14"
+        className="mx-14 flex size-full flex-col items-end"
       >
         <FuzzyText fontSize={75} fontFamily="Heldane">
           500
@@ -51,7 +51,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
       <Flex
         direction="col"
         gap="lg"
-        className="mr-10 md:mr-14 w-full"
+        className="mr-10 w-full md:mr-14"
         align="end"
       >
         <Collapsible
@@ -74,7 +74,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
                 }
               />
               <CollapsibleContent>
-                <div className="corner-squircle rounded-xl supports-corner:rounded-2xl bg-destructive/8 p-3 mr-4 font-mono text-xs">
+                <div className="mr-4 rounded-xl bg-destructive/8 p-3 font-mono text-xs corner-squircle supports-corner:rounded-2xl">
                   <div>
                     <span className="text-muted-foreground/60">Name:</span>{" "}
                     <span className="text-foreground">{error.name}</span>

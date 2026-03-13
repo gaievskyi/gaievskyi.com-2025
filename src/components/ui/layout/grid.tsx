@@ -16,11 +16,11 @@ const gridItemVariants = cva("col-2", {
     padding: {
       none: "",
       xs: `
-        px-3 py-3
+        p-3
         md:px-8 md:py-4
       `,
       sm: `
-        px-3 py-3
+        p-3
         md:px-8 md:py-6
       `,
       md: `

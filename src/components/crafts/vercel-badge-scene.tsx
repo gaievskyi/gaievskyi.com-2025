@@ -296,7 +296,7 @@ export default function VercelBadgeScene({
   transparent = true,
 }: VercelBadgeSceneProps) {
   return (
-    <div className="absolute z-50 flex h-svh w-full origin-center scale-100 transform items-center justify-center sm:-mt-20 ">
+    <div className="absolute z-50 flex h-svh w-full origin-center scale-100 transform items-center justify-center sm:-mt-20">
       <Canvas
         fallback={<div>Sorry, no WebGL supported!</div>}
         camera={{ position, fov }}

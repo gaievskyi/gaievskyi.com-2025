@@ -6,7 +6,7 @@ function Skeleton({ className, ...props }: ComponentProps<"div">) {
     <div
       data-slot="skeleton"
       className={cn(
-        "bg-linear-to-r from-accent via-accent/60 to-accent bg-size-[200%_100%] animate-skeleton-wave rounded-md",
+        "animate-skeleton-wave rounded-md bg-linear-to-r from-accent via-accent/60 to-accent bg-size-[200%_100%]",
         className,
       )}
       {...props}

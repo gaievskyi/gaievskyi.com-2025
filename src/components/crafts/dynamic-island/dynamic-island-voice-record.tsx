@@ -111,7 +111,7 @@ export function DynamicIslandVoiceRecord() {
           aria-label="Stop recording"
           className="flex size-10 items-center justify-center rounded-full border-2 border-white bg-black transition-colors hover:bg-gray-900"
         >
-          <div className="size-4.5 rounded bg-[#fd6a68]" />
+          <div className="size-4.5 rounded-sm bg-[#fd6a68]" />
         </button>
       </div>
     </div>

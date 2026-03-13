@@ -20,7 +20,7 @@ function ProgressBar({
 
   return (
     <m.div
-      className="pointer-events-none absolute right-0 bottom-0 left-0 origin-bottom bg-white"
+      className="pointer-events-none absolute inset-x-0 bottom-0 origin-bottom bg-white"
       style={{ height: progressHeight }}
       role="progressbar"
       aria-valuenow={value}
@@ -193,7 +193,7 @@ export function IosSlider({
         step={0.1}
         value={value}
         onChange={onInputChange}
-        className="absolute inset-0 h-full w-full appearance-none opacity-0 [writing-mode:vertical-lr]"
+        className="absolute inset-0 size-full appearance-none opacity-0 [writing-mode:vertical-lr]"
         aria-hidden="true"
         {...props}
       />

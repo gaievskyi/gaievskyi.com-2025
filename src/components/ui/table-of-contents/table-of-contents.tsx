@@ -25,11 +25,11 @@ function TocItem({ item, isActive, onScrollTo }: TocItemProps) {
       title={`Go to "${item.title}"`}
       onClick={() => onScrollTo(item.id)}
       className={cn(
-        "relative flex items-center w-full text-left py-2 text-sm leading-relaxed transition-colors duration-200",
+        "relative flex w-full items-center py-2 text-left text-sm/relaxed transition-colors duration-200",
         "hover:text-zinc-900 dark:hover:text-zinc-100",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900/20 dark:focus-visible:ring-zinc-100/20",
+        "focus-visible:ring-2 focus-visible:ring-zinc-900/20 focus-visible:outline-none dark:focus-visible:ring-zinc-100/20",
         "focus-visible:rounded-sm",
-        "after:absolute after:bottom-0 after:h-px after:bg-zinc-200 dark:after:bg-zinc-800 after:transition-all after:duration-200",
+        "after:absolute after:bottom-0 after:h-px after:bg-zinc-200 after:transition-all after:duration-200 dark:after:bg-zinc-800",
         "last:after:hidden",
         item.level === 1 && "gap-4 after:left-0 after:w-8",
         item.level === 2 && "gap-3 after:left-0 after:w-4",
@@ -38,8 +38,8 @@ function TocItem({ item, isActive, onScrollTo }: TocItemProps) {
     >
       <span
         className={cn(
-          "shrink-0 relative flex items-center transition-all duration-200",
-          "before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-px before:w-full before:transition-all before:duration-200",
+          "relative flex shrink-0 items-center transition-all duration-200",
+          "before:absolute before:top-1/2 before:left-0 before:h-px before:w-full before:-translate-y-1/2 before:transition-all before:duration-200",
           isActive
             ? "before:bg-zinc-900 dark:before:bg-zinc-100"
             : "before:bg-zinc-200 dark:before:bg-zinc-800",

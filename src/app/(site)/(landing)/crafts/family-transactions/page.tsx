@@ -45,7 +45,7 @@ export default function FamilyWalletPage() {
         href: "/crafts/vercel-badge",
       }}
       slug="family-transactions"
-      className="items-start pt-4 h-[420px]"
+      className="h-[420px] items-start pt-4"
       decoratedBackground={false}
     >
       <FamilyTransactions />

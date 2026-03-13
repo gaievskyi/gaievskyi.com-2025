@@ -18,13 +18,13 @@ export default function GlobalNotFound() {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <body
-        className={`${heldaneText.variable} font-system root relative antialiased container mx-auto grid h-svh place-content-center gap-8`}
+        className={`${heldaneText.variable} font-system root relative container mx-auto grid h-svh place-content-center gap-8 antialiased`}
         suppressHydrationWarning
       >
         <Providers>
           <NotFound />
           <Flex direction="col" gap="lg" className="mr-10 md:mr-14" align="end">
-            <p className="text-right text-wrap max-w-[300px] ">
+            <p className="max-w-[300px] text-right text-wrap">
               This page does not exist or has been removed.
             </p>
             <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>

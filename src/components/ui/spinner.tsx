@@ -7,9 +7,9 @@ import { useMemo } from "react"
 const spinnerVariants = cva("relative block opacity-[0.65]", {
   variants: {
     size: {
-      sm: "h-4 w-4",
-      md: "h-6 w-6",
-      lg: "h-8 w-8",
+      sm: "size-4",
+      md: "size-6",
+      lg: "size-8",
     },
   },
   defaultVariants: {
@@ -51,7 +51,7 @@ const Spinner = ({
         }}
       >
         <span
-          className={cn("block w-full h-[30%] rounded-full", bgColorClass)}
+          className={cn("block h-[30%] w-full rounded-full", bgColorClass)}
         ></span>
       </span>
     )),

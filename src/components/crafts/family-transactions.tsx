@@ -77,14 +77,14 @@ function TransactionAvatar({ transaction, index }: TransactionAvatarProps) {
           </div>
         ) : transaction.type === "nft" ? (
           <div
-            className="h-full w-full bg-cover bg-center"
+            className="size-full bg-cover bg-center"
             style={{
               backgroundImage: `url(${nftImages[index % nftImages.length]})`,
             }}
           />
         ) : null}
       </div>
-      <div className="absolute -top-1 -left-1 flex h-5 w-5 items-center justify-center rounded-full  bg-sky-500">
+      <div className="absolute -top-1 -left-1 flex size-5 items-center justify-center rounded-full bg-sky-500">
         <Icon
           name="sprite:spinner"
           className="size-3 animate-[spin_0.45s_linear_infinite] text-white!"
@@ -126,7 +126,7 @@ type TransactionAmountProps = {
 
 function TransactionAmount({ amount }: TransactionAmountProps) {
   return (
-    <div className="text-right ">
+    <div className="text-right">
       {amount === "Fee Only" ? (
         <div className="rounded-md border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-sm font-bold text-gray-600 dark:border-zinc-800 dark:bg-background/30 dark:text-[#93918b]">
           Fee Only
@@ -182,7 +182,7 @@ function PendingHeader({
       className="flex cursor-pointer items-center justify-between bg-white/80 px-6 py-3 select-none dark:bg-transparent"
       onClick={onToggle}
     >
-      <div className="flex items-center gap-2 ">
+      <div className="flex items-center gap-2">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
           Pending
         </h2>

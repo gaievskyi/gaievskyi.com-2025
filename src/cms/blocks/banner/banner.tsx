@@ -12,7 +12,7 @@ export function BannerBlock({ className, content, style }: Props) {
   return (
     <div
       className={cn(
-        "mx-auto my-8! w-full border border-dashed px-4 flex items-start gap-2 rounded-md relative",
+        "relative mx-auto my-8! flex w-full items-start gap-2 rounded-md border border-dashed px-4",
         {
           "border-border": style === "info",
           "border-error bg-error/30": style === "error",
@@ -22,7 +22,7 @@ export function BannerBlock({ className, content, style }: Props) {
         className,
       )}
     >
-      <RichText data={content} enableGutter className="prose-p:leading-[1.5]" />
+      <RichText data={content} enableGutter className="prose-p:leading-normal" />
       <Icon name={iconName} className="mt-5 size-4 shrink-0" />
     </div>
   )

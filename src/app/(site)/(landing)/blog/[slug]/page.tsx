@@ -92,9 +92,9 @@ export default async function ArticlePage({
       {isDraft && <DraftIndicator />}
       <div className="relative min-h-screen">
         <div className="pb-28 lg:grid lg:grid-cols-[280px_1fr_280px] lg:gap-6 lg:px-6 lg:pt-4">
-          <div className="fixed z-51 left-0 top-0 lg:static hidden md:block">
+          <div className="fixed top-0 left-0 z-51 hidden md:block lg:static">
             <Aside expandable>
-              <Text size="sm" weight="medium" className="mb-4 mt-6">
+              <Text size="sm" weight="medium" className="mt-6 mb-4">
                 {article.title}
               </Text>
               <TableOfContents containerSelector="article" items={tocItems} />

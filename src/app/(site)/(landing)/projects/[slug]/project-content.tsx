@@ -54,7 +54,7 @@ export function ProjectContent({ projectPromise }: ProjectContentProps) {
   return (
     <AnimatedGroup
       variants={expandVariants}
-      className="flex w-full items-center justify-between mb-4"
+      className="mb-4 flex w-full items-center justify-between"
     >
       <Breadcrumb>
         <BreadcrumbList>

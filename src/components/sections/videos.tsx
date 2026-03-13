@@ -28,7 +28,7 @@ export function Videos({ title, videos, basePath, itemLabel }: VideosProps) {
             key={slug}
             href={`/${basePath}/${slug}`}
             aria-label={`Explore ${itemLabel} ${slug}`}
-            className="video-link flex-[1_1_calc(50%-0.375rem)] block rounded-xl pointer-events-auto transition-opacity duration-300 ease-out group-hover:opacity-50 hover:opacity-100!"
+            className="video-link pointer-events-auto block flex-[1_1_calc(50%-0.375rem)] rounded-xl transition-opacity duration-300 ease-out group-hover:opacity-50 hover:opacity-100!"
           >
             <Video src={video} slug={slug} />
           </HapticLink>

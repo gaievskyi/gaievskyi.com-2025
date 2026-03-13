@@ -22,7 +22,7 @@ export function BottomNavigation({
   return (
     <nav
       className={cn(
-        "flex items-center mb-16 justify-between border-t border-border pt-8 mt-12",
+        "mt-12 mb-16 flex items-center justify-between border-t border-border pt-8",
         className,
       )}
     >
@@ -53,7 +53,7 @@ export function BottomNavigation({
           <Link href={next.href}>
             <Button variant="ghost" size="xl" className="size-full justify-end">
               <Flex direction="col" gap="sm" align="end">
-                <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase ">
+                <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
                   Next
                 </span>
                 <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary">

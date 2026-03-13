@@ -53,7 +53,7 @@ function Ticks({
               />
               <div
                 className={cn(
-                  "absolute -top-7 left-1/2 -translate-x-1/2 text-xs transition-colors duration-150 tracking-[-0.5px]",
+                  "absolute -top-7 left-1/2 -translate-x-1/2 text-xs tracking-[-0.5px] transition-colors duration-150",
                   isInRange ? "text-white" : "text-black dark:text-gray-400",
                 )}
               >
@@ -86,7 +86,7 @@ function Ticks({
 
 function Indicator() {
   return (
-    <div className="absolute bottom-31 left-1/2 size-0 -translate-x-1/2 rotate-180 transform cursor-grab border-t-8 border-r-4 border-l-4 border-t-red-500 border-r-transparent border-l-transparent active:cursor-grabbing" />
+    <div className="absolute bottom-31 left-1/2 size-0 -translate-x-1/2 rotate-180 transform cursor-grab border-x-4 border-t-8 border-x-transparent border-t-red-500 active:cursor-grabbing" />
   )
 }
 

@@ -115,7 +115,7 @@ export function Snowfall({ snowflakeCount = 10 }: SnowfallProps = {}) {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none absolute left-0 top-0 z-50 w-full"
+      className="pointer-events-none absolute top-0 left-0 z-50 w-full"
       style={{ height: `${TOP_AREA_HEIGHT}px` }}
     />
   )

@@ -41,8 +41,8 @@ function RadialMenuSegment({ index }: { index: number }) {
       className={cn(
         "transition-colors duration-200 ease-in-out",
         index === activeIndex
-          ? "fill-gray-300 dark:fill-[#363636] stroke-none"
-          : "fill-gray-100 dark:fill-[#242424] stroke-none",
+          ? "fill-gray-300 stroke-none dark:fill-[#363636]"
+          : "fill-gray-100 stroke-none dark:fill-[#242424]",
       )}
     />
   )
@@ -67,10 +67,10 @@ function RadialMenuIcon({
     <div
       data-active={index === activeIndex}
       className={cn(
-        "absolute flex items-center justify-center w-12 h-12 text-2xl pointer-events-none",
+        "pointer-events-none absolute flex size-12 items-center justify-center text-2xl",
         index === activeIndex
-          ? " text-gray-900 dark:text-white"
-          : " text-gray-600 dark:text-[#bdbdbd]",
+          ? "text-gray-900 dark:text-white"
+          : "text-gray-600 dark:text-[#bdbdbd]",
       )}
       style={{ left: x - 24, top: y - 24 }}
     >

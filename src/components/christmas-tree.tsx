@@ -39,7 +39,7 @@ const ORNAMENT_STYLES = {
 
 export function ChristmasTree() {
   return (
-    <div className="relative size-[32px_40px] overflow-visible mb-1">
+    <div className="relative mb-1 size-[32px_40px] overflow-visible">
       <svg
         width="32"
         height="40"
@@ -101,7 +101,7 @@ export function ChristmasTree() {
           <div
             key={index}
             className={cn(
-              "absolute z-20 size-full rounded-full animate-christmas-ornament-glow",
+              "absolute z-20 size-full animate-christmas-ornament-glow rounded-full",
               styles.bg,
               styles.shadow,
             )}

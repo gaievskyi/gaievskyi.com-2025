@@ -142,7 +142,7 @@ export function DynamicIslandMusic() {
             alt="Album cover"
             width={48}
             height={48}
-            className="h-full w-full object-cover"
+            className="size-full object-cover"
           />
         </div>
 
@@ -155,10 +155,10 @@ export function DynamicIslandMusic() {
                 : "translate-x-0 transform opacity-100",
             )}
           >
-            <span className="block truncate text-sm leading-tight text-white">
+            <span className="block truncate text-sm/tight text-white">
               {currentTrack.title}
             </span>
-            <span className="block truncate text-sm leading-tight text-white/60">
+            <span className="block truncate text-sm/tight text-white/60">
               {currentTrack.artist}
             </span>
           </div>

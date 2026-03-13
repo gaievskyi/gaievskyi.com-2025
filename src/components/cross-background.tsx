@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils"
 
 export function CrossBackground({ className }: { className?: string }) {
   return (
-    <div className={cn("absolute inset-0 pointer-events-none", className)}>
+    <div className={cn("pointer-events-none absolute inset-0", className)}>
       <svg
         className="absolute top-[-6.5px] left-[-6.5px] z-1"
         width="12"

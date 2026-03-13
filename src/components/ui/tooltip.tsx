@@ -67,7 +67,7 @@ function TooltipContent({
         <BaseTooltip.Popup
           data-slot="tooltip-content"
           className={cn(
-            "bg-popover text-popover-foreground outline-border z-50 w-fit origin-(--transform-origin) rounded-md px-2 py-1.5 text-xs text-balance shadow-sm outline -outline-offset-1 transition-[transform,scale,opacity] data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
+            "z-50 w-fit origin-(--transform-origin) rounded-md bg-popover px-2 py-1.5 text-xs text-balance text-popover-foreground shadow-sm outline -outline-offset-1 outline-border transition-[transform,scale,opacity] data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
             className,
           )}
           {...props}

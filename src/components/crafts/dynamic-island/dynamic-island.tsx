@@ -201,7 +201,7 @@ function DynamicIslandControls({
           >
             <TabsList>
               {VIEW_VARIANTS.map((view) => (
-                <TabsTrigger key={view} value={view} className="capitalize ">
+                <TabsTrigger key={view} value={view} className="capitalize">
                   {view}
                 </TabsTrigger>
               ))}
@@ -235,7 +235,7 @@ function DynamicIslandContent({ view }: DynamicIslandContentProps) {
       return <DynamicIslandCall />
     }
     case "idle": {
-      return <div className="h-9 " />
+      return <div className="h-9" />
     }
   }
 }
@@ -253,7 +253,7 @@ export function DynamicIsland() {
   return (
     <LazyMotion strict features={domMax}>
       <div className="h-[300px]">
-        <div className="relative flex h-full w-full flex-col justify-between">
+        <div className="relative flex size-full flex-col justify-between">
           <m.div
             layout
             transition={{

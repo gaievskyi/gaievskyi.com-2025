@@ -41,7 +41,7 @@ export default function GlobalErrorPage({
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <body
-        className={`${heldaneText.variable} font-system root relative antialiased container max-w-md mx-auto grid h-svh place-content-center gap-8`}
+        className={`${heldaneText.variable} font-system root relative container mx-auto grid h-svh max-w-md place-content-center gap-8 antialiased`}
         suppressHydrationWarning
       >
         <Providers>
@@ -52,7 +52,7 @@ export default function GlobalErrorPage({
             }}
             animate={{ opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="flex flex-col items-end size-full mx-14"
+            className="mx-14 flex size-full flex-col items-end"
           >
             <FuzzyText fontSize={75} fontFamily="Heldane">
               Critical
@@ -62,7 +62,7 @@ export default function GlobalErrorPage({
           <Flex
             direction="col"
             gap="lg"
-            className="mr-10 md:mr-14 w-full"
+            className="mr-10 w-full md:mr-14"
             align="end"
           >
             <Collapsible
@@ -88,7 +88,7 @@ export default function GlobalErrorPage({
                     }
                   />
                   <CollapsibleContent>
-                    <div className="corner-squircle rounded-xl supports-corner:rounded-2xl bg-destructive/8 p-3 mr-4 font-mono text-xs">
+                    <div className="mr-4 rounded-xl bg-destructive/8 p-3 font-mono text-xs corner-squircle supports-corner:rounded-2xl">
                       <div>
                         <span className="text-muted-foreground/60">Name:</span>{" "}
                         <span className="text-foreground">{error.name}</span>

@@ -70,7 +70,7 @@ export function ProgressiveBlur({
   return (
     <m.div
       className={cn(
-        "fixed left-0 right-0 z-50 pointer-events-none",
+        "pointer-events-none fixed inset-x-0 z-50",
         position === "bottom" ? "bottom-0" : "top-0",
         className,
       )}
