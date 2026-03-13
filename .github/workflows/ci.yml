@@ -3,8 +3,24 @@ name: CI
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '*.md'
+      - '.gitignore'
+      - '.cursor/**'
+      - '.agents/**'
+      - 'public/**'
+      - 'skills-lock.json'
+      - 'components.json'
   pull_request:
     branches: [main]
+    paths-ignore:
+      - '*.md'
+      - '.gitignore'
+      - '.cursor/**'
+      - '.agents/**'
+      - 'public/**'
+      - 'skills-lock.json'
+      - 'components.json'
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -91,8 +107,8 @@ jobs:
       - name: Cache TypeScript
         uses: actions/cache@v4
         with:
-          path: .cache/tsc
-          key: ${{ runner.os }}-tsc-${{ hashFiles('bun.lock', 'tsconfig.json') }}
+          path: tsconfig.tsbuildinfo
+          key: ${{ runner.os }}-tsc-${{ hashFiles('bun.lock', 'tsconfig.json', 'src/**') }}
           restore-keys: |
             ${{ runner.os }}-tsc-
 

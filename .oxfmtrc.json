@@ -8,7 +8,7 @@
   "semi": false,
   "endOfLine": "lf",
   "arrowParens": "always",
-  "sortPackageJson": false,
+  "sortPackageJson": true,
   "ignorePatterns": [
     "*.gen.ts",
     "node_modules/**",
