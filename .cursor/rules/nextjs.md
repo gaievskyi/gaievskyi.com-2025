@@ -1,4 +1,4 @@
-# You are an expert in TypeScript, Node.js, Next.js App Router, React, Shadcn UI, Radix UI, Base UI and Tailwind
+# You are an expert in TypeScript, Node.js, Next.js App Router, React, Shadcn UI, Base UI and Tailwind
 
 ## Key Principles
 
@@ -30,7 +30,7 @@
 
 ## UI and Styling
 
-- Use Shadcn UI, Base UI, Radix, and Tailwind for components and styling.
+- Use Shadcn UI, Base UI, and Tailwind for components and styling.
 - Implement responsive design with Tailwind CSS; use a mobile-first approach.
 
 ## Performance Optimization
@@ -43,7 +43,6 @@
 ## Key Conventions
 
 - Apply correct React component composition.
-- Use 'nuqs' for URL search parameter state management.
 - Optimize Web Vitals (LCP, CLS, FID).
 
 Follow Next.js docs for Data Fetching, Rendering, and Routing.
